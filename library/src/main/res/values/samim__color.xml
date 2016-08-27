@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="samim_color_blue">#3c87f8</color>
+    <color name="samim_color_blue_dark">#3c49f8</color>
+
+    <color name="samim_color_yellow">#FFEB3B</color>
+    <color name="samim_color_yellow_dark">#F9A825</color>
+
+    <color name="samim_color_green">#57a000</color>
+    <color name="samim_color_green_dark">#427801</color>
+    <color name="samim_color_green_xdark">#004D40</color>
+    <color name="samim_color_green2_light">#11b296</color>
+    <color name="samim_color_green2_dark">#0f9c84</color>
+    <color name="samim_color_green2_xdark">#0c7a67</color>
+
+    <color name="samim_color_gray_murky">#cccccc</color>
+    <color name="samim_color_orange">#f0701d</color>
+    <color name="samim_color_orange_dark">#bb5817</color>
+
+    <color name="samim_color_white">#ffffff</color>
+    <color name="samim_color_whitesmoke">#f8f8f8</color>
+
+    <color name="samim_color_gray">#eeeeee</color>
+    <color name="samim_color_gray_dark">#dedede</color>
+    <color name="samim_color_gray_xdark">#888</color>
+    <color name="samim_color_gray_x8">#888</color>
+    <color name="samim_color_gray_x5">#555</color>
+    <color name="samim_color_gray_x3">#333</color>
+    <color name="samim_color_gainsboro">#dddddd</color>
+
+    <color name="samim_color_blue_gray">#455A64</color>
+
+    <color name="samim_color_black">#000000</color>
+    <color name="samim_color_black_light">#262626</color>
+    <color name="samim_color_black_x4">#444444</color>
+    <color name="samim_color_black_x5">#555555</color>
+
+    <color name="samim_color_red">#d42b4c</color>
+    <color name="samim_color_red_dark">#bd2341</color>
+
+    <color name="samim_color_gules">#b64a6c</color>
+    <color name="samim_color_gules_dark">#953956</color>
+
+    <color name="samim_color_siren">#642a43</color>
+
+    <color name="samim_color_bordeaux">#5c2739</color>
+    <color name="samim_color_bordeaux_dark">#532134</color>
+
+    <color name="samim_color_navy_light">#8b3a56</color>
+    <color name="samim_color_navy_dark">#5b2638</color>
+
+
+
+    <color name="samim_color_maroon">#24000c</color>
+
+
+    <color name="samim_color_contentlist_backlist1">#f7f4fa</color>
+    <color name="samim_color_contentlist_backlist2">#ffffff</color>
+    <color name="samim_color_contentlist_backselected">#cfd8dc</color>
+    <color name="samim_color_contentlist_divider">#c7bdb2</color>
+    <color name="samim_color_contentlist_icon">#603b83</color>
+
+    <color name="samim_color_content_header">#2e2e2e</color>
+    <color name="samim_color_content_subheader">#4f2f74</color>
+    <color name="samim_color_content_subject">#5d5d5d</color>
+    <color name="samim_color_content_tyep">#7e7e7e</color>
+
+    <color name="samim_color_ripple">#4285f4</color>
+    <color name="samim_color_accent">#4285f4</color>
+    <color name="samim_color_accent_pressed">#03a9f4</color>
+
+    <color name="samim_color_actionbar">#0e977f</color>
+    <color name="samim_color_main">#11b297</color>
+
+    <color name="samim_color_listitem_simple">#ffffff</color>
+    <color name="samim_color_listitem_simple_selected">#eeeeee</color>
+
+    <color name="primary">#5795cc</color>
+    <color name="primary_dark">#477699</color>
+    <color name="ripple">#7491a3</color>
+
+
+</resources>
+

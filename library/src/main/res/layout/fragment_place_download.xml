@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:background="@drawable/shape_bg_default"
+			  android:gravity="center"
+			  android:orientation="vertical"
+			  android:padding="30dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:orientation="vertical">
+
+		<TextView
+			style="@style/Samim.Icon.Size120"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="50dp"
+			android:gravity="center"
+			android:text="@string/icon_material_cloud302"
+			android:textColor="@color/samim_color_yellow" />
+
+		<TextView
+			android:id="@+id/DownloadFragment_txv_state"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textColor="#fff"
+			android:textSize="@dimen/samim_fontsize_normal" />
+
+		<ProgressBar
+			android:id="@+id/DownloadFragment_ProgressBar"
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_width="match_parent"
+			android:layout_height="5dp"
+			android:layout_marginBottom="20dp"
+			android:layout_marginTop="20dp"
+			android:max="100"
+			android:progressDrawable="@drawable/progressbar_blue" />
+
+		<Button
+			android:id="@+id/DownloadFragment_btn_download"
+			style="@style/Samim.Button.Blue"
+			android:layout_width="120dp"
+			android:layout_height="wrap_content"
+			android:text="@string/samim_label_button_download" />
+
+		<TextView
+			android:id="@+id/DownloadFragment_txv_current_version"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:gravity="right"
+			android:textColor="#fff"
+			android:textSize="@dimen/samim_fontsize_small" />
+
+		<TextView
+			android:id="@+id/DownloadFragment_txv_last_version"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="right"
+			android:textColor="#fff"
+			android:textSize="@dimen/samim_fontsize_small" />
+	</LinearLayout>
+
+</LinearLayout>

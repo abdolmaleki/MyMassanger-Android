@@ -1,0 +1,52 @@
+<resources>
+
+	<!--
+	value for droid text -->
+
+	<!--
+	<dimen name="samim_fontsize_25dp">25dp</dimen>
+	<dimen name="samim_fontsize_24dp">24dp</dimen>
+	<dimen name="samim_fontsize_23dp">23dp</dimen>
+	<dimen name="samim_fontsize_22dp">22dp</dimen>
+	<dimen name="samim_fontsize_21dp">21dp</dimen>
+	<dimen name="samim_fontsize_20dp">20dp</dimen>
+	<dimen name="samim_fontsize_19dp">19dp</dimen>
+	<dimen name="samim_fontsize_18dp">18dp</dimen>
+	<dimen name="samim_fontsize_17dp">17dp</dimen>
+	<dimen name="samim_fontsize_16dp">16dp</dimen>
+	<dimen name="samim_fontsize_15dp">15dp</dimen>
+	<dimen name="samim_fontsize_14dp">14dp</dimen>
+	<dimen name="samim_fontsize_13dp">13dp</dimen>
+	<dimen name="samim_fontsize_12dp">12dp</dimen>
+	<dimen name="samim_fontsize_11dp">11dp</dimen>
+	<dimen name="samim_fontsize_10dp">10dp</dimen>
+	<dimen name="samim_fontsize_9dp">9dp</dimen>
+	<dimen name="samim_fontsize_8dp">8dp</dimen>
+	<dimen name="samim_fontsize_7dp">7dp</dimen>
+	<dimen name="samim_fontsize_6dp">6dp</dimen>
+	<dimen name="samim_fontsize_5dp">5dp</dimen>
+-->
+
+	<dimen name="samim_fontsize_tiny">10dp</dimen>
+	<dimen name="samim_fontsize_small">13dp</dimen>
+	<dimen name="samim_fontsize_normal">14dp</dimen>
+	<dimen name="samim_fontsize_larg">16dp</dimen>
+	<dimen name="samim_fontsize_xlarg">20dp</dimen>
+	<dimen name="samim_fontsize_xxlarg">24dp</dimen>
+	<dimen name="samim_fontsize_xxxlarg">28dp</dimen>
+
+	<dimen name="samim_iconsize_120dp">120dp</dimen>
+	<dimen name="samim_iconsize_110dp">110dp</dimen>
+	<dimen name="samim_iconsize_100dp">100dp</dimen>
+	<dimen name="samim_iconsize_90dp">90dp</dimen>
+	<dimen name="samim_iconsize_80dp">80dp</dimen>
+	<dimen name="samim_iconsize_70dp">70dp</dimen>
+	<dimen name="samim_iconsize_60dp">60dp</dimen>
+	<dimen name="samim_iconsize_50dp">50dp</dimen>
+	<dimen name="samim_iconsize_40dp">40dp</dimen>
+	<dimen name="samim_iconsize_30dp">30dp</dimen>
+	<dimen name="samim_iconsize_20dp">20dp</dimen>
+	<dimen name="samim_iconsize_15dp">15dp</dimen>
+	<dimen name="samim_iconsize_10dp">10dp</dimen>
+
+</resources>

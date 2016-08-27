@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/transparent"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="20dp">
+
+    <EditText
+        android:id="@+id/fragment_login_register_edt_email"
+        style="@style/Samim.Input.Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/samim_login_hint_email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/fragment_login_register_edt_password"
+        style="@style/Samim.Input.Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/samim_login_hint_password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/fragment_login_register_edt_passwordreplay"
+        style="@style/Samim.Input.Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/samim_login_hint_passwordreplay"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/fragment_login_register_edt_name"
+        style="@style/Samim.Input.Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/samim_login_hint_fullname"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/fragment_login_register_edt_family"
+        style="@style/Samim.Input.Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/samim_login_hint_fullname"
+        android:inputType="textPersonName"/>
+
+</LinearLayout>

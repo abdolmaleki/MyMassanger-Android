@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/shape_bg_default"
+	android:gravity="center"
+	android:orientation="vertical">
+
+	<TextView
+		style="@style/Samim.Icon.Size80"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:gravity="center"
+		android:text="@string/icon_material_help18"
+		android:textColor="@color/samim_color_white"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="40dp"
+		android:gravity="center"
+		android:text="والدین گرامی!\nبرای فعال سازی این نرم افزار، به مدرسه فرزند خود مراجعه کرده و نسبت به دریافت کلمه کاربری و رمز عبور اقدام نمایید."
+		android:textColor="@color/samim_color_white"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+
+
+</LinearLayout>

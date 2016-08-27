@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:background="@drawable/shape_bg_default"
+			  android:orientation="vertical">
+
+	<!--<ImageView-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_gravity="right"-->
+		<!--android:layout_marginRight="15dp"-->
+		<!--android:layout_marginTop="15dp"-->
+		<!--android:src="@drawable/ic_samim_logo" />-->
+
+	<FrameLayout
+		android:id="@+id/fragment_place"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:background="@android:color/transparent">
+	</FrameLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/shape_button_tile">
+
+		<Button
+			android:id="@+id/activity_login_btn_back"
+			style="@style/Samim.Button.Flat"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:text="@string/samim_label_button_previous"
+			android:textColor="@color/samim_color_white" />
+
+		<Button
+			android:id="@+id/activity_login_btn_close"
+			style="@style/Samim.Button.Flat"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:text="@string/samim_label_button_close"
+			android:textColor="@color/samim_color_white" />
+
+		<Button
+			android:id="@+id/activity_login_btn_next"
+			style="@style/Samim.Button.Flat"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:text="@string/samim_label_button_next"
+			android:textColor="@color/samim_color_white" />
+	</LinearLayout>
+
+</LinearLayout>

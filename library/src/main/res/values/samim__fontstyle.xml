@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+	<string name="iran_regular">fonts/iran-regular.ttf</string>
+	<string name="iran_bold">fonts/iran-bold.ttf</string>
+
+
+	<style name="TextAppearance.Iran" parent="android:TextAppearance">
+		<item name="fontPath">@string/iran_regular</item>
+	</style>
+
+	<style name="TextAppearance.IranBold" parent="android:TextAppearance">
+		<item name="fontPath">@string/iran_bold</item>
+	</style>
+
+	<style name="TextAppearance.Yekan" parent="android:TextAppearance">
+		<item name="fontPath">fonts/yekan.ttf</item>
+	</style>
+
+	<style name="TextAppearance.Icon" parent="android:TextAppearance">
+		<item name="android:textSize">@dimen/samim_iconsize_20dp</item>
+		<item name="fontPath">fonts/icon-material.ttf</item>
+	</style>
+
+	<style name="TextAppearance.Icon.Circled">
+		<item name="fontPath">fonts/icon-circled.ttf</item>
+	</style>
+
+	<style name="TextAppearance.Icon.Material">
+		<item name="fontPath">fonts/icon-material.ttf</item>
+	</style>
+
+
+
+</resources>

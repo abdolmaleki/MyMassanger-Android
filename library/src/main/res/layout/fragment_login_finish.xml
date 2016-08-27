@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:background="@android:color/transparent"
+			  android:gravity="center"
+			  android:orientation="vertical"
+			  android:padding="20dp">
+
+	<TextView
+		android:id="@+id/fragment_login_finish_txv_icon"
+		style="@style/Samim.Icon.Size40"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:gravity="center"
+		android:text="@string/icon_circled_approve9"
+		android:textAppearance="@style/TextAppearance.Icon.Circled"
+		android:textColor="@color/samim_color_white"		/>
+
+	<TextView
+		android:id="@+id/fragment_login_finish_txv_head"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textAppearance="@style/TextAppearance.IranBold"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_larg" />
+
+	<TextView
+		android:id="@+id/fragment_login_finish_txv_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+</LinearLayout>

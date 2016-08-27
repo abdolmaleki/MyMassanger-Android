@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Samim.Dialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.Iran</item>
+    </style>
+
+
+    <style name="Samim.Dialog.Dark">
+        <item name="SamimDialogButtonStyle">@style/Samim.Dialog.Button.Light</item>
+        <item name="SamimDialogTitleStyle">@style/Samim.Dialog.Label.Light.Normal</item>
+        <item name="SamimDialogSubTitleStyle">@style/Samim.Dialog.Label.Light.Small</item>
+        <item name="SamimDialogIconStyle">@style/Samim.Dialog.Icon.Light</item>
+    </style>
+
+    <style name="Samim.Dialog.Light">
+        <item name="SamimDialogButtonStyle">@style/Samim.Dialog.Button.Dark</item>
+        <item name="SamimDialogTitleStyle">@style/Samim.Dialog.Label.Dark.Normal</item>
+        <item name="SamimDialogSubTitleStyle">@style/Samim.Dialog.Label.Dark.Small</item>
+        <item name="SamimDialogIconStyle">@style/Samim.Dialog.Icon.Dark</item>
+    </style>
+
+    <style name="Samim.Dialog.Blue" parent="@style/Samim.Dialog.Dark">
+        <item name="SamimDialogBackgroundColor">@color/samim_color_blue</item>
+    </style>
+
+    <style name="Samim.Dialog.Red" parent="@style/Samim.Dialog.Dark">
+        <item name="SamimDialogBackgroundColor">@color/samim_color_red</item>
+    </style>
+
+    <style name="Samim.Dialog.Orange" parent="@style/Samim.Dialog.Dark">
+        <item name="SamimDialogBackgroundColor">@color/samim_color_orange</item>
+    </style>
+
+    <style name="Samim.Dialog.Green" parent="@style/Samim.Dialog.Dark">
+        <item name="SamimDialogBackgroundColor">@color/samim_color_green</item>
+    </style>
+
+    <style name="Samim.Dialog.White" parent="@style/Samim.Dialog.Light">
+        <item name="SamimDialogBackgroundColor">@color/samim_color_white</item>
+    </style>
+
+    <style name="Samim.Dialog.Button">
+        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+        <item name="android:textAppearance">@style/TextAppearance.Iran</item>
+        <item name="android:minHeight">1dp</item>
+        <item name="android:minWidth">1dp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+
+    <style name="Samim.Dialog.Button.Light">
+        <item name="android:textColor">#222222</item>
+        <item name="android:background">@drawable/selector_dialog_button_light</item>
+    </style>
+
+    <style name="Samim.Dialog.Button.Dark">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/selector_dialog_button_dark</item>
+    </style>
+
+    <style name="Samim.Dialog.Label">
+        <item name="android:gravity">right|top</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Light">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Dark">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Light.Small">
+        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Light.Normal">
+        <item name="android:textSize">@dimen/samim_fontsize_normal</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Dark.Small">
+        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+    </style>
+
+    <style name="Samim.Dialog.Label.Dark.Normal">
+        <item name="android:textSize">@dimen/samim_fontsize_normal</item>
+    </style>
+
+    <style name="Samim.Dialog.Icon">
+        <item name="android:textSize">@dimen/samim_iconsize_40dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Icon.Circled</item>
+    </style>
+
+    <style name="Samim.Dialog.Icon.Light">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Samim.Dialog.Icon.Dark">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="Samim.Dialog.Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+
+
+</resources>

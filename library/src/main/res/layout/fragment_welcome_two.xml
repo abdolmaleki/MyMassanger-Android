@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/shape_bg_default"
+	android:gravity="center"
+	android:orientation="vertical">
+
+	<ImageView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:maxWidth="200dp"
+		android:layout_marginRight="20dp"
+		android:layout_marginLeft="20dp"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
+		android:src="@drawable/ic_samim_logo_big" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:gravity="center"
+		android:text="سامانه مدیریت\nیکپارچه مدارس"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="@color/samim_color_white"
+		android:textSize="@dimen/samim_fontsize_xlarg" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="40dp"
+		android:background="#1c5f04"
+		android:gravity="center"
+		android:padding="6dp"
+		android:text="نرم افزار جامع هوشمندسازی مدارس"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:background="#5f0458"
+		android:gravity="center"
+		android:padding="6dp"
+		android:text="سامانه همراه (ویژه والدین)"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:background="#ca0000"
+		android:gravity="center"
+		android:padding="6dp"
+		android:text="www.samimschool.com"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+</LinearLayout>

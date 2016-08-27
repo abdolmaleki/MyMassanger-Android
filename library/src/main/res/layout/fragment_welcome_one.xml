@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/shape_bg_default"
+	android:gravity="center"
+	android:orientation="vertical">
+
+	<ImageView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:maxHeight="250dp"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
+		android:src="@drawable/ic_hfj_logo" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:gravity="center"
+		android:text="موسسه هدایت\nفرهیختگان جوان"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="@color/samim_color_white"
+		android:textSize="@dimen/samim_fontsize_xlarg" />
+
+	<TextView
+		android:layout_width="190dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="40dp"
+		android:background="#1c5f04"
+		android:gravity="center"
+		android:padding="6dp"
+		android:text="شماره تماس: 61978000"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:layout_width="190dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:background="#ff0000"
+		android:gravity="center"
+		android:padding="6dp"
+		android:text="وب سایت: www.hfj.ir"
+		android:textAppearance="@style/TextAppearance.Yekan"
+		android:textColor="#fff"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+</LinearLayout>
