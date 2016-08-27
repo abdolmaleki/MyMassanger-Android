@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">My Application</string>
+
+
+    <!--==================================================================== -->
+    <!--Chat Fragment -->
+    <!--==================================================================== -->
+    <string name="samim_label_send">ارسال</string>
+    <string name="samim_ChatUser_DialogFragment_Title">لیست مخاطبین</string>
+    <string name="samim_chat_message_error_db_error">خطا در ذخیره سازی اطلاعات</string>
+    <string name="samim_chat_message_isTyping">در حال تایپ ...</string>
+    <string name="samim_chat_state_deactive">لطفا یکی از مخاطبین را برای شروع گفتگو انتخاب کنید</string>
+
+    <string name="samim_chat_label_media_camera">دوربین</string>
+    <string name="samim_chat_label_media_video">کلیپ</string>
+    <string name="samim_chat_label_media_recordvideo">فیلمبرداری</string>
+    <string name="samim_chat_label_media_gallory">گالری</string>
+    <string name="samim_chat_label_media_file">فایل</string>
+    <string name="samim_chat_label_media_back">برگشت</string>
+
+    <!--==================================================================== -->
+    <!--Notification -->
+    <!--==================================================================== -->
+    <string name="samim_notification_title_chat_add">پیام جدید</string>
+
+    <!--==================================================================== -->
+
+    <!--==================================================================== -->
+    <!--File manager -->
+    <!--==================================================================== -->
+    <string name="samim_message_file_read_not_found">فایل یافت نشد</string>
+    <string name="samim_message_file_read_cant">امکان خواندن فایل وجود ندارد</string>
+    <string name="samim_message_file_read_ex">خطا در خواندن فایل</string>
+    <string name="samim_message_file_write_ex">امکان ذخیره سازی فایل وجود ندارد</string>
+
+    <!--==================================================================== -->
+    <!--Download manager -->
+    <!--==================================================================== -->
+    <string name="samim_message_download_complete">دانلود با موفقیت انجام شد</string>
+    <string name="samim_message_download_canceled">دانلود لغو شد</string>
+    <string name="samim_message_downloading">در حال دانلود</string>
+    <string name="samim_message_download_error">دانلود با خطا مواجه شد</string>
+    <string name="samim_message_download_in_queue">در صف دانلود قرار گرفت</string>
+
+    <!--==================================================================== -->
+    <!--Upload manager -->
+    <!--==================================================================== -->
+    <string name="samim_message_upload_error">آپلود فایل با خطا مواجه شد</string>
+    <string name="samim_message_upload_in_queue">در صف آپلود قرار گرفت</string>
 </resources>
