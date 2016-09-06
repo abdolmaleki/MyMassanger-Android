@@ -33,17 +33,6 @@ public class AppSamim extends App
         AppConfig.NETWORK_HOST_SR = "http://samim.aligorji.ir:8080/";
 //        AppConfig.NETWORK_HOST_WEB = "http://samim.aligorji.ir:8080/";
 
-////        AppConfig.NETWORK_HOST_WS = "http://192.168.13.52:5000/api";
-////        AppConfig.NETWORK_HOST_SR = "http://192.168.13.52:5000/";
-////        AppConfig.NETWORK_HOST_WEB = "http://192.168.13.52:5000/";
-//
-//        AppConfig.NETWORK_HOST_WS = "http://192.168.3.164:8080/api";
-//        AppConfig.NETWORK_HOST_SR = "http://192.168.3.164:8080/";
-//        AppConfig.NETWORK_HOST_WEB = "http://192.168.3.164:8080/";
-//
-//        AppConfig.NETWORK_HOST_WS = "http://192.168.13.3:5000/api";
-//        AppConfig.NETWORK_HOST_SR = "http://192.168.13.3:5000/";
-//        AppConfig.NETWORK_HOST_WEB = "http://192.168.13.3:5000/";
 
 //        AppConfig.NETWORK_Samim_HUB = "SamimParentHub";
 //        AppConfig.NETWORK_HOST_TRY_CONNECT_DURATION = 1000 * 3;
@@ -95,10 +84,6 @@ public class AppSamim extends App
                 UserSettingModel.class
 //                AbsentModel.class,
 //                ChatModel.class,
-//                CurriculumModel.class,
-//                EncouragementModel.class,
-//                LessonScoreModel.class,
-//                PunishmentModel.class,
 //                StudentModel.class,
 //                TeacherModel.class
         );
