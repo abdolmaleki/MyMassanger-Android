@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:background="@color/samim_color_gray"
+			  android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_camera"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_green"
+				android:text="@string/icon_material_camera60"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="دوربین"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_gallery"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_blue"
+				android:text="@string/icon_material_google128"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="گالری"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_video"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_red"
+				android:text="@string/icon_material_film61"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="ویدئو"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_audio"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_orange"
+				android:text="@string/icon_material_headset11"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="صوت"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_file"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_yellow"
+				android:text="@string/icon_material_google134"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="فایل"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/dialog_choise_chat_media_back"
+				style="@style/Samim.Icon.Size40"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_gray"
+				android:text="@string/icon_material_back57"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				style="@style/TextAppearance.IranBold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="برگشت"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

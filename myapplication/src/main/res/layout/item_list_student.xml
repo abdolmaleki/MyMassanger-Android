@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/selector_item_list_student"
+	android:gravity="center"
+	android:paddingBottom="15dp"
+	android:paddingLeft="5dp"
+	android:paddingRight="5dp"
+	android:paddingTop="15dp">
+
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="right|center_vertical"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/item_list_student_txv_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="2dp"
+			android:textColor="#24000c"
+			android:textSize="@dimen/samim_fontsize_larg" />
+
+		<TextView
+			android:id="@+id/item_list_student_txv_detail"
+			android:layout_width="wrap_content"
+			android:layout_margin="2dp"
+			android:layout_height="wrap_content"
+			android:textColor="#24000c"
+			android:textSize="@dimen/samim_fontsize_tiny" />
+
+	</LinearLayout>
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:id="@+id/item_list_student_img_student"
+		android:layout_width="70dp"
+		android:layout_height="70dp"
+		android:layout_marginLeft="8dp"
+		app:civ_border_color="#ccc"
+		app:civ_border_width="1dp"  />
+
+</LinearLayout>

@@ -2,6 +2,11 @@
     <string name="app_name">My Application</string>
 
     <string name="title_activity_main">پیام رسان</string>
+    <string name="title_activity_chat">گفتگو</string>
+    <string name="title_activity_lesson">دروس</string>
+    <string name="title_activity_download">بروز رسانی</string>
+
+
 
 
 
@@ -50,4 +55,15 @@
     <!--==================================================================== -->
     <string name="samim_message_upload_error">آپلود فایل با خطا مواجه شد</string>
     <string name="samim_message_upload_in_queue">در صف آپلود قرار گرفت</string>
+
+
+    <!--==================================================================== -->
+    <!--Message -->
+    <!--==================================================================== -->
+    <string name="samim_message_loading_student">در حال دریافت اطلاعات دانش آموز</string>
+    <string name="samim_message_loading_chatUser">در حال دریافت اطلاعات مخاطبین</string>
+    <string name="samim_message_no_student">دانش آموزی وجود ندارد</string>
+    <string name="samim_message_db_insert_error">خطا در ثبت اطلاعات در پایگاه داده</string>
+
+    <string name="samim_message_no_entity">موردی وجود ندارد</string>
 </resources>

@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:background="@color/samim_color_gray"
+			  android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/fragment_media_capture_image"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_green"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_camera"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/fragment_media_image_gallery"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_blue"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_gallory"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/fragment_media_video_gallery"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_red"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_video"
+
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/fragment_media_capture_video"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_orange"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_recordvideo"
+
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/fragment_media_file"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_yellow"
+				android:textColor="@color/samim_color_white" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_file"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal"
+			android:orientation="vertical">
+
+			<ImageView
+				android:id="@+id/fragment_media_close"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/shape_oval_gray" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:gravity="center"
+				android:text="@string/samim_chat_label_media_back"
+				android:textColor="@color/samim_color_black" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

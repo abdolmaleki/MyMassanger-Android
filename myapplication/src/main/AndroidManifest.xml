@@ -26,6 +26,54 @@
 			android:label="@string/title_activity_main"
 			android:launchMode="singleInstance" />
 
+		<activity
+			android:name="ir.hfj.library.activity.DownloadActivity"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/title_activity_download"
+			android:launchMode="singleInstance" />
+		<activity
+			android:name=".activity.ChatHistoryActivity"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/title_activity_chat" />
+
+		<service
+			android:name=".service.SamimService"
+			android:process=":remote" />
+
+		<service
+			android:name="ir.hfj.library.service.DownloadService"
+			android:process=":remote" />
+
+		<receiver
+			android:name=".receiver.ActivationExpiredReceiver"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="ir.hfj.samim.parent.activation.expired" />
+			</intent-filter>
+		</receiver>
+		<receiver
+			android:name=".receiver.ActivationNullReceiver"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="ir.hfj.samim.parent.activation.null" />
+			</intent-filter>
+		</receiver>
+
+		<receiver android:name=".receiver.BootReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+		</receiver>
+
+		<receiver android:name=".receiver.NetworkChangeReceiver">
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+		</receiver>
+
+
+
 	</application>
 
 </manifest>

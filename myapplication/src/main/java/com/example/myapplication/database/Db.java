@@ -7,6 +7,7 @@ import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.example.myapplication.database.model.ChatModel;
+import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.database.model.TeacherModel;
 
 import java.util.ArrayList;
@@ -311,6 +312,54 @@ public abstract class Db extends DbBase
             }
             return false;
         }*/
+
+    }
+
+    public final static class Student
+    {
+
+        public static boolean insert(StudentModel studentModel)
+        {
+            try
+            {
+                studentModel.save();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                if (AppConfig.DEBUG)
+                {
+                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Insert [Student] problem" + e.getMessage());
+                }
+
+            }
+
+            return false;
+        }
+
+        public static List<StudentModel> selectAll()
+        {
+            return new Select()
+                    .from(StudentModel.class)
+                    .execute();
+        }
+
+        public static StudentModel select(long id)
+        {
+            return new Select()
+                    .from(StudentModel.class)
+                    .where(StudentModel.__id + "=?", id)
+                    .executeSingle();
+        }
+
+        public static StudentModel select(UUID guid)
+        {
+            return new Select()
+                    .from(StudentModel.class)
+                    .where(StudentModel.__guid + "=?", guid)
+                    .executeSingle();
+        }
 
     }
 }

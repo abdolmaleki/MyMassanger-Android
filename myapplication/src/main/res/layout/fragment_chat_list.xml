@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+	xmlns:sothree="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/fragment_chat_list_slidingUpPanel_layout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="bottom"
+	sothree:umanoPanelHeight="0dp"
+	sothree:umanoShadowHeight="4dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/samim_color_contentlist_backselected"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/bg_chat_cyan"
+			android:orientation="vertical">
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/fragment_chat_list_recycleview"
+				style="@style/Samim.Scrollbar.ListView"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:divider="@android:color/transparent"
+				android:dividerHeight="30dp"
+				android:listSelector="@android:color/transparent"
+				android:padding="10dp" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/samim_color_whitesmoke"
+				android:orientation="horizontal">
+
+				<Button
+					android:id="@+id/fragment_chat_btn_send"
+					style="@style/Samim.Icon.Size30"
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:background="@android:color/transparent"
+					android:rotation="180"
+					android:text="@string/icon_material_send12"
+					android:textColor="@color/samim_color_blue_dark" />
+
+				<Button
+					android:id="@+id/fragment_chat_btn_media"
+					style="@style/Samim.Icon.Size30"
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:background="@android:color/transparent"
+					android:text="@string/icon_material_attachment19"
+					android:textColor="@color/samim_color_gules_dark" />
+
+				<Button
+					android:id="@+id/fragment_chat_btn_voice"
+					style="@style/Samim.Icon.Size30"
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:background="@android:color/transparent"
+					android:text="@string/icon_material_record9"
+					android:textColor="@color/samim_color_yellow_dark" />
+
+				<EditText
+					android:id="@+id/fragment_chat_edt_message"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="@android:color/transparent"
+					android:gravity="right|top"
+					android:hint="متن را وارد کنید"
+					android:maxLines="3"
+					android:padding="10dp"
+					android:textColor="@color/samim_color_black"
+					android:textColorHint="#88000000"
+					android:textSize="@dimen/samim_fontsize_normal" />
+
+			</LinearLayout>
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="260dp"
+		android:orientation="vertical">
+
+		<FrameLayout
+			android:id="@+id/fragment_chat_list_media_frame_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+
+	</LinearLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

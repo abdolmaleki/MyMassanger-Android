@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/item_list_chat_history_background"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/selector_item_gray_white"
+	android:paddingTop="10dp">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:id="@+id/item_list_chat_history_imgprofile"
+		android:layout_width="@dimen/samim_iconsize_50dp"
+		android:layout_height="@dimen/samim_iconsize_50dp"
+		android:layout_alignParentRight="true"
+		android:layout_marginRight="10dp" />
+
+	<TextView
+		android:id="@+id/item_list_chat_history_txttitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="20dp"
+		android:layout_toLeftOf="@id/item_list_chat_history_imgprofile"
+		android:textColor="@color/samim_color_black"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:id="@+id/item_list_chat_history_txtdes"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/item_list_chat_history_txttitle"
+		android:layout_marginRight="20dp"
+		android:layout_toLeftOf="@id/item_list_chat_history_imgprofile"
+		android:ellipsize="end"
+		android:singleLine="true"
+		android:textColor="@color/samim_color_content_subject"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:id="@+id/item_list_chat_history_time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:textColor="@color/samim_color_content_subject"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<TextView
+		android:id="@+id/item_list_chat_history_newmessage"
+		android:layout_width="30dp"
+		android:layout_height="30dp"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_marginRight="35dp"
+		android:background="@drawable/shape_oval_new_chat"
+		android:gravity="center"
+		android:textColor="@color/samim_color_white"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+</RelativeLayout>

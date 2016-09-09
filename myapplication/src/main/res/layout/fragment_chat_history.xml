@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			 xmlns:fab="http://schemas.android.com/apk/res-auto"
+			 android:layout_width="match_parent"
+			 android:layout_height="match_parent"
+			 android:background="@color/samim_color_white">
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/fragment_chat_history_recycleview"
+		style="@style/Samim.Scrollbar.ListView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:divider="@color/samim_color_gray"
+		android:dividerHeight="1dp" />
+
+	<com.melnykov.fab.FloatingActionButton
+		android:id="@+id/fragment_chat_history_newchat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|left"
+		android:layout_margin="16dp"
+		android:src="@drawable/ic_pen_white"
+		fab:fab_colorNormal="@color/primary"
+		fab:fab_colorPressed="@color/primary_dark"
+		fab:fab_colorRipple="@color/ripple" />
+
+</FrameLayout>

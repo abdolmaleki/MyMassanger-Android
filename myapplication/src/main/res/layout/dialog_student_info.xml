@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:background="@color/samim_color_white"
+			  android:gravity="right|top"
+			  android:orientation="vertical"
+			  android:padding="15dp">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:id="@+id/dialog_student_info_image"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_gravity="center"
+		app:civ_border_color="@color/samim_color_gray_murky"
+		app:civ_border_width="1dp"  />
+
+	<TextView
+		android:id="@+id/dialog_student_info_txv_info"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/TextAppearance.Iran"
+		android:textColor="@color/samim_color_maroon"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+	<Button
+		android:id="@+id/dialog_student_info_btn_ok"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:minWidth="70dp"
+		android:layout_marginTop="20dp"
+		android:layout_gravity="left"
+		style="@style/Samim.Button.Blue"
+		android:text="باشه"
+		android:textAppearance="@style/TextAppearance.Iran"
+		android:textSize="@dimen/samim_fontsize_normal" />
+
+</LinearLayout>

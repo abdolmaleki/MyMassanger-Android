@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:wheel="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="left|top"
+	android:orientation="horizontal">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:id="@+id/item_chat_img_user"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:src="@drawable/ic_user"
+		app:civ_border_color="@color/samim_color_gray"
+		app:civ_border_width="1dp" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/selector_item_list_chat_in"
+		android:orientation="vertical"
+		android:paddingLeft="17dp"
+		android:paddingRight="8dp">
+
+		<!--======================================================================================================-->
+		<!--Start Content-->
+		<!--======================================================================================================-->
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="right|top"
+			android:maxWidth="300dp"
+			android:minWidth="70dp"
+			android:orientation="horizontal">
+
+			<!--Info-->
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:orientation="vertical"
+				android:padding="5dp">
+
+				<TextView
+					android:id="@+id/item_chat_txv_label"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right|top"
+					android:textColor="@color/samim_color_black_x4" />
+
+				<TextView
+					android:id="@+id/item_chat_txv_size"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="@color/samim_color_black_x5" />
+
+			</LinearLayout>
+
+			<!--Download, Icon, Progress-->
+
+			<FrameLayout
+				android:layout_width="80dp"
+				android:layout_height="100dp">
+
+				<ImageView
+					android:id="@+id/item_chat_img_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_gravity="center"
+					android:padding="10dp"
+					android:scaleType="fitCenter" />
+
+				<ImageButton
+					android:id="@+id/item_chat_btn_download"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_gravity="center"
+					android:background="@android:color/transparent"
+					android:scaleType="fitCenter"
+					android:src="@drawable/ic_download" />
+
+				<com.pnikosis.materialishprogress.ProgressWheel
+					android:id="@+id/item_chat_prg"
+					android:layout_width="80dp"
+					android:layout_height="80dp"
+					android:layout_gravity="center"
+					android:visibility="gone"
+					wheel:matProg_barColor="#5588FF"
+					wheel:matProg_fillRadius="true"
+					wheel:matProg_linearProgress="true" />
+
+			</FrameLayout>
+
+		</LinearLayout>
+
+		<!--======================================================================================================-->
+		<!--End Content-->
+		<!--======================================================================================================-->
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:gravity="right"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/item_chat_txv_datetime"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="@color/samim_color_gray_xdark"
+				android:textSize="@dimen/samim_fontsize_tiny" />
+
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>

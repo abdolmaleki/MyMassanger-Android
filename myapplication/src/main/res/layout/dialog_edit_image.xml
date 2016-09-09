@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="350dp"
+			  android:layout_height="match_parent"
+			  android:background="@color/samim_color_gray_murky"
+			  android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:visibility="gone"
+		android:background="@color/samim_color_green_xdark">
+
+		<Button
+			android:id="@+id/dialog_edit_image_btn_content"
+			style="@style/Samim.Icon.Size30"
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="10dp"
+			android:background="@android:color/transparent"
+			android:text="@string/icon_material_create3"
+			android:textColor="@color/samim_color_whitesmoke" />
+
+		<TextView
+			style="@style/TextAppearance.IranBold"
+			android:layout_width="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="15dp"
+			android:background="@android:color/transparent"
+			android:text="ویرایش تصویر"
+			android:textColor="@color/samim_color_whitesmoke"
+			android:textSize="@dimen/samim_fontsize_normal" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="350dp"
+		android:layout_height="350dp"
+		android:background="@color/samim_color_gray_dark">
+
+		<ImageView
+			android:id="@+id/dialog_edit_image_img"
+			android:layout_width="330dp"
+			android:layout_height="330dp"
+			android:layout_centerInParent="true"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp" />
+
+		<EditText
+			android:id="@+id/dialog_edit_image_content"
+			style="@style/TextAppearance.IranBold"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:layout_alignParentBottom="true"
+			android:background="@color/samim_color_black_light"
+			android:hint="متن خود را وارد کنید"
+			android:padding="10dp"
+			android:singleLine="true"
+			android:textColor="@color/samim_color_white"
+			android:textColorHint="@color/samim_color_white"
+			android:textSize="@dimen/samim_fontsize_normal"
+			android:visibility="visible" />
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@color/samim_color_green_xdark"
+		android:gravity="right|center_vertical">
+
+		<Button
+			android:id="@+id/dialog_edit_image_btn_cansel"
+			style="@style/TextAppearance.IranBold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="15dp"
+			android:background="@android:color/transparent"
+			android:text="انصراف"
+			android:textColor="@color/samim_color_whitesmoke"
+			android:textSize="@dimen/samim_fontsize_normal" />
+
+		<Button
+			android:id="@+id/dialog_edit_image_btn_send"
+			style="@style/TextAppearance.IranBold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="15dp"
+			android:background="@android:color/transparent"
+			android:text="ارسال"
+			android:textColor="@color/samim_color_whitesmoke"
+			android:textSize="@dimen/samim_fontsize_normal" />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Samim.ActionBar.FontButton.Light" parent="Samim.ActionBar.FontButton">
+
+		<item name="android:background">@drawable/selector_item_actionbar_light</item>
+
+	</style>
+</resources>
