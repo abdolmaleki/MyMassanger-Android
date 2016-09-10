@@ -21,7 +21,7 @@
 		android:layout_height="wrap_content"
 		android:layout_margin="40dp"
 		android:gravity="center"
-		android:text="والدین گرامی!\nبرای فعال سازی این نرم افزار، به مدرسه فرزند خود مراجعه کرده و نسبت به دریافت کلمه کاربری و رمز عبور اقدام نمایید."
+		android:text="کاربر گرامی ! \n برای فعالسازی این نرم افزار به واحد فناوری اطلاعات مراجعه کرده و نسبت به دریافت کلمه کاربری و رمز عبور اقدام کنید"
 		android:textColor="@color/samim_color_white"
 		android:textSize="@dimen/samim_fontsize_normal" />
 
