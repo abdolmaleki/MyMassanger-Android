@@ -2,7 +2,7 @@
     <string name="app_name">My Application</string>
 
     <string name="title_activity_main">پیام رسان</string>
-    <string name="title_activity_chat">گفتگو</string>
+    <string name="title_activity_chat">پیام رسان</string>
     <string name="title_activity_lesson">دروس</string>
     <string name="title_activity_download">بروز رسانی</string>
 

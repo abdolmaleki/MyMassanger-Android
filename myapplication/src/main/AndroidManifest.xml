@@ -9,17 +9,7 @@
 		android:label="@string/app_name"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
-		<activity
-			android:name=".activity.MainActivity"
-			android:launchMode="singleInstance"
-			android:screenOrientation="portrait"
-			>
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
 
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
 
 		<activity
 			android:name="ir.hfj.library.activity.ActivationActivity"
@@ -34,7 +24,17 @@
 		<activity
 			android:name=".activity.ChatHistoryActivity"
 			android:icon="@mipmap/ic_launcher"
-			android:label="@string/title_activity_chat" />
+			android:label="@string/title_activity_chat"
+			android:launchMode="singleInstance"
+			>
+
+		<intent-filter>
+			<action android:name="android.intent.action.MAIN" />
+
+			<category android:name="android.intent.category.LAUNCHER" />
+		</intent-filter>
+
+	    </activity>
 
 		<service
 			android:name=".service.SamimService"

@@ -2,6 +2,7 @@ package com.example.myapplication.activity;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -49,6 +53,8 @@ import java.util.Date;
 import java.util.UUID;
 
 import ir.hfj.library.actionbar.OnSamimActionBarItemClick;
+import ir.hfj.library.activity.ActivationActivity;
+import ir.hfj.library.application.App;
 import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.SamimException;
 import ir.hfj.library.ui.NhDialog;
@@ -77,6 +83,8 @@ public class ChatHistoryActivity extends AppCompatActivity implements
     private UUID mChatUserGuid;
     private boolean mIsBigView;
     private ChatActionBar mActionBar;
+    private boolean mIsShownSplashScreen = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -86,6 +94,10 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_chat_history);
 
         initView();
+
+        splashScreen();
+
+        loadCurrentContact();
 
         loadData();
 
@@ -111,8 +123,65 @@ public class ChatHistoryActivity extends AppCompatActivity implements
             }
         }
 
-        bindService();
+        activationIfNeeded();
 
+        //bindService();
+
+    }
+
+    private void activationIfNeeded()
+    {
+        if (App.getInstance(this).isExpired())
+        {
+            Intent myIntent = new Intent(this, ActivationActivity.class);
+            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            myIntent.putExtra(ActivationActivity.KEY_CAUSE, App.getInstance(this).isUserSetting() ? ActivationActivity.PARAM_CAUSE_EXPIRE : ActivationActivity.PARAM_CAUSE_ACTIVE);
+            startActivity(myIntent);
+        }
+    }
+
+    private void loadCurrentContact() {
+
+    }
+
+    private void splashScreen()
+    {
+        final View uiLytSplash = findViewById(R.id.activity_main_lvt_splash);
+
+
+        if (mIsShownSplashScreen)
+        {
+            uiLytSplash.setVisibility(View.GONE);
+            return;
+        }
+
+        AlphaAnimation animation = new AlphaAnimation(1, 0);
+        animation.setStartOffset(1000);
+        animation.setDuration(500);
+        animation.setFillAfter(true);
+        animation.setInterpolator(new AccelerateInterpolator(2));
+
+
+        uiLytSplash.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override
+            public void onAnimationStart(Animation animation)
+            {
+
+            }
+            @Override
+            public void onAnimationEnd(Animation animation)
+            {
+                uiLytSplash.setVisibility(View.GONE);
+                mIsShownSplashScreen = true;
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation)
+            {
+
+            }
+        });
     }
 
     @SuppressWarnings("deprecation")
@@ -170,16 +239,16 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     private void loadData()
     {
-        long currentStudentId = getIntent().getLongExtra(Constant.Param.KEY_STUDENT_ID, -1);
+        //long currentStudentId = getIntent().getLongExtra(Constant.Param.KEY_STUDENT_ID, -1);
 
-        if (currentStudentId == -1)
-        {
-            finish();
-        }
-        else
-        {
-            mStudent = Db.Student.select(currentStudentId);
-        }
+//        if (currentStudentId == -1)
+//        {
+//            finish();
+//        }
+//        else
+//        {
+//            mStudent = Db.Student.select(currentStudentId);
+//        }
 
     }
 

@@ -11,7 +11,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activity.MainActivity;
+import com.example.myapplication.activity.ChatHistoryActivity;
 import com.example.myapplication.application.Constant;
 import com.example.myapplication.connection.socket.SubscribeMethod;
 import com.example.myapplication.connection.socket.dto.ChatDeliverDto;
@@ -288,7 +288,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
     @Override
     public void setServiceNotification(Intent startIntent, int flags, int startId)
     {
-        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        Intent intent = new Intent(getBaseContext(), ChatHistoryActivity.class);
 
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
@@ -336,7 +336,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
         }
 
 
-        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        Intent intent = new Intent(getBaseContext(), ChatHistoryActivity.class);
 
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
