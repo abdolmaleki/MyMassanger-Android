@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.application.Constant;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.database.model.TeacherModel;
@@ -37,11 +36,10 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
     private List<ChatUserHolder> holders;
     private IChatUpdatable mChatController;
 
-    public static ChatUserDialogFragment newInstance(long studentId)
+    public static ChatUserDialogFragment newInstance()
     {
         ChatUserDialogFragment fragment = new ChatUserDialogFragment();
         Bundle args = new Bundle();
-        args.putLong(Constant.Param.KEY_STUDENT_ID, studentId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,11 +51,6 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
 
         loadData();
 
-        if (mStudent == null)
-        {
-            return;
-        }
-
         initView();
 
         initAdapter();
@@ -66,12 +59,6 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
 
     private boolean loadData()
     {
-        long currentStudentId = getArguments().getLong(Constant.Param.KEY_STUDENT_ID, -1);
-
-        if (currentStudentId != -1)
-        {
-            mStudent = Db.Student.select(currentStudentId);
-        }
         return true;
     }
 
@@ -83,7 +70,7 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
     private void initAdapter()
     {
 
-        List<TeacherModel> models = Db.Teacher.selectByStudentId(mStudent.getId());
+        List<TeacherModel> models = Db.Teacher.selectAll();
         holders = TeacherMapper.ConvertModelToHolder(models);
         mAdapterList = new ChatUserAdapterList(getActivity(), holders);
 

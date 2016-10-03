@@ -70,13 +70,10 @@ public class ChatFragment extends Fragment implements
 
     String outputPath = null;
 
-
-    public static ChatFragment newInstance(long studentId, UUID userGuid)
+    public static ChatFragment newInstance(UUID userGuid)
     {
         ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
-        args.putLong(Constant.Param.KEY_STUDENT_ID, studentId);
-
         // In side by side view, In First Time maybe user is null
         if (userGuid != null)
         {
@@ -94,11 +91,6 @@ public class ChatFragment extends Fragment implements
 
         loadData();
 
-        if (mStudent == null)
-        {
-            return;
-        }
-
         initView();
 
         initAdapter();
@@ -107,13 +99,7 @@ public class ChatFragment extends Fragment implements
 
     private void loadData()
     {
-        long studentId = getArguments().getLong(Constant.Param.KEY_STUDENT_ID, -1);
         UUID userGuid = (UUID) getArguments().getSerializable(Constant.Param.KEY_CHAT_USER_GUID);
-
-        if (studentId != -1)
-        {
-            mStudent = Db.Student.select(studentId);
-        }
 
         if (userGuid != null)
         {

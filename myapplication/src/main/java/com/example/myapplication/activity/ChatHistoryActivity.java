@@ -28,7 +28,6 @@ import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.connection.socket.dto.TeacherResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.fragment.ChatFragment;
 import com.example.myapplication.fragment.ChatHistoryFragment;
 import com.example.myapplication.fragment.IChatController;
@@ -74,7 +73,6 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     private ServiceHandler mNetworkService;
     private IChatHistoryFragment mIChatHistoryFragment;
-    private StudentModel mStudent;
     private IChatFragment mIChatFragment;
     private IDownloadMediaListener mIDownloadMediaListener;
     private IUploadMediaListener mIUploadMediaListener;
@@ -239,16 +237,6 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     private void loadData()
     {
-        //long currentStudentId = getIntent().getLongExtra(Constant.Param.KEY_STUDENT_ID, -1);
-
-//        if (currentStudentId == -1)
-//        {
-//            finish();
-//        }
-//        else
-//        {
-//            mStudent = Db.Student.select(currentStudentId);
-//        }
 
     }
 
@@ -270,7 +258,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
             if (!isFinishing())
             {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                android.support.v4.app.Fragment fragment = ChatHistoryFragment.newInstance(mStudent.getId());
+                android.support.v4.app.Fragment fragment = ChatHistoryFragment.newInstance();
                 ft.replace(R.id.fragment_place_chathistory, fragment);
                 ft.commit();
             }
@@ -305,7 +293,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
             if (!isFinishing())
             {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                android.support.v4.app.Fragment fragment = ChatFragment.newInstance(mStudent.getId(), chatUserGuid);
+                android.support.v4.app.Fragment fragment = ChatFragment.newInstance(chatUserGuid);
                 ft.replace(R.id.fragment_place_chat, fragment);
                 ft.commit();
             }
@@ -908,9 +896,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     private TeacherResponsibleDto createRefreshRequestDto()
     {
-        StudentModel student = Db.Student.select(mStudent.getId());
         TeacherResponsibleDto dto = new TeacherResponsibleDto();
-        dto.studentGuid = student.getGuid();
         dto.year = 1394;
         return dto;
     }

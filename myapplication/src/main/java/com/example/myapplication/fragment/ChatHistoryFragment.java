@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.application.Constant;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.StudentModel;
@@ -38,14 +37,12 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
     private RecyclerView uiRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private ChatHistoryAdapter mAdapter;
-    private StudentModel mStudent;
     private IChatUpdatable mChatController;
 
-    public static ChatHistoryFragment newInstance(long studentId)
+    public static ChatHistoryFragment newInstance()
     {
         ChatHistoryFragment fragment = new ChatHistoryFragment();
         Bundle args = new Bundle();
-        args.putLong(Constant.Param.KEY_STUDENT_ID, studentId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,11 +54,6 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
 
         loadData();
 
-        if (mStudent == null)
-        {
-            return;
-        }
-
         initView();
 
         initAdapter();
@@ -70,12 +62,6 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
 
     private void loadData()
     {
-        long currentStudentId = getArguments().getLong(Constant.Param.KEY_STUDENT_ID, -1);
-
-        if (currentStudentId != -1)
-        {
-            mStudent = Db.Student.select(currentStudentId);
-        }
     }
 
     private void initView()
@@ -85,7 +71,7 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
 
     private void initAdapter()
     {
-        List<TeacherModel> teacherModels = Db.Teacher.selectByStudentId(mStudent.getId());
+        List<TeacherModel> teacherModels = Db.Teacher.selectAll();
         DataDictionary<UUID, ChatHistoryHolder> holders = new DataDictionary<>();
 
         for (TeacherModel model : teacherModels)
@@ -153,7 +139,7 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
         int id = view.getId();
         if (id == R.id.fragment_chat_history_newchat)
         {
-            ChatUserDialogFragment chatUserDialogFragment = ChatUserDialogFragment.newInstance(mStudent.getId());
+            ChatUserDialogFragment chatUserDialogFragment = ChatUserDialogFragment.newInstance();
             chatUserDialogFragment.show(getActivity().getFragmentManager(), null);
         }
     }
