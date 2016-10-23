@@ -56,9 +56,9 @@ public class AppSamim extends App
 //        AppConfig.NETWORK_HOST_SR = "http://samim.aligorji.ir:8080/";
 //        AppConfig.NETWORK_HOST_WEB = "http://samim.aligorji.ir:8080/";
 
-        AppConfig.NETWORK_HOST_WS = "http://192.168.13.33:5005/api";
-        AppConfig.NETWORK_HOST_SR = "http://192.168.13.33:5005/";
-        AppConfig.NETWORK_HOST_WEB = "http://192.168.13.33:5005/";
+        AppConfig.NETWORK_HOST_WS = "http://192.168.13.33:5009/api";
+        AppConfig.NETWORK_HOST_SR = "http://192.168.13.33:5009/";
+        AppConfig.NETWORK_HOST_WEB = "http://192.168.13.33:5009/";
 
         AppConfig.NETWORK_Samim_HUB = "MyMessangerHub";
         AppConfig.NETWORK_HOST_TRY_CONNECT_DURATION = 1000 * 3;
