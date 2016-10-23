@@ -24,7 +24,6 @@ import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.database.model.TeacherModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.entity.ChatContentType;
@@ -56,7 +55,6 @@ public class ChatFragment extends Fragment implements
 
     private RecyclerView uiRecyclerView;
     private ChatAdapter mAdapter = null;
-    private StudentModel mStudent;
     private EditText uiEdtMessage;
     private IChatController mChatController;
     private IChatHistoryUpdatable mChatHistoryController;

@@ -60,7 +60,7 @@ public class AppSamim extends App
         AppConfig.NETWORK_HOST_SR = "http://192.168.13.33:5009/";
         AppConfig.NETWORK_HOST_WEB = "http://192.168.13.33:5009/";
 
-        AppConfig.NETWORK_Samim_HUB = "MyMessangerHub";
+        AppConfig.NETWORK_MESSANGER_HUB = "MyMessangerHub";
         AppConfig.NETWORK_HOST_TRY_CONNECT_DURATION = 1000 * 3;
         AppConfig.NETWORK_HOST_PING = AppConfig.NETWORK_HOST_SR + "TestConnection/Ping.html";
          AppConfig.NETWORK_HOST_TRY_CONNECT_EMERGENCY_DURATION = 1000 * 10;//1000 * 60 * 30;

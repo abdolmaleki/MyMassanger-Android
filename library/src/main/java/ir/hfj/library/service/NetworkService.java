@@ -149,7 +149,7 @@ public abstract class NetworkService extends Service implements INetworkService,
 
             mAsyncPing.start();
 
-            mConnectionEngine = new ConnectionEngine(this, AppConfig.NETWORK_HOST_SR + "/signalr", AppConfig.NETWORK_Samim_HUB, getSubscribes());
+            mConnectionEngine = new ConnectionEngine(this, AppConfig.NETWORK_HOST_SR + "/signalr", AppConfig.NETWORK_MESSANGER_HUB, getSubscribes());
             mConnectionEngine.setOnEventListener(this);
             mConnectionEngine.connect();
 

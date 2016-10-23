@@ -109,7 +109,6 @@ public abstract class NetworkServiceClientHandler<T extends Activity> extends Ha
         }
     };
 
-
     public final boolean doBindService()
     {
 

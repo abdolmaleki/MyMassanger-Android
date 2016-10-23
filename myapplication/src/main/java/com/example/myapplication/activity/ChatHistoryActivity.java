@@ -123,7 +123,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
         activationIfNeeded();
 
-        //bindService();
+        bindService();
 
     }
 

@@ -11,7 +11,7 @@ public final class AppConfig
 {
 
     private static String APP_VERSION;
-    private static String APP_NAME = "samim";
+    private static String APP_NAME = "mymessanger";
 
     public static void init(String version)
     {
@@ -43,7 +43,7 @@ public final class AppConfig
     public static String NETWORK_HOST_SR;
     public static String NETWORK_HOST_WEB;
 
-    public static String NETWORK_Samim_HUB;
+    public static String NETWORK_MESSANGER_HUB;
     public static int NETWORK_HOST_TRY_CONNECT_DURATION;
     public static String NETWORK_HOST_PING;
     public static int NETWORK_HOST_TRY_CONNECT_EMERGENCY_DURATION;//1000 * 60 * 30;
