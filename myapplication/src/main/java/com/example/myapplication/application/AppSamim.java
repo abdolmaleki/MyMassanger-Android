@@ -26,6 +26,7 @@ import com.example.myapplication.entity.ChatBaseContent;
 import com.example.myapplication.entity.ChatBaseContentDeserializer;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.entity.ChatContentTypeDeserializer;
+import com.example.myapplication.service.MyMessangerService;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -47,7 +48,7 @@ public class AppSamim extends App
     public AppSamim()
     {
         //=====================================================================================================
-        AppConfig.LOG_TAG = "Samim";
+        AppConfig.LOG_TAG = "MyMessanger";
         AppConfig.DEBUG = true;
         AppConfig.ROLE = 1;
 
@@ -85,7 +86,7 @@ public class AppSamim extends App
         SamimAction.ACTIVATION_SUCCESSFUL = "ir.hfj.samim.parent.activation.successful";
         SamimAction.ACTIVATION_NULL = "ir.hfj.samim.parent.activation.null";
         super.onCreate();
-        //SamimService.start(this);
+        MyMessangerService.start(this);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SamimAction.ACTIVATION_EXPIRED);
         intentFilter.addAction(SamimAction.ACTIVATION_SUCCESSFUL);

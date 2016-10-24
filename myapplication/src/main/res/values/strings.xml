@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">MyMessanger</string>
 
     <string name="title_activity_main">پیام رسان</string>
     <string name="title_activity_chat">پیام رسان</string>

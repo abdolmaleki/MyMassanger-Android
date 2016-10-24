@@ -49,7 +49,7 @@ import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.util.Helper;
 
 
-public class SamimService extends NetworkService implements DownloadManager.OnDownloadManagerListener
+public class MyMessangerService extends NetworkService implements DownloadManager.OnDownloadManagerListener
 {
 
 
@@ -73,7 +73,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
 
     public synchronized static void start(Context context)
     {
-        NetworkService.start(context, SamimService.class);
+        NetworkService.start(context, MyMessangerService.class);
     }
 
 
@@ -213,7 +213,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                         public void onUploadChangeState(UploadHolder.Received holder)
                         {
 
-                            SamimService.this.sendUploadChangeState(holder);
+                            MyMessangerService.this.sendUploadChangeState(holder);
 
                             if (holder.state == MediaTransferState.Completed)
                             {
@@ -238,7 +238,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                                     {
                                         holder.state = MediaTransferState.Error;
                                         holder.message = getString(R.string.samim_message_upload_error);
-                                        SamimService.this.sendUploadChangeState(holder);
+                                        MyMessangerService.this.sendUploadChangeState(holder);
                                     }
 
 
@@ -247,7 +247,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                                 {
                                     holder.state = MediaTransferState.Error;
                                     holder.message = getString(R.string.samim_message_upload_error);
-                                    SamimService.this.sendUploadChangeState(holder);
+                                    MyMessangerService.this.sendUploadChangeState(holder);
                                 }
                             }
 
@@ -394,7 +394,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
 
                 if (!isExistClient(ClientFlags.FLAG_CHAT))
                 {
-                    Notifier.sendNotifyChat(SamimService.this, dto);
+                    Notifier.sendNotifyChat(MyMessangerService.this, dto);
 
                 }
             }
@@ -650,7 +650,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                                     public void onUploadChangeState(UploadHolder.Received holder)
                                     {
 
-                                        SamimService.this.sendUploadChangeState(holder);
+                                        MyMessangerService.this.sendUploadChangeState(holder);
 
                                         if (holder.state == MediaTransferState.Completed)
                                         {
@@ -684,7 +684,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                                                 {
                                                     holder.state = MediaTransferState.Error;
                                                     holder.message = getString(R.string.samim_message_upload_error);
-                                                    SamimService.this.sendUploadChangeState(holder);
+                                                    MyMessangerService.this.sendUploadChangeState(holder);
                                                 }
 
 
@@ -693,7 +693,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                                             {
                                                 holder.state = MediaTransferState.Error;
                                                 holder.message = getString(R.string.samim_message_upload_error);
-                                                SamimService.this.sendUploadChangeState(holder);
+                                                MyMessangerService.this.sendUploadChangeState(holder);
                                             }
                                         }
                                         else if (holder.state == MediaTransferState.Cancel)
@@ -722,12 +722,12 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
                             @Override
                             public void onConnectionMessageChangeState(Messenger sender, String method, BaseDto dto, int state)
                             {
-                                SamimService.this.onConnectionMessageChangeState(method, dto, state, ClientFlags.FLAG_CHAT);
+                                MyMessangerService.this.onConnectionMessageChangeState(method, dto, state, ClientFlags.FLAG_CHAT);
                             }
                             @Override
                             public void onConnectionMessageCallback(Messenger sender, String method, BaseDto.Result result)
                             {
-                                SamimService.this.onConnectionMessageCallback(method, result, ClientFlags.FLAG_CHAT);
+                                MyMessangerService.this.onConnectionMessageCallback(method, result, ClientFlags.FLAG_CHAT);
                                 isSuccess = result.isSuccessful;
                                 synchronized (sendWaitObject)
                                 {
@@ -881,7 +881,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
 //        {
 //
 //            UserSettingModel userSetting = getUserSetting();
-//            SamimRestApi restApi = new SamimRestApi(SamimService.this, userSetting.token, userSetting.key);
+//            SamimRestApi restApi = new SamimRestApi(MyMessangerService.this, userSetting.token, userSetting.key);
 //
 //
 //            FileJto.PostBack postBackJto;
@@ -891,7 +891,7 @@ public class SamimService extends NetworkService implements DownloadManager.OnDo
 //            {
 //                postBackJto = restApi.uploadFile(
 //                        new FileJto.Post(
-//                                Base64.encodeBytes(FileManager.read(SamimService.this, mDto.content.pathForUpload)),
+//                                Base64.encodeBytes(FileManager.read(MyMessangerService.this, mDto.content.pathForUpload)),
 //                                mDto.contentType,
 //                                ""
 //                        ));

@@ -7,7 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.example.myapplication.service.SamimService;
+import com.example.myapplication.service.MyMessangerService;
 
 import ir.hfj.library.application.AppConfig;
 
@@ -30,7 +30,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver
             if (info.isConnected())
             {
                 //start service
-                SamimService.start(context);
+                MyMessangerService.start(context);
             }
 
         }

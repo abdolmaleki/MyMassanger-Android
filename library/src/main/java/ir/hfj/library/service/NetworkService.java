@@ -173,7 +173,7 @@ public abstract class NetworkService extends Service implements INetworkService,
             //if intent==1 stopForeground
             setServiceNotification(intent, flags, startId);
         }
-        return 0;
+        return Service.START_STICKY;
     }
 
     @Override
@@ -219,9 +219,15 @@ public abstract class NetworkService extends Service implements INetworkService,
     {
         if (!mIsAlive)//always is false; because another process
         {
-            context = context.getApplicationContext();
-            Intent serviceIntent = new Intent(context, cls);
-            context.startService(serviceIntent);
+            try
+            {
+                context = context.getApplicationContext();
+                Intent serviceIntent = new Intent(context, cls);
+                context.startService(serviceIntent);
+            }
+            catch (Exception e){
+                Log.e("My Error ---------> ",e.getMessage());
+            }
         }
     }
 

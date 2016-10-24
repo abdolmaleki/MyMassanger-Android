@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+	<string name="RECEIVE_SMS">دریافت پیامک</string>
+	<string name="WRITE_EXTERNAL_STORAGE">خواندن و نوشتن بر روی حافظه</string>
+	<string name="READ_PHONE_STATE">مشاهده مشخصات دستگاه</string>
+	<string name="PAY_THROUGH_BAZAAR">پرداخت از طریق کافه بازار</string>
+
+</resources>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -57,6 +58,7 @@ import ir.hfj.library.application.App;
 import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.SamimException;
 import ir.hfj.library.ui.NhDialog;
+import ir.hfj.library.util.DangerousPermission;
 import ir.hfj.library.util.DateUtil;
 import ir.hfj.library.util.Helper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -132,7 +134,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         if (App.getInstance(this).isExpired())
         {
             Intent myIntent = new Intent(this, ActivationActivity.class);
-            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             myIntent.putExtra(ActivationActivity.KEY_CAUSE, App.getInstance(this).isUserSetting() ? ActivationActivity.PARAM_CAUSE_EXPIRE : ActivationActivity.PARAM_CAUSE_ACTIVE);
             startActivity(myIntent);
         }
@@ -233,6 +235,15 @@ public class ChatHistoryActivity extends AppCompatActivity implements
     protected void attachBaseContext(Context newBase)
     {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        if (!DangerousPermission.checkRequestPermissionsResult(this, requestCode, permissions, grantResults))
+        {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
     private void loadData()
@@ -773,7 +784,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
             try
             {
-                activity.mAutoIdResponse = invokeTeacher(dto);
+                //activity.mAutoIdResponse = invokeTeacher(dto);
 
             }
             catch (Exception ex)

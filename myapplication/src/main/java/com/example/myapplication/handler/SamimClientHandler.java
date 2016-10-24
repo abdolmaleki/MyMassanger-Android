@@ -17,7 +17,7 @@ import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.connection.socket.dto.TeacherResponsibleDto;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
-import com.example.myapplication.service.SamimService;
+import com.example.myapplication.service.MyMessangerService;
 
 import java.util.UUID;
 
@@ -41,14 +41,14 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
     @Override
     protected final void startService()
     {
-        SamimService.start(getActivityCast());
+        MyMessangerService.start(getActivityCast());
     }
 
     @Override
     protected final boolean bindService(ServiceConnection connection)
     {
         Activity activity = getActivityCast();
-        return activity.bindService(new Intent(activity, SamimService.class), connection, 0);
+        return activity.bindService(new Intent(activity, MyMessangerService.class), connection, 0);
     }
 
     @Override
@@ -61,20 +61,20 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
     {
         switch (msg.what)
         {
-            case SamimService.MSG_CLIENT_DOWNLOAD_STATE:
+            case MyMessangerService.MSG_CLIENT_DOWNLOAD_STATE:
             {
                 Bundle bundle = msg.getData();
-                DownloadHolder.Received downloadHolder = (DownloadHolder.Received) bundle.getSerializable(SamimService.MSG_KEY_DOWNLOAD);
+                DownloadHolder.Received downloadHolder = (DownloadHolder.Received) bundle.getSerializable(MyMessangerService.MSG_KEY_DOWNLOAD);
                 if (downloadHolder != null)
                 {
                     onDownloadChangeState(downloadHolder);
                 }
                 break;
             }
-            case SamimService.MSG_CLIENT_UPLOAD_STATE:
+            case MyMessangerService.MSG_CLIENT_UPLOAD_STATE:
             {
                 Bundle bundle = msg.getData();
-                UploadHolder.Received uploadHolder = (UploadHolder.Received) bundle.getSerializable(SamimService.MSG_KEY_UPLOAD);
+                UploadHolder.Received uploadHolder = (UploadHolder.Received) bundle.getSerializable(MyMessangerService.MSG_KEY_UPLOAD);
                 if (uploadHolder != null)
                 {
                     onUploadChangeState(uploadHolder);
@@ -213,9 +213,9 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
 
     public void sendDownload(DownloadHolder.Send sendHolder) throws RemoteException
     {
-        Message msg = Message.obtain(null, SamimService.MSG_SERVICE_DOWNLOAD);
+        Message msg = Message.obtain(null, MyMessangerService.MSG_SERVICE_DOWNLOAD);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(SamimService.MSG_KEY_DOWNLOAD, sendHolder);
+        bundle.putSerializable(MyMessangerService.MSG_KEY_DOWNLOAD, sendHolder);
         msg.setData(bundle);
 
         send(msg);
@@ -223,9 +223,9 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
 
     public void cancelDownload(UUID guid) throws RemoteException
     {
-        Message msg = Message.obtain(null, SamimService.MSG_SERVICE_DOWNLOAD_CANCEL);
+        Message msg = Message.obtain(null, MyMessangerService.MSG_SERVICE_DOWNLOAD_CANCEL);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(SamimService.MSG_KEY_DOWNLOAD_GUID, guid);
+        bundle.putSerializable(MyMessangerService.MSG_KEY_DOWNLOAD_GUID, guid);
         msg.setData(bundle);
 
         send(msg);
@@ -233,9 +233,9 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
 
     public void cancelUpload(UUID guid) throws RemoteException
     {
-        Message msg = Message.obtain(null, SamimService.MSG_SERVICE_UPLOAD_CANCEL);
+        Message msg = Message.obtain(null, MyMessangerService.MSG_SERVICE_UPLOAD_CANCEL);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(SamimService.MSG_KEY_UPLOAD_GUID, guid);
+        bundle.putSerializable(MyMessangerService.MSG_KEY_UPLOAD_GUID, guid);
         msg.setData(bundle);
 
         send(msg);
