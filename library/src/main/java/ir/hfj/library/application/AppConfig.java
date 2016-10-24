@@ -67,10 +67,10 @@ public final class AppConfig
     {
 
         //rest methods
-        public static final String ActivationPhone = "ParentActivation/Phone";
-        public static final String ActivationRegister = "ParentActivation/Register";
-        public static final String ActivationVerify = "ParentActivation/Verify";
-        public static final String ActivationVerifyKey = "ParentActivation/VerifyKey";
+        public static final String ActivationPhone = "UserActivation/Phone";
+        public static final String ActivationRegister = "UserActivation/Register";
+        public static final String ActivationVerify = "UserActivation/Verify";
+        public static final String ActivationVerifyKey = "UserActivation/VerifyKey";
         public static final String AccountLogin = "Account/Login";
         public static final String UtilityUpdateApp = "Utility/UpdateApp";
         public static final String MediaUpload = "Media/Upload";
