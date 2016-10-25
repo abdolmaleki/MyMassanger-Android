@@ -78,6 +78,7 @@ public final class AppConfig
     }
 
     private static Gson Gson = null;
+
     public static Gson getGsonSetting()
     {
         return Gson;
