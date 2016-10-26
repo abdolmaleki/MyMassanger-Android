@@ -14,7 +14,7 @@ import com.example.myapplication.connection.socket.dto.ChatReadReportDto;
 import com.example.myapplication.connection.socket.dto.ChatReadReportResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
-import com.example.myapplication.connection.socket.dto.TeacherResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
 import com.example.myapplication.service.MyMessangerService;
@@ -136,23 +136,13 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
         {
             onChatReadReportCallback((ChatReadReportResponsibleDto.Result) dto);
         }
-        else if (method.equalsIgnoreCase(SubscribeMethod.GetTeacher))
+        else if (method.equalsIgnoreCase(SubscribeMethod.GetContact))
         {
-            onTeacherCallBack((TeacherResponsibleDto.Result) dto);
+            onContactCallback((ContactResponsibleDto.Result) dto);
         }
-
-
-        //if (method.equalsIgnoreCase("hello"))
-        //{
-        //    onHelloCallback((HelloDto.Result) dto);
-        //}
-        //else
-        //{
-        //    driveHandleCallbacksDTO(method, dto);
-        //}
     }
 
-    protected void onTeacherCallBack(TeacherResponsibleDto.Result dto)
+    protected void onContactCallback(ContactResponsibleDto.Result dto)
     {
     }
     protected void onChatCallback(ChatResponsibleDto.Result dto)
@@ -201,9 +191,9 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
         return sendCallback(dto, SubscribeMethod.SetChatReadReport);
     }
 
-    public long invokeTeacher(TeacherResponsibleDto dto) throws RemoteException
+    public long invokeContact(ContactResponsibleDto dto) throws RemoteException
     {
-        return sendCallback(dto, SubscribeMethod.GetTeacher);
+        return sendCallback(dto, SubscribeMethod.GetContact);
     }
 
     public long invokeChatTypingReport(ChatTypingReportDto dto) throws RemoteException

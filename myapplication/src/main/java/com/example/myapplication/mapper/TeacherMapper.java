@@ -1,7 +1,7 @@
 package com.example.myapplication.mapper;
 
-import com.example.myapplication.connection.socket.dto.TeacherDto;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.connection.socket.dto.ContactDto;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.holder.ChatUserHolder;
 
 import java.util.ArrayList;
@@ -11,18 +11,16 @@ import java.util.List;
 public final class TeacherMapper
 {
 
-    public static TeacherModel ConvertDtoToModel(TeacherDto dto, long studentId)
+    public static ContactModel ConvertDtoToModel(ContactDto dto, long studentId)
     {
-        TeacherModel model = new TeacherModel(dto.guid);
+        ContactModel model = new ContactModel(dto.guid);
         model.imageUrl = dto.imageUrl;
         model.name = dto.name;
-        model.lessonName = dto.lessonName;
-        model.studentId = studentId;
 
         return model;
     }
 
-    public static ChatUserHolder ConvertModelToHolder(TeacherModel model)
+    public static ChatUserHolder ConvertModelToHolder(ContactModel model)
     {
         ChatUserHolder holder = new ChatUserHolder();
         holder.name = model.name;
@@ -32,11 +30,11 @@ public final class TeacherMapper
         return holder;
     }
 
-    public static List<ChatUserHolder> ConvertModelToHolder(List<TeacherModel> models)
+    public static List<ChatUserHolder> ConvertModelToHolder(List<ContactModel> models)
     {
         List<ChatUserHolder> holders = new ArrayList<>();
 
-        for (TeacherModel model : models)
+        for (ContactModel model : models)
         {
             holders.add(ConvertModelToHolder(model));
         }

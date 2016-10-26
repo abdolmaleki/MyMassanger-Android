@@ -12,7 +12,7 @@ import com.example.myapplication.activity.ChatHistoryActivity;
 import com.example.myapplication.application.Constant;
 import com.example.myapplication.connection.socket.dto.ChatDto;
 import com.example.myapplication.database.Db;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.entity.ChatTextContent;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -48,7 +48,7 @@ public class Notifier
 
         int unReadMessageCount = Db.Chat.selectUnreadHistoryCount(dto.senderUserId);
 
-        TeacherModel chatUser = Db.Teacher.selectByGuid(dto.senderUserId);
+        ContactModel chatUser = Db.Teacher.selectByGuid(dto.senderUserId);
         String chatUserName = chatUser.name;
         //  DisplayImageOptions displayImageOptions =AppConfig.createNotificationDisplayImageOptions();
         Bitmap chatUserImage = ImageLoader.getInstance().loadImageSync(chatUser.imageUrl, new ImageSize(96, 96), AppConfig.createNotificationDisplayImageOptions());
@@ -75,7 +75,6 @@ public class Notifier
         }
 
         Intent intent = new Intent(context, ChatHistoryActivity.class);
-        intent.putExtra(Constant.Param.KEY_STUDENT_ID, chatUser.studentId);
         intent.putExtra(Constant.Param.KEY_CHAT_USER_GUID, chatUser.getGuid());
         PendingIntent pIntent = PendingIntent.getActivity(context, Helper.generateUniqueNumber(), intent, 0);
         Notification.Builder notificationBuilder = new Notification.Builder(context)

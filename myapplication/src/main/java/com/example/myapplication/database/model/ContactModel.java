@@ -8,11 +8,11 @@ import java.util.UUID;
 
 import ir.hfj.library.database.model.BaseModel;
 
-@Table(name = TeacherModel.__table, id = TeacherModel.__id)
-public class TeacherModel extends BaseModel
+@Table(name = ContactModel.__table, id = ContactModel.__id)
+public class ContactModel extends BaseModel
 {
 
-    public static final String __table = "_teacher";
+    public static final String __table = "_contact";
 
     public static final String _name = "_name";
     @Column(name = "_name")
@@ -22,19 +22,15 @@ public class TeacherModel extends BaseModel
     @Column(name = "_imageUrl")
     public String imageUrl;
 
-    public static final String _lessonName = "_lessonName";
-    @Column(name = "_lessonName")
-    public String lessonName;
+    public static final String _phoneNumber = "_phoneNumber";
+    @Column(name = "_phoneNumber")
+    public String phoneNumber;
 
-    public static final String _studentId = "_studentId";
-    @Column(name = "_studentId")
-    public long studentId;
-
-    public TeacherModel(UUID guid)
+    public ContactModel(UUID guid)
     {
         super(guid);
     }
-    public TeacherModel()
+    public ContactModel()
     {
         super();
     }

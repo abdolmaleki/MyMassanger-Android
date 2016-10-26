@@ -15,8 +15,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.StudentModel;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.holder.ChatHistoryHolder;
 import com.example.myapplication.mapper.ChatMapper;
@@ -71,10 +70,10 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
 
     private void initAdapter()
     {
-        List<TeacherModel> teacherModels = Db.Teacher.selectAll();
+        List<ContactModel> teacherModels = Db.Teacher.selectAll();
         DataDictionary<UUID, ChatHistoryHolder> holders = new DataDictionary<>();
 
-        for (TeacherModel model : teacherModels)
+        for (ContactModel model : teacherModels)
         {
 
             ChatHistoryHolder holder = ChatMapper.getChatHistory(model.getGuid());

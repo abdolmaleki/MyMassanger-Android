@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Db;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.database.model.StudentModel;
-import com.example.myapplication.database.model.TeacherModel;
 import com.example.myapplication.holder.ChatUserHolder;
 import com.example.myapplication.mapper.TeacherMapper;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -70,7 +70,7 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
     private void initAdapter()
     {
 
-        List<TeacherModel> models = Db.Teacher.selectAll();
+        List<ContactModel> models = Db.Teacher.selectAll();
         holders = TeacherMapper.ConvertModelToHolder(models);
         mAdapterList = new ChatUserAdapterList(getActivity(), holders);
 

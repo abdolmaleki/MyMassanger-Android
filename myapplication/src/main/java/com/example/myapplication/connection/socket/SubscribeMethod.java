@@ -15,7 +15,7 @@ public interface SubscribeMethod
 
 
     //call back
-    String GetTeacher = "GetTeacher";
+    String GetContact = "GetContact";
     String AddChat = "AddChat";
     String SetChatReadReport = "SetChatReadReport";
 

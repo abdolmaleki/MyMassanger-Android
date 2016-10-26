@@ -26,7 +26,7 @@ import com.example.myapplication.connection.socket.dto.ChatReadReportDto;
 import com.example.myapplication.connection.socket.dto.ChatReadReportResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
-import com.example.myapplication.connection.socket.dto.TeacherResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.fragment.ChatFragment;
@@ -55,9 +55,12 @@ import java.util.UUID;
 import ir.hfj.library.actionbar.OnSamimActionBarItemClick;
 import ir.hfj.library.activity.ActivationActivity;
 import ir.hfj.library.application.App;
+import ir.hfj.library.connection.socket.ConnectionEventHandler;
 import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.ui.NhDialog;
+import ir.hfj.library.util.ContactUtil;
 import ir.hfj.library.util.DangerousPermission;
 import ir.hfj.library.util.DateUtil;
 import ir.hfj.library.util.Helper;
@@ -140,7 +143,8 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
     }
 
-    private void loadCurrentContact() {
+    private void loadCurrentContact()
+    {
 
     }
 
@@ -727,7 +731,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
 
         @Override
-        protected void onTeacherCallBack(TeacherResponsibleDto.Result dto)
+        protected void onContactCallback(ContactResponsibleDto.Result dto)
         {
             ChatHistoryActivity activity = getActivity();
 
@@ -779,12 +783,12 @@ public class ChatHistoryActivity extends AppCompatActivity implements
                 return;
             }
 
-            TeacherResponsibleDto dto = activity.createRefreshRequestDto();
+            ContactResponsibleDto dto = activity.createRefreshRequestDto();
             // activity.mActionBar.startProgressing();
 
             try
             {
-                //activity.mAutoIdResponse = invokeTeacher(dto);
+                //activity.mAutoIdResponse = invokeContact(dto);
 
             }
             catch (Exception ex)
@@ -797,7 +801,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onChangeAuthenticationState(boolean isAuthenticated, String message, int authenticateIssue)
         {
-
+            getActivity().refreshMessageBar();
         }
 
         @Override
@@ -810,6 +814,70 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         protected void onMessageDtoChangeState(BaseDto dto, int state)
         {
 
+        }
+    }
+    private void refreshMessageBar()
+    {
+
+        if (!mNetworkService.isBounded())
+        {
+            //mNotifyIcon.show(R.string.samim_message_service_not_responding);
+            return;
+        }
+        else if (!mNetworkService.isReady())
+        {
+            return;
+        }
+
+
+        int connectionState = mNetworkService.getConnectionState();
+        int authenticateIssue = mNetworkService.getAuthenticateIssue();
+        boolean isAuthenticated = mNetworkService.isAuthenticated();
+
+        if (connectionState == ConnectionEventHandler.NET_Connected)
+        {
+            if (isAuthenticated)
+            {
+                //mNotifyIcon.hide();
+                SyncContacts();
+            }
+            else
+            {
+                // mNotifyIcon.show(mNetworkService.getAuthenticateMessage());
+                //showError();
+                if (authenticateIssue == NetworkService.AUT_EXPIRED ||
+                        authenticateIssue == NetworkService.AUT_NOT_ACTIVE ||
+                        authenticateIssue == NetworkService.AUT_ERROR)
+                {
+                    //mNotifyIcon.setNeedActivation(true);
+                }
+                else if (authenticateIssue == NetworkService.AUT_VERSION_NOT_SUPPORT)
+                {
+                    //mNotifyIcon.setNeedUpdateApp(true);
+                }
+            }
+        }
+        else if (connectionState == ConnectionEventHandler.NET_Connecting)
+        {
+            //mNotifyIcon.show(R.string.samim_message_connecting);
+            //showError();
+        }
+        else if (connectionState == ConnectionEventHandler.NET_Disconnected)
+        {
+            //mNotifyIcon.show(R.string.samim_message_disconnected);
+            //showError();
+        }
+    }
+
+    private void SyncContacts()
+    {
+        try
+        {
+            mNetworkService.invokeContact(createRefreshRequestDto());
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -905,10 +973,10 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     }
 
-    private TeacherResponsibleDto createRefreshRequestDto()
+    private ContactResponsibleDto createRefreshRequestDto()
     {
-        TeacherResponsibleDto dto = new TeacherResponsibleDto();
-        dto.year = 1394;
+        ContactResponsibleDto dto = new ContactResponsibleDto();
+        dto.phoneNumbers = ContactUtil.getContactsPhoneNumbers(this);
         return dto;
     }
 

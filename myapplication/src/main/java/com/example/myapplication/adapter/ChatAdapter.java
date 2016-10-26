@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.entity.MediaTransferState;
@@ -55,10 +55,10 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
     private IUploadController mUploader;
     private final DisplayImageOptions imageOptionForUser;
     private final DisplayImageOptions imageOptionForContent;
-    private TeacherModel mChatUser;
+    private ContactModel mChatUser;
     private SamimMediaPlayer mSamimMediaPlayer;
 
-    public ChatAdapter(Activity activity, DataDictionary<UUID, ChatHolder> items, TeacherModel mChatUser)
+    public ChatAdapter(Activity activity, DataDictionary<UUID, ChatHolder> items, ContactModel mChatUser)
     {
         mContext = activity;
         if (activity instanceof IDownloadController)

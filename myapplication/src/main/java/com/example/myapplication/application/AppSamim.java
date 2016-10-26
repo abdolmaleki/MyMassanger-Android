@@ -16,10 +16,9 @@ import com.activeandroid.serializer.SqlDateSerializer;
 import com.activeandroid.serializer.TypeSerializer;
 import com.activeandroid.serializer.UUIDSerializer;
 import com.activeandroid.serializer.UtilDateSerializer;
-import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.database.model.StudentModel;
-import com.example.myapplication.database.model.TeacherModel;
 import com.example.myapplication.database.model.serializer.ChatContentDateSerializer;
 import com.example.myapplication.database.model.serializer.ChatContentTypeDateSerializer;
 import com.example.myapplication.entity.ChatBaseContent;
@@ -32,7 +31,6 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.reflect.Modifier;
 import java.util.Date;
-import java.util.UUID;
 
 import ir.hfj.library.application.App;
 import ir.hfj.library.application.AppConfig;
@@ -99,13 +97,13 @@ public class AppSamim extends App
         Configuration.Builder config = new Configuration.Builder(this);
         //
         config.setDatabaseName("messanger.db");
-        config.setDatabaseVersion(1);
+                config.setDatabaseVersion(1);
         //
         config.addModelClasses(
                 UserSettingModel.class,
                 ChatModel.class,
                 StudentModel.class,
-                TeacherModel.class
+                ContactModel.class
         );
 
         config.addTypeSerializers(
@@ -120,12 +118,12 @@ public class AppSamim extends App
                 TypeSerializer.class);
 
         ActiveAndroid.initialize(config.create());
-        TeacherModel t1 = new TeacherModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a1"));
-        t1.name = "سجاد عبدالملکی";
-        TeacherModel t2 = new TeacherModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a2"));
-        t2.name = "علی گرجی";
-        Db.Teacher.insert(t1);
-        Db.Teacher.insert(t2);
+//        ContactModel t1 = new ContactModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a1"));
+//        t1.name = "سجاد عبدالملکی";
+//        ContactModel t2 = new ContactModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a2"));
+//        t2.name = "علی گرجی";
+//        Db.Teacher.insert(t1);
+//        Db.Teacher.insert(t2);
 
     }
 

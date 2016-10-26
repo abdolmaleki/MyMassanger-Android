@@ -4,7 +4,7 @@ import com.example.myapplication.connection.socket.dto.ChatDto;
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.entity.ChatBaseContent;
 import com.example.myapplication.entity.ChatFileContent;
@@ -208,7 +208,7 @@ public class ChatMapper
     {
         if (contactGuid != null)
         {
-            TeacherModel contactModel = Db.Teacher.selectByGuid(contactGuid);
+            ContactModel contactModel = Db.Teacher.selectByGuid(contactGuid);
             ChatModel lastChatModel = Db.Chat.selectHistory(contactGuid);
 
             if (lastChatModel != null)

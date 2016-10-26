@@ -53,7 +53,7 @@ public class StudentModel extends BaseModel
         super(guid);
     }
 
-    public List<TeacherModel> getTeachers()
+    public List<ContactModel> getTeachers()
     {
         return Db.Teacher.selectByStudentId(this.getId());
     }

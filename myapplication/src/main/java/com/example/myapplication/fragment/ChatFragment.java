@@ -24,7 +24,7 @@ import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.factory.ChatFactory;
@@ -58,7 +58,7 @@ public class ChatFragment extends Fragment implements
     private EditText uiEdtMessage;
     private IChatController mChatController;
     private IChatHistoryUpdatable mChatHistoryController;
-    private TeacherModel mChatUser;
+    private ContactModel mChatUser;
     public long mStartTypingTime = 0;
     public long mStopTypingTime = 0;
     private RecyclerView.LayoutManager mLayoutManager;

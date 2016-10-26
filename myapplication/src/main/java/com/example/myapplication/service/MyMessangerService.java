@@ -20,12 +20,12 @@ import com.example.myapplication.connection.socket.dto.ChatReadReportDto;
 import com.example.myapplication.connection.socket.dto.ChatReadReportResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
-import com.example.myapplication.connection.socket.dto.TeacherDto;
-import com.example.myapplication.connection.socket.dto.TeacherResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ContactDto;
+import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.StudentModel;
-import com.example.myapplication.database.model.TeacherModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.entity.MediaTransferState;
 import com.example.myapplication.factory.DownloadManager;
@@ -169,9 +169,9 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         {
             onChatCallback((ChatResponsibleDto.Result) result);
         }
-        else if (method.equalsIgnoreCase(SubscribeMethod.GetTeacher))
+        else if (method.equalsIgnoreCase(SubscribeMethod.GetContact))
         {
-            onTeacherCallBack((TeacherResponsibleDto.Result) result);
+            onTeacherCallBack((ContactResponsibleDto.Result) result);
         }
         else if (method.equalsIgnoreCase(SubscribeMethod.SetChatReadReport))
         {
@@ -491,14 +491,14 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 
     };
 
-    private void onTeacherCallBack(TeacherResponsibleDto.Result result)
+    private void onTeacherCallBack(ContactResponsibleDto.Result result)
     {
         if (result.isValid())
         {
 
-            for (TeacherDto dto : result.teacherDtos)
+            for (ContactDto dto : result.contactDtos)
             {
-                StudentModel student = Db.Student.select(result.studentGuid);
+                StudentModel student = Db.Student.select(result.autoIdResponse);
 
                 if (student == null)
                 {
@@ -506,7 +506,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
                 }
 
                 long studentId = student.getId();
-                TeacherModel model = TeacherMapper.ConvertDtoToModel(dto, studentId);
+                ContactModel model = TeacherMapper.ConvertDtoToModel(dto, studentId);
 
                 if (!Db.Teacher.insert(model))
                 {
