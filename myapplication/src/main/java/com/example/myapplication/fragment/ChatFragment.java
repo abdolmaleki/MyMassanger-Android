@@ -41,7 +41,7 @@ import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.exception.SamimException;
 import ir.hfj.library.ui.NhToast;
 import ir.hfj.library.util.Helper;
-import ir.hfj.library.util.SamimVoiceRecorder;
+import ir.hfj.library.util.MesssangerVoiceRecorder;
 
 
 public class ChatFragment extends Fragment implements
@@ -64,7 +64,7 @@ public class ChatFragment extends Fragment implements
     private RecyclerView.LayoutManager mLayoutManager;
     private SlidingUpPanelLayout uiSlidingUpPanelLayout;
     private MediaFragment mMediaFragment;
-    private SamimVoiceRecorder mVoiceRecorder;
+    private MesssangerVoiceRecorder mVoiceRecorder;
 
     String outputPath = null;
 
@@ -690,7 +690,7 @@ public class ChatFragment extends Fragment implements
                 {
                     try
                     {
-                        mVoiceRecorder = new SamimVoiceRecorder();
+                        mVoiceRecorder = new MesssangerVoiceRecorder();
                         outputPath = FileManager.getDirectory(ChatContentType.Voice) + "/" + Helper.generateRandomString(64) + ".3gp";
                         mVoiceRecorder.record(outputPath);
                         //VoiceHelper.recordVoice(outputPath);

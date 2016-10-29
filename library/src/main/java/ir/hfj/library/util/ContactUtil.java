@@ -43,7 +43,7 @@ public class ContactUtil
                             {
                                 String phoneNo = pCur.getString(pCur.getColumnIndex(
                                         ContactsContract.CommonDataKinds.Phone.NUMBER));
-                                phoneNumbers.add(phoneNo);
+                                phoneNumbers.add(getStandardPhoneNumber(phoneNo));
                             }
 
                             pCur.close();
@@ -54,6 +54,19 @@ public class ContactUtil
             cur.close();
         }
         return phoneNumbers;
+    }
+
+
+    private static String getStandardPhoneNumber(String phoneNumber)
+    {
+        String standardPhoneNumber = phoneNumber.replace(" ", "");
+        standardPhoneNumber = standardPhoneNumber.replace("+98", "");
+        if (standardPhoneNumber.charAt(0) == '0')
+        {
+            standardPhoneNumber = standardPhoneNumber.substring(1);
+        }
+
+        return standardPhoneNumber;
     }
 
 

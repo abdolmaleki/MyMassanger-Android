@@ -42,7 +42,7 @@ import java.util.UUID;
 import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.exception.SamimException;
 import ir.hfj.library.util.Helper;
-import ir.hfj.library.util.SamimMediaPlayer;
+import ir.hfj.library.util.MessangerMediaPlayer;
 import ir.hfj.library.util.VideoHelper;
 
 
@@ -56,7 +56,7 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
     private final DisplayImageOptions imageOptionForUser;
     private final DisplayImageOptions imageOptionForContent;
     private ContactModel mChatUser;
-    private SamimMediaPlayer mSamimMediaPlayer;
+    private MessangerMediaPlayer mSamimMediaPlayer;
 
     public ChatAdapter(Activity activity, DataDictionary<UUID, ChatHolder> items, ContactModel mChatUser)
     {
@@ -85,7 +85,7 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
 
         imageOptionForUser = AppConfig.createDisplayImageOptions();
         imageOptionForContent = AppConfig.createChatContentDisplayImageOptions();
-        mSamimMediaPlayer = new SamimMediaPlayer();
+        mSamimMediaPlayer = new MessangerMediaPlayer();
     }
 
     public void update(ChatHolder holder)

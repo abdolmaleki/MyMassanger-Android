@@ -4,14 +4,13 @@ import android.media.MediaPlayer;
 
 import java.io.IOException;
 
-public class SamimMediaPlayer
+public class MessangerMediaPlayer
 {
-
     private MediaPlayer mPlayer;
     private PlayerState mState;
     private String mFilePath;
 
-    public SamimMediaPlayer()
+    public MessangerMediaPlayer()
     {
         mState = PlayerState.Init;
     }

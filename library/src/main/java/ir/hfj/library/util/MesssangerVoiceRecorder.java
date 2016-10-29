@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 
 import java.io.IOException;
 
-public class SamimVoiceRecorder
+public class MesssangerVoiceRecorder
 {
 
     private Thread mThread;
@@ -13,7 +13,7 @@ public class SamimVoiceRecorder
     private MediaRecorder myAudioRecorder;
     private String outputFile;
 
-    public SamimVoiceRecorder()
+    public MesssangerVoiceRecorder()
     {
         mState = RecorderState.Init;
     }
