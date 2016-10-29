@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public final class TeacherMapper
+public final class ContactMapper
 {
 
-    public static ContactModel ConvertDtoToModel(ContactDto dto, long studentId)
+    public static ContactModel ConvertDtoToModel(ContactDto dto)
     {
         ContactModel model = new ContactModel(dto.guid);
+        model.firstName = dto.firstName;
+        model.lastName = dto.lastName;
+        model.phoneNumber = dto.imageUrl;
         model.imageUrl = dto.imageUrl;
-        model.name = dto.name;
 
         return model;
     }
@@ -23,7 +25,7 @@ public final class TeacherMapper
     public static ChatUserHolder ConvertModelToHolder(ContactModel model)
     {
         ChatUserHolder holder = new ChatUserHolder();
-        holder.name = model.name;
+        holder.name = model.firstName + " " + model.lastName;
         holder.imageUrl = model.imageUrl;
         holder.guid = model.getGuid();
 

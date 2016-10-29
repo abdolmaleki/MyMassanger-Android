@@ -18,7 +18,7 @@ import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.holder.ChatUserHolder;
-import com.example.myapplication.mapper.TeacherMapper;
+import com.example.myapplication.mapper.ContactMapper;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -70,8 +70,8 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
     private void initAdapter()
     {
 
-        List<ContactModel> models = Db.Teacher.selectAll();
-        holders = TeacherMapper.ConvertModelToHolder(models);
+        List<ContactModel> models = Db.Contact.selectAll();
+        holders = ContactMapper.ConvertModelToHolder(models);
         mAdapterList = new ChatUserAdapterList(getActivity(), holders);
 
     }

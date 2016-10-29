@@ -14,9 +14,13 @@ public class ContactModel extends BaseModel
 
     public static final String __table = "_contact";
 
-    public static final String _name = "_name";
-    @Column(name = "_name")
-    public String name;
+    public static final String _firstName = "_firstName";
+    @Column(name = "_firstName")
+    public String firstName;
+
+    public static final String _lastName = "_lastName";
+    @Column(name = "_lastName")
+    public String lastName;
 
     public static final String _imageUrl = "_imageUrl";
     @Column(name = "_imageUrl")

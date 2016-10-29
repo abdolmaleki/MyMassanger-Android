@@ -70,7 +70,7 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
 
     private void initAdapter()
     {
-        List<ContactModel> teacherModels = Db.Teacher.selectAll();
+        List<ContactModel> teacherModels = Db.Contact.selectAll();
         DataDictionary<UUID, ChatHistoryHolder> holders = new DataDictionary<>();
 
         for (ContactModel model : teacherModels)
@@ -124,7 +124,7 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
             @Override
             public void onItemClick(View view, int position)
             {
-                UUID userGuid = Db.Teacher.selectById(mAdapter.getItemId(position));
+                UUID userGuid = Db.Contact.selectById(mAdapter.getItemId(position));
                 mChatController.switchChatUserFragment(userGuid);
                 mAdapter.updateReadedMessage(position);
             }

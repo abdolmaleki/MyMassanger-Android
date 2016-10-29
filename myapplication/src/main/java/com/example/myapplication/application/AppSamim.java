@@ -118,13 +118,6 @@ public class AppSamim extends App
                 TypeSerializer.class);
 
         ActiveAndroid.initialize(config.create());
-//        ContactModel t1 = new ContactModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a1"));
-//        t1.name = "سجاد عبدالملکی";
-//        ContactModel t2 = new ContactModel(UUID.fromString("9a2f9673-ca44-4bbd-af03-4d75fa4388a2"));
-//        t2.name = "علی گرجی";
-//        Db.Teacher.insert(t1);
-//        Db.Teacher.insert(t2);
-
     }
 
     public static AppSamim getInstance(Activity activity)

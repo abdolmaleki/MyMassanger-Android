@@ -208,7 +208,7 @@ public class ChatMapper
     {
         if (contactGuid != null)
         {
-            ContactModel contactModel = Db.Teacher.selectByGuid(contactGuid);
+            ContactModel contactModel = Db.Contact.selectByGuid(contactGuid);
             ChatModel lastChatModel = Db.Chat.selectHistory(contactGuid);
 
             if (lastChatModel != null)
@@ -216,7 +216,7 @@ public class ChatMapper
                 ChatHistoryHolder holder = new ChatHistoryHolder();
                 holder.description = lastChatModel.getSummary();
                 holder.count = Db.Chat.selectUnreadHistoryCount(contactGuid);
-                holder.name = contactModel.name;
+                holder.name = contactModel.firstName+" "+contactModel.lastName;
                 holder.time = Helper.getTime(lastChatModel.date);
                 holder.contactGuid = contactModel.getGuid();
                 holder.id = contactModel.getId();

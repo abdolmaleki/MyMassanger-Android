@@ -24,7 +24,6 @@ import com.example.myapplication.connection.socket.dto.ContactDto;
 import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
-import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.entity.ChatContentType;
 import com.example.myapplication.entity.MediaTransferState;
@@ -35,7 +34,7 @@ import com.example.myapplication.fragment.IUploadMediaListener;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
 import com.example.myapplication.mapper.ChatMapper;
-import com.example.myapplication.mapper.TeacherMapper;
+import com.example.myapplication.mapper.ContactMapper;
 
 import java.util.UUID;
 
@@ -498,17 +497,9 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 
             for (ContactDto dto : result.contactDtos)
             {
-                StudentModel student = Db.Student.select(result.autoIdResponse);
+                ContactModel model = ContactMapper.ConvertDtoToModel(dto);
 
-                if (student == null)
-                {
-                    return;
-                }
-
-                long studentId = student.getId();
-                ContactModel model = TeacherMapper.ConvertDtoToModel(dto, studentId);
-
-                if (!Db.Teacher.insert(model))
+                if (!Db.Contact.insert(model))
                 {
                     result.isSuccessful = false;
                     result.baseMessage = getString(R.string.samim_message_db_insert_error);

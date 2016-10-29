@@ -101,7 +101,7 @@ public class ChatFragment extends Fragment implements
 
         if (userGuid != null)
         {
-            mChatUser = Db.Teacher.selectByGuid(userGuid);
+            mChatUser = Db.Contact.selectByGuid(userGuid);
         }
     }
     private void initView()

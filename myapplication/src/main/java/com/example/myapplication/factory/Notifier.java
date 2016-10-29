@@ -48,8 +48,8 @@ public class Notifier
 
         int unReadMessageCount = Db.Chat.selectUnreadHistoryCount(dto.senderUserId);
 
-        ContactModel chatUser = Db.Teacher.selectByGuid(dto.senderUserId);
-        String chatUserName = chatUser.name;
+        ContactModel chatUser = Db.Contact.selectByGuid(dto.senderUserId);
+        String chatUserName = chatUser.firstName + " " + chatUser.lastName;
         //  DisplayImageOptions displayImageOptions =AppConfig.createNotificationDisplayImageOptions();
         Bitmap chatUserImage = ImageLoader.getInstance().loadImageSync(chatUser.imageUrl, new ImageSize(96, 96), AppConfig.createNotificationDisplayImageOptions());
 

@@ -8,7 +8,6 @@ import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
-import com.example.myapplication.database.model.StudentModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,21 +19,21 @@ import ir.hfj.library.database.DbBase;
 public abstract class Db extends DbBase
 {
 
-    public final static class Teacher
+    public final static class Contact
     {
 
-        public static boolean insert(ContactModel teacherModel)
+        public static boolean insert(ContactModel contactModel)
         {
             try
             {
-                teacherModel.save();
+                contactModel.save();
                 return true;
             }
             catch (Exception e)
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Insert [Teacher] problem: " + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Insert [Contact] problem: " + e.getMessage());
                 }
             }
             return false;
@@ -72,6 +71,14 @@ public abstract class Db extends DbBase
 
         }
 
+        public static boolean isExist(UUID guid)
+        {
+            return new Select()
+                    .from(ContactModel.class)
+                    .where(ContactModel.__guid + "=?", guid)
+                    .exists();
+        }
+
         public static boolean delete(UUID guid)
         {
             try
@@ -83,7 +90,24 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Delete [ContactModel] problem: " + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Delete [ContactModel] problem: " + e.getMessage());
+                }
+            }
+            return false;
+        }
+
+        public static boolean deleteAll()
+        {
+            try
+            {
+                new Delete().from(ContactModel.class).execute();
+                return true;
+            }
+            catch (Exception e)
+            {
+                if (AppConfig.DEBUG)
+                {
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Delete [ContactModel] problem: " + e.getMessage());
                 }
             }
             return false;
@@ -104,7 +128,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Insert [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Insert [Chat] problem" + e.getMessage());
                 }
             }
             return false;
@@ -158,7 +182,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > selectUnReportedReadedMessage [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > selectUnReportedReadedMessage [Chat] problem" + e.getMessage());
                 }
             }
             return chatGuids;
@@ -186,7 +210,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > selectUnReportedReadedUser [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > selectUnReportedReadedUser [Chat] problem" + e.getMessage());
                 }
             }
             return userGuids;
@@ -229,7 +253,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > readAllUnReadMessage [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > readAllUnReadMessage [Chat] problem" + e.getMessage());
                 }
             }
             return false;
@@ -249,7 +273,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Update [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Update [Chat] problem" + e.getMessage());
                 }
             }
             return false;
@@ -269,7 +293,7 @@ public abstract class Db extends DbBase
             {
                 if (AppConfig.DEBUG)
                 {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Delete [Chat] problem" + e.getMessage());
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Delete [Chat] problem" + e.getMessage());
                 }
             }
             return false;
@@ -299,52 +323,6 @@ public abstract class Db extends DbBase
             }
             return false;
         }*/
-
-    }
-
-    public final static class Student
-    {
-
-        public static boolean insert(StudentModel studentModel)
-        {
-            try
-            {
-                studentModel.save();
-                return true;
-            }
-            catch (Exception e)
-            {
-                if (AppConfig.DEBUG)
-                {
-                    Log.e(AppConfig.LOG_TAG, "SamimDatabase > Insert [Student] problem" + e.getMessage());
-                }
-
-            }
-            return false;
-        }
-
-        public static List<StudentModel> selectAll()
-        {
-            return new Select()
-                    .from(StudentModel.class)
-                    .execute();
-        }
-
-        public static StudentModel select(long id)
-        {
-            return new Select()
-                    .from(StudentModel.class)
-                    .where(StudentModel.__id + "=?", id)
-                    .executeSingle();
-        }
-
-        public static StudentModel select(UUID guid)
-        {
-            return new Select()
-                    .from(StudentModel.class)
-                    .where(StudentModel.__guid + "=?", guid)
-                    .executeSingle();
-        }
 
     }
 }

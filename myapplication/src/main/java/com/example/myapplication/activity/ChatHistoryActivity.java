@@ -26,9 +26,11 @@ import com.example.myapplication.connection.socket.dto.ChatReadReportDto;
 import com.example.myapplication.connection.socket.dto.ChatReadReportResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
+import com.example.myapplication.connection.socket.dto.ContactDto;
 import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
+import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.fragment.ChatFragment;
 import com.example.myapplication.fragment.ChatHistoryFragment;
 import com.example.myapplication.fragment.IChatController;
@@ -45,11 +47,13 @@ import com.example.myapplication.holder.ChatHolder;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
 import com.example.myapplication.mapper.ChatMapper;
+import com.example.myapplication.mapper.ContactMapper;
 import com.example.myapplication.service.ClientFlags;
 import com.example.myapplication.setting.Setting;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import ir.hfj.library.actionbar.OnSamimActionBarItemClick;
@@ -743,6 +747,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
             if (dto.isSuccessful)
             {
+                getActivity().SyncContacts(dto.contactDtos);
                 activity.submitChatHistoryFragment();
                 //save date refresh
 
@@ -839,7 +844,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
             if (isAuthenticated)
             {
                 //mNotifyIcon.hide();
-                SyncContacts();
+                RequestForSyncContacts();
             }
             else
             {
@@ -869,7 +874,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
     }
 
-    private void SyncContacts()
+    private void RequestForSyncContacts()
     {
         try
         {
@@ -879,6 +884,18 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         {
             e.printStackTrace();
         }
+    }
+
+    private void SyncContacts(List<ContactDto> dtos)
+    {
+        Db.Contact.deleteAll();
+
+        for (ContactDto dto : dtos)
+        {
+            ContactModel newContact = ContactMapper.ConvertDtoToModel(dto);
+            Db.Contact.insert(newContact);
+        }
+
     }
 
 

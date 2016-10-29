@@ -15,8 +15,8 @@ public class StudentModel extends BaseModel
 
     public static final String __table = "_student";
 
-    public static final String _name = "_name";
-    @Column(name = "_name")
+    public static final String _name = "_firstName";
+    @Column(name = "_firstName")
     public String name;
 
     public static final String _family = "_family";
@@ -55,6 +55,6 @@ public class StudentModel extends BaseModel
 
     public List<ContactModel> getTeachers()
     {
-        return Db.Teacher.selectByStudentId(this.getId());
+        return Db.Contact.selectByStudentId(this.getId());
     }
 }
