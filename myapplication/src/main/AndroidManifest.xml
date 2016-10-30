@@ -22,7 +22,6 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 
-
 		<activity
 			android:name="ir.hfj.library.activity.ActivationActivity"
 			android:label="@string/title_activity_main"
@@ -34,19 +33,18 @@
 			android:label="@string/title_activity_download"
 			android:launchMode="singleInstance" />
 		<activity
-			android:name=".activity.ChatHistoryActivity"
+			android:name=".activity.ChatActivity"
 			android:icon="@mipmap/ic_launcher"
-			android:label="@string/title_activity_chat"
 			android:launchMode="singleInstance"
 			>
 
-		<intent-filter>
-			<action android:name="android.intent.action.MAIN" />
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
 
-			<category android:name="android.intent.category.LAUNCHER" />
-		</intent-filter>
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
 
-	    </activity>
+		</activity>
 
 		<service
 			android:name=".service.MyMessangerService"
@@ -83,8 +81,6 @@
 				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 			</intent-filter>
 		</receiver>
-
-
 
 	</application>
 

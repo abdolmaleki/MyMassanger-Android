@@ -14,4 +14,6 @@ public interface IChatFragment
 
     void updateMessage(ChatHolder holder);
 
+    void setContactTypingState(boolean isTyping, UUID contactGuid);
+
 }

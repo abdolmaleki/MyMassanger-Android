@@ -11,7 +11,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activity.ChatHistoryActivity;
+import com.example.myapplication.activity.ChatActivity;
 import com.example.myapplication.application.Constant;
 import com.example.myapplication.connection.socket.SubscribeMethod;
 import com.example.myapplication.connection.socket.dto.ChatDeliverDto;
@@ -287,7 +287,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
     @Override
     public void setServiceNotification(Intent startIntent, int flags, int startId)
     {
-        Intent intent = new Intent(getBaseContext(), ChatHistoryActivity.class);
+        Intent intent = new Intent(getBaseContext(), ChatActivity.class);
 
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
@@ -335,7 +335,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         }
 
 
-        Intent intent = new Intent(getBaseContext(), ChatHistoryActivity.class);
+        Intent intent = new Intent(getBaseContext(), ChatActivity.class);
 
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 

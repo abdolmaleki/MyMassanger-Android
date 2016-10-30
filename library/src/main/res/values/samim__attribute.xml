@@ -10,9 +10,9 @@
     <item name="samim_actionbar_title" type="id" />
     <item name="samim_actionbar_student_image" type="id" />
     <item name="samim_actionbar_student_name" type="id" />
-    <item name="samim_actionbar_chat_user_name" type="id" />
-    <item name="samim_actionbar_chat_user_image" type="id" />
-    <item name="samim_actionbar_chat_typing_state" type="id" />
+    <item name="fragment_chat_list_contact_name" type="id" />
+    <item name="fragment_chat_list_user_image" type="id" />
+    <item name="fragment_chat_list_typing_state" type="id" />
 
     <item name="samim_no_entity_label" type="id" />
 

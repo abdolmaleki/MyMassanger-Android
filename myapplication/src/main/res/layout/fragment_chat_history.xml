@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			 xmlns:fab="http://schemas.android.com/apk/res-auto"
 			 android:layout_width="match_parent"
 			 android:layout_height="match_parent"
-			 android:background="@color/samim_color_white">
+			 android:background="@color/samim_color_white"
+			  android:orientation="vertical"
+	>
+
+	<TextView
+		android:id="@+id/fragment_chat_history_connection_state"
+		android:layout_width="match_parent"
+		android:layout_height="70dp"
+		android:background="@color/samim_color_blue"
+		android:text="پیام رسان"
+		android:textAppearance="@style/TextAppearance.IranBold"
+		android:textColor="@color/samim_color_white"
+		android:textSize="13dp"
+		/>
 
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/fragment_chat_history_recycleview"
 		style="@style/Samim.Scrollbar.ListView"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
 		android:divider="@color/samim_color_gray"
 		android:dividerHeight="1dp" />
 
@@ -24,4 +37,4 @@
 		fab:fab_colorPressed="@color/primary_dark"
 		fab:fab_colorRipple="@color/ripple" />
 
-</FrameLayout>
+</LinearLayout>

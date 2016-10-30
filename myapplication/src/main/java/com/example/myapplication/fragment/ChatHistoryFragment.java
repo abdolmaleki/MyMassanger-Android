@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.actionbar.ChatActionBar;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
@@ -37,6 +38,8 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
     private RecyclerView.LayoutManager mLayoutManager;
     private ChatHistoryAdapter mAdapter;
     private IChatUpdatable mChatController;
+    private ChatActionBar mActionBar;
+
 
     public static ChatHistoryFragment newInstance()
     {
@@ -58,7 +61,6 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
         initAdapter();
 
     }
-
     private void loadData()
     {
     }

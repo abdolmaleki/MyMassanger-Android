@@ -312,7 +312,7 @@ public class DownloadManager implements DownloadStatusListener
 
             if (holder.mBuilder == null)
             {
-                Intent intent = new Intent(mContext, ChatHistoryActivity.class);
+                Intent intent = new Intent(mContext, ChatActivity.class);
                 //intent.putExtra("id", (int) holder._guid);
 
 

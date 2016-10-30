@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activity.ChatHistoryActivity;
+import com.example.myapplication.activity.ChatActivity;
 import com.example.myapplication.application.Constant;
 import com.example.myapplication.connection.socket.dto.ChatDto;
 import com.example.myapplication.database.Db;
@@ -74,7 +74,7 @@ public class Notifier
             }
         }
 
-        Intent intent = new Intent(context, ChatHistoryActivity.class);
+        Intent intent = new Intent(context, ChatActivity.class);
         intent.putExtra(Constant.Param.KEY_CHAT_USER_GUID, chatUser.getGuid());
         PendingIntent pIntent = PendingIntent.getActivity(context, Helper.generateUniqueNumber(), intent, 0);
         Notification.Builder notificationBuilder = new Notification.Builder(context)

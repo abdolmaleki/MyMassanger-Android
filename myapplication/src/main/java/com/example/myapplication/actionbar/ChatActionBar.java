@@ -1,17 +1,13 @@
 package com.example.myapplication.actionbar;
 
-import android.app.Activity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.holder.ChatHolder;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import ir.hfj.library.actionbar.BaseActionBar;
@@ -21,8 +17,6 @@ public class ChatActionBar extends BaseActionBar
 {
 
     private final DisplayImageOptions mOptions;
-    private List<ChatHolder> mChatItems;
-    private Activity mActivity;
     private CircleImageView uiChatUserImage;
     private TextView uiChatUserName;
     private TextView uiChatTypingState;
@@ -30,7 +24,6 @@ public class ChatActionBar extends BaseActionBar
     public ChatActionBar(AppCompatActivity activity, ActionBar actionBar)
     {
         super(activity, actionBar, R.layout.actionbar_chat);
-        mActivity = activity;
         mOptions = AppConfig.createDisplayImageOptions();
     }
 
@@ -39,12 +32,13 @@ public class ChatActionBar extends BaseActionBar
     {
         return new int[0];
     }
+
     @Override
     protected void initView(View rootView)
     {
-        uiChatUserImage = (CircleImageView) rootView.findViewById(R.id.samim_actionbar_chat_user_image);
-        uiChatUserName = (TextView) rootView.findViewById(R.id.samim_actionbar_chat_user_name);
-        uiChatTypingState = (TextView) rootView.findViewById(R.id.samim_actionbar_chat_typing_state);
+        uiChatUserImage = (CircleImageView) rootView.findViewById(R.id.fragment_chat_list_user_image);
+        uiChatUserName = (TextView) rootView.findViewById(R.id.fragment_chat_list_contact_name);
+        uiChatTypingState = (TextView) rootView.findViewById(R.id.fragment_chat_list_typing_state);
 
     }
 

@@ -56,7 +56,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import ir.hfj.library.actionbar.OnSamimActionBarItemClick;
 import ir.hfj.library.activity.ActivationActivity;
 import ir.hfj.library.application.App;
 import ir.hfj.library.connection.socket.ConnectionEventHandler;
@@ -70,8 +69,7 @@ import ir.hfj.library.util.DateUtil;
 import ir.hfj.library.util.Helper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class ChatHistoryActivity extends AppCompatActivity implements
-        OnSamimActionBarItemClick,
+public class ChatActivity extends AppCompatActivity implements
         IChatUpdatable,
         IChatController,
         IChatHistoryUpdatable,
@@ -100,6 +98,9 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
         setContentView(R.layout.activity_chat_history);
 
+        initActionBar();
+
+
         initView();
 
         splashScreen();
@@ -110,7 +111,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
         //loadSavedInstanceData(savedInstanceState);
 
-        initActionBar();
+        //initActionBar();
 
         if (savedInstanceState == null)
         {
@@ -261,8 +262,11 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
     private void initActionBar()
     {
-        mActionBar = new ChatActionBar(this, getSupportActionBar());
-        mActionBar.setTitle(R.string.title_activity_chat);
+
+        android.support.v7.app.ActionBar myActionBar = getSupportActionBar();
+        myActionBar.hide();
+//        mActionBar = new ChatActionBar(this, getSupportActionBar());
+//        mActionBar.setTitle(R.string.title_activity_chat);
     }
 
     private boolean isBigView()
@@ -388,19 +392,19 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public void setChatUserImage(String imageUrl)
-    {
-        if (imageUrl != null)
-        {
-            mActionBar.setChatUserImage(imageUrl);
-        }
-        else
-        {
-            mActionBar.setUserImageInvisible();
-        }
-
-    }
+//    @Override
+//    public void setChatUserImage(String imageUrl)
+//    {
+//        if (imageUrl != null)
+//        {
+//            mActionBar.setChatUserImage(imageUrl);
+//        }
+//        else
+//        {
+//            mActionBar.setUserImageInvisible();
+//        }
+//
+//    }
 
     @Override
     public void sendMessage(ChatResponsibleDto dto) throws SamimException
@@ -504,10 +508,10 @@ public class ChatHistoryActivity extends AppCompatActivity implements
     // |____/ \___|_|    \_/ |_|\___\___|_| |_|\__,_|_| |_|\__,_|_|\___|_|
     //
 
-    private static class ServiceHandler extends SamimClientHandler<ChatHistoryActivity>
+    private static class ServiceHandler extends SamimClientHandler<ChatActivity>
     {
 
-        public ServiceHandler(ChatHistoryActivity activity)
+        public ServiceHandler(ChatActivity activity)
         {
             super(activity, ClientFlags.FLAG_CHAT);
         }
@@ -515,7 +519,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onChatReceived(ChatDto dto)
         {
-            final ChatHistoryActivity activity = getActivity();
+            final ChatActivity activity = getActivity();
 
             final ChatModel model = Db.Chat.select(dto.chatId);
 
@@ -569,7 +573,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onChatCallback(ChatResponsibleDto.Result dto)
         {
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             if (activity.mIChatFragment != null)
             {
@@ -611,7 +615,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         protected void onChatDeliverReceived(ChatDeliverDto dto)
         {
 
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             ChatModel model = Db.Chat.select(dto.chatId);
 
@@ -636,7 +640,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         protected void onChatReadReportReceived(ChatReadReportDto dto)
         {
 
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             UUID contactUserId = null;
 
@@ -680,25 +684,33 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onChatTypingReportReceive(ChatTypingReportDto dto)
         {
-            ChatHistoryActivity activity = getActivity();
+
+            ChatActivity activity = getActivity();
+
+
+            if (activity.mIChatFragment != null)
+            {
+                activity.mIChatFragment.setContactTypingState(dto.isTyping, dto.chatUserGuid);
+            }
+            //ChatActivity activity = getActivity();
 
             ///////////////////////////////////////
             /// State 1: Portrait and chatFragment
             ///////////////////////////////////////
-            if (activity.mChatUserGuid != null)
-            {
-                if (dto.chatUserGuid.equals(activity.mChatUserGuid))
-                {
-                    if (dto.isTyping)
-                    {
-                        activity.mActionBar.setIsTyping(true);
-                    }
-                    //else
-                    //{
-                    // activity.mActionBar.setIsTyping(false);
-                    //}
-                }
-            }
+//            if (activity.mChatUserGuid != null)
+//            {
+//                if (dto.chatUserGuid.equals(activity.mChatUserGuid))
+//                {
+//                    if (dto.isTyping)
+//                    {
+//                        activity.mActionBar.setIsTyping(true);
+//                    }
+//                    //else
+//                    //{
+//                    // activity.mActionBar.setIsTyping(false);
+//                    //}
+//                }
+//            }
             //////////////////////////////////////////////
             /// State 2: Portrait and chatHistory Fragment
             //////////////////////////////////////////////
@@ -713,7 +725,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onUploadChangeState(UploadHolder.Received uploadHolder)
         {
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             if (activity.mIUploadMediaListener != null)
             {
@@ -725,7 +737,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onDownloadChangeState(DownloadHolder.Received downloadHolder)
         {
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             if (activity.mIDownloadMediaListener != null)
             {
@@ -737,7 +749,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onContactCallback(ContactResponsibleDto.Result dto)
         {
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             if (activity.mDialogLoading != null)
             {
@@ -778,7 +790,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         @Override
         protected void onReady()
         {
-            ChatHistoryActivity activity = getActivity();
+            ChatActivity activity = getActivity();
 
             //load setting
             Date date = Setting.LoadRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CHATUSER);
@@ -900,13 +912,6 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
 
     @Override
-    public boolean onActionBarItemsClick(View view)
-    {
-        return false;
-    }
-
-
-    @Override
     public void onAttachFragment(Fragment fragment)
     {
         super.onAttachFragment(fragment);
@@ -969,7 +974,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
 
             refreshFragmentUi();
 
-            setChatUserImage(null);
+            //setChatUserImage(null);
 
         }
         else

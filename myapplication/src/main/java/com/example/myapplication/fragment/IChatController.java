@@ -16,5 +16,5 @@ public interface IChatController
 
     void readChat(UUID chatUserGuid) throws SamimException;
 
-    void setChatUserImage(String imageUrl) throws SamimException;
+    //void setChatUserImage(String imageUrl) throws SamimException;
 }

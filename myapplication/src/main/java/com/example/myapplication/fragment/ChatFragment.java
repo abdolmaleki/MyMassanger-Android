@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.ChatAdapter;
@@ -33,6 +35,8 @@ import com.example.myapplication.holder.ChatHolder;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
 import com.example.myapplication.mapper.ChatMapper;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.UUID;
@@ -42,6 +46,8 @@ import ir.hfj.library.exception.SamimException;
 import ir.hfj.library.ui.NhToast;
 import ir.hfj.library.util.Helper;
 import ir.hfj.library.util.MesssangerVoiceRecorder;
+
+import static com.example.myapplication.actionbar.ChatActionBar.COMMAND_STEP;
 
 
 public class ChatFragment extends Fragment implements
@@ -56,6 +62,9 @@ public class ChatFragment extends Fragment implements
     private RecyclerView uiRecyclerView;
     private ChatAdapter mAdapter = null;
     private EditText uiEdtMessage;
+    private ImageView uiImgContactImage;
+    private TextView uiTxvContactName;
+    private TextView uiTxvTypingState;
     private IChatController mChatController;
     private IChatHistoryUpdatable mChatHistoryController;
     private ContactModel mChatUser;
@@ -65,8 +74,13 @@ public class ChatFragment extends Fragment implements
     private SlidingUpPanelLayout uiSlidingUpPanelLayout;
     private MediaFragment mMediaFragment;
     private MesssangerVoiceRecorder mVoiceRecorder;
+    private DisplayImageOptions mOptions;
+
 
     String outputPath = null;
+    public ChatFragment()
+    {
+    }
 
     public static ChatFragment newInstance(UUID userGuid)
     {
@@ -121,6 +135,69 @@ public class ChatFragment extends Fragment implements
         }
     }
 
+    //     _        _   _             ____               ____            _   _
+    //    / \   ___| |_(_) ___  _ __ | __ )  __ _ _ __  / ___|  ___  ___| |_(_) ___  _ __
+    //   / _ \ / __| __| |/ _ \| '_ \|  _ \ / _` | '__| \___ \ / _ \/ __| __| |/ _ \| '_ \
+    //  / ___ \ (__| |_| | (_) | | | | |_) | (_| | |     ___) |  __/ (__| |_| | (_) | | | |
+    // /_/   \_\___|\__|_|\___/|_| |_|____/ \__,_|_|    |____/ \___|\___|\__|_|\___/|_| |_|
+    //
+
+    private void setChatUserImage(String imageUrl)
+    {
+        if (uiImgContactImage != null)
+        {
+            uiImgContactImage.setVisibility(View.VISIBLE);
+            ImageLoader.getInstance().displayImage(imageUrl, uiImgContactImage, mOptions);
+        }
+    }
+
+    public void setIsTyping(boolean isTyping)
+    {
+        MyRunnable runnable;
+
+        if (uiTxvTypingState != null)
+        {
+            if (isTyping)
+            {
+                uiTxvTypingState.setText(R.string.samim_chat_message_isTyping);
+                runnable = new MyRunnable();
+                uiTxvTypingState.postDelayed(runnable, 8000);
+            }
+
+            else
+            {
+                uiTxvTypingState.setText("");
+            }
+        }
+    }
+
+    private class MyRunnable implements Runnable
+    {
+
+        private final int command;
+
+        private MyRunnable()
+        {
+            command = ++COMMAND_STEP;
+        }
+
+        public void run()
+        {
+            if (COMMAND_STEP == command)
+            {
+                uiTxvTypingState.setText("");
+            }
+        }
+    }
+
+    public void setChatUserName(String name)
+    {
+        if (uiTxvContactName != null)
+        {
+            uiTxvContactName.setText(name);
+        }
+    }
+
     //  _____                                     _      ___                      _     _        __  __      _   _               _
     // |  ___| __ __ _  __ _ _ __ ___   ___ _ __ | |_   / _ \__   _____ _ __ _ __(_) __| | ___  |  \/  | ___| |_| |__   ___   __| |
     // | |_ | '__/ _` |/ _` | '_ ` _ \ / _ \ '_ \| __| | | | \ \ / / _ \ '__| '__| |/ _` |/ _ \ | |\/| |/ _ \ __| '_ \ / _ \ / _` |
@@ -131,6 +208,8 @@ public class ChatFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
+
         mLayoutManager = new LinearLayoutManager(getActivity());
         final View rootView;
         rootView = inflater.inflate(R.layout.fragment_chat_list, container, false);
@@ -138,6 +217,9 @@ public class ChatFragment extends Fragment implements
         uiRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_chat_list_recycleview);
         uiEdtMessage = (EditText) rootView.findViewById(R.id.fragment_chat_edt_message);
         uiSlidingUpPanelLayout = (SlidingUpPanelLayout) rootView.findViewById(R.id.fragment_chat_list_slidingUpPanel_layout);
+        uiImgContactImage = (ImageView) rootView.findViewById(R.id.fragment_chat_list_user_image);
+        uiTxvContactName = (TextView) rootView.findViewById(R.id.fragment_chat_list_contact_name);
+        uiTxvTypingState = (TextView) rootView.findViewById(R.id.fragment_chat_list_typing_state);
 
         rootView.findViewById(R.id.fragment_chat_btn_send).setOnClickListener(this);
         rootView.findViewById(R.id.fragment_chat_btn_voice).setOnClickListener(this);
@@ -157,6 +239,8 @@ public class ChatFragment extends Fragment implements
         {
             mMediaFragment.setTargetFragment(this, 0);
         }
+
+        mOptions = AppConfig.createDisplayImageOptions();
 
         return rootView;
     }
@@ -186,7 +270,8 @@ public class ChatFragment extends Fragment implements
         {
             try
             {
-                mChatController.setChatUserImage(mChatUser.imageUrl);
+                setChatUserImage(mChatUser.imageUrl);
+                setChatUserName(mChatUser.firstName + " " + mChatUser.lastName);
                 mChatController.readChat(mChatUser.getGuid());
             }
             catch (SamimException e)
@@ -201,16 +286,10 @@ public class ChatFragment extends Fragment implements
 
         else
         {
-            try
-            {
-                mChatController.setChatUserImage(null);
-            }
-            catch (SamimException e)
-            {
-                e.printStackTrace();
-            }
+            setChatUserImage(null);
         }
     }
+
 
     @Override
     public void onStart()
@@ -347,6 +426,14 @@ public class ChatFragment extends Fragment implements
     public void updateMessage(ChatHolder holder)
     {
         mAdapter.update(holder);
+    }
+    @Override
+    public void setContactTypingState(boolean isTyping, UUID contactGuid)
+    {
+        if (mChatUser.getGuid().equals(contactGuid))
+        {
+            setIsTyping(isTyping);
+        }
     }
 
     //  ___ ____                      _                 _   __  __          _ _         _     _     _
