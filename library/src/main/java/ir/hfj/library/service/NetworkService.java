@@ -135,7 +135,7 @@ public abstract class NetworkService extends Service implements INetworkService,
         if (!mIsAlive)
         {
 
-            mAuthenticatedMessage = getString(R.string.samim_service_message_logining);
+            mAuthenticatedMessage = getString(R.string.messanger_service_message_logining);
             mAuthenticateIssue = AUT_LOADING;
 
             mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -693,7 +693,7 @@ public abstract class NetworkService extends Service implements INetworkService,
         else
         {
 
-            mAuthenticatedMessage = getString(R.string.samim_service_message_not_active);
+            mAuthenticatedMessage = getString(R.string.messanger_service_message_not_active);
 
             if (mUserSetting == null)
             {
@@ -781,7 +781,7 @@ public abstract class NetworkService extends Service implements INetworkService,
                 postBackJTO = new AuthenticationJto.Login.PostBack();
                 postBackJTO.stateCode = PostBackJto.RESULT_BAD_REQUEST;
                 postBackJTO.detailMessage = e.getMessage();
-                postBackJTO.subjectMessage = getString(R.string.samim_message_error);
+                postBackJTO.subjectMessage = getString(R.string.messanger_message_error);
                 postBackJTO.isSuccessful = false;
                 postBackJTO.isErrorSocket = true;
             }
@@ -958,7 +958,7 @@ public abstract class NetworkService extends Service implements INetworkService,
                 if (isAuthenticated())
                 {
                     onChangeAuthenticate(false);
-                    mAuthenticatedMessage = getString(R.string.samim_service_message_login_broken);
+                    mAuthenticatedMessage = getString(R.string.messanger_service_message_login_broken);
                     mAuthenticateIssue = AUT_LOADING;
 
                     sendAuthenticationStateToAllClient();
@@ -1373,7 +1373,7 @@ public abstract class NetworkService extends Service implements INetworkService,
             else if (intent.getAction().equalsIgnoreCase(SamimAction.ACTIVATION_EXPIRED))
             {
 
-                expiredToken(true, getString(R.string.samim_service_message_not_active));
+                expiredToken(true, getString(R.string.messanger_service_message_not_active));
                 //send data to client [expired, please login again]
             }
 

@@ -142,7 +142,7 @@ public abstract class StudentActionBar extends BaseActionBar
                 }
                 else
                 {
-                    NhToast.makeText(mActivity, R.string.samim_message_error_notfound_student, NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
+                    NhToast.makeText(mActivity, R.string.messanger_message_error_notfound_student, NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
 
 

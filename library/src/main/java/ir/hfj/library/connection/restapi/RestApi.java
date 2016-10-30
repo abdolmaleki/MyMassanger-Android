@@ -59,7 +59,7 @@ public final class RestApi
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_logindata));
+            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_logindata));
         }
 
         HttpResponseParser response = executePostRequest(jto, AppConfig.RestApiAction.AccountLogin, false);
@@ -83,7 +83,7 @@ public final class RestApi
             {
                 Log.e(AppConfig.LOG_TAG, e.getMessage());
             }
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
         }
 
         return postBackDto;
@@ -114,7 +114,7 @@ public final class RestApi
             {
                 Log.e(AppConfig.LOG_TAG, e.getMessage());
             }
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
         }
 
         return postBackDto;
@@ -138,7 +138,7 @@ public final class RestApi
                 intent.setAction(SamimAction.ACTIVATION_NULL);
                 mContext.sendBroadcast(intent);
 
-                throw new SamimException(mContext.getString(R.string.samim_ws_message_error_logindata));
+                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_logindata));
             }
 
             mHttpClient = new DefaultHttpClient();
@@ -170,7 +170,7 @@ public final class RestApi
             if (isCanceled)
             {
                 mHttpClient = null;
-                throw new SamimException(mContext.getString(R.string.samim_ws_message_cancel_operation));
+                throw new SamimException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
             }
 
             HttpResponse response = mHttpClient.execute(httpPost);
@@ -232,23 +232,23 @@ public final class RestApi
                         {
                             Log.e(AppConfig.LOG_TAG, e.getMessage());
                         }
-                        throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+                        throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
                     }
 
                 }
                 else if (status == HttpStatus.SC_NOT_FOUND)
                 {
-                    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_notfound));
+                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_notfound));
                 }
                 else
                 {
-                    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_httpcode));
+                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
                 }
 
             }
             else
             {
-                throw new SamimException(mContext.getString(R.string.samim_ws_message_error_null_data));
+                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_null_data));
             }
 
         }
@@ -258,7 +258,7 @@ public final class RestApi
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_unknow));
+            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
         }
 
     }

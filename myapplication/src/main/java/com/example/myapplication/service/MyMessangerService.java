@@ -294,8 +294,8 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         Notification notification = new NotificationCompat
                 .Builder(this)
                 .setContentTitle(getString(R.string.app_name))
-                .setTicker(getString(R.string.samim_service_message_loading))
-                .setContentText(getString(R.string.samim_service_message_loading))
+                .setTicker(getString(R.string.messanger_service_message_loading))
+                .setContentText(getString(R.string.messanger_service_message_loading))
                 .setSmallIcon(R.drawable.ic_samim)
                 //.setLargeIcon()
                 .setOngoing(true)
@@ -315,7 +315,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         //int authenticateIssue = getAuthenticateIssue();
         boolean isAuthenticated = isAuthenticated();
 
-        String ticker = getString(R.string.samim_service_message_ready);
+        String ticker = getString(R.string.messanger_service_message_ready);
 
         if (connectionState == ConnectionEventHandler.NET_Connected)
         {
@@ -327,11 +327,11 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         }
         else if (connectionState == ConnectionEventHandler.NET_Connecting)
         {
-            ticker = getString(R.string.samim_message_connecting);
+            ticker = getString(R.string.messanger_message_connecting);
         }
         else if (connectionState == ConnectionEventHandler.NET_Disconnected)
         {
-            ticker = getString(R.string.samim_message_disconnected);
+            ticker = getString(R.string.messanger_message_disconnected);
         }
 
 

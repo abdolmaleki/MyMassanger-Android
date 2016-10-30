@@ -194,7 +194,7 @@ public final class UploadManager
                     postBackJto = new FileJto.PostBack();
                     postBackJto.stateCode = PostBackJto.RESULT_BAD_REQUEST;
                     postBackJto.detailMessage = e.getMessage();
-                    postBackJto.subjectMessage = mContext.getString(ir.hfj.library.R.string.samim_login_message_title_error);
+                    postBackJto.subjectMessage = mContext.getString(ir.hfj.library.R.string.messanger_login_message_title_error);
                 }
 
                 return postBackJto;

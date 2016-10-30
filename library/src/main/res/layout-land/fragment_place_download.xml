@@ -46,7 +46,7 @@
 			style="@style/Samim.Button.Blue"
 			android:layout_width="120dp"
 			android:layout_height="wrap_content"
-			android:text="@string/samim_label_button_download" />
+			android:text="@string/messanger_label_button_download" />
 
 		<TextView
 			android:id="@+id/DownloadFragment_txv_current_version"

@@ -584,7 +584,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
             else
             {
                 NhDialog dialog = new NhDialog(mActivity, NhDialog.DialogIcon.ALERT);
-                dialog.setMainTitle(R.string.samim_login_message_title_validation).setSubTitle(R.string.samim_login_message_notvalid_phonenumber);
+                dialog.setMainTitle(R.string.messanger_login_message_title_validation).setSubTitle(R.string.messanger_login_message_notvalid_phonenumber);
                 dialog.show();
                 onBackResult(ExecutionFragment.RESULT_ERROR);
             }
@@ -612,7 +612,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
 
                 mDialog = new NhDialog(mFragment.mActivity, NhDialog.DialogIcon.LOADING);
                 mDialog.setCancelable(true);
-                mDialog.setMainTitle(R.string.samim_login_message_title_server_sending).setSubTitle(R.string.samim_message_pleasewait);
+                mDialog.setMainTitle(R.string.messanger_login_message_title_server_sending).setSubTitle(R.string.messanger_message_pleasewait);
                 mDialog.setOnCancelListener(new DialogInterface.OnCancelListener()
                 {
 
@@ -649,7 +649,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                     postBackJTO = new ActivationJto.Phone.PostBack();
                     postBackJTO.stateCode = PostBackJto.RESULT_BAD_REQUEST;
                     postBackJTO.detailMessage = e.getMessage();
-                    postBackJTO.subjectMessage = mFragment.getString(R.string.samim_login_message_title_error_network);
+                    postBackJTO.subjectMessage = mFragment.getString(R.string.messanger_login_message_title_error_network);
                 }
 
                 return postBackJTO;
@@ -808,7 +808,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 catch (SamimException e)
                 {
                     mDialog = new NhDialog(mActivity, NhDialog.DialogIcon.ERROR);
-                    mDialog.setMainTitle(R.string.samim_login_message_title_error).setSubTitle(e.getMessage());
+                    mDialog.setMainTitle(R.string.messanger_login_message_title_error).setSubTitle(e.getMessage());
                     mDialog.show();
                     onBackResult(ExecutionFragment.RESULT_ERROR);
                     return;
@@ -822,7 +822,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 onBackResult(ExecutionFragment.RESULT_ERROR);
 
                 mDialog = new NhDialog(mActivity, NhDialog.DialogIcon.ERROR);
-                mDialog.setMainTitle(R.string.samim_login_message_title_validation).setSubTitle(R.string.samim_login_message_notvalid_activecode);
+                mDialog.setMainTitle(R.string.messanger_login_message_title_validation).setSubTitle(R.string.messanger_login_message_notvalid_activecode);
                 mDialog.show();
             }
 
@@ -890,14 +890,14 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
             if (!isValidUsername || !isValidPassword)
             {
                 NhDialog dialog = new NhDialog(mActivity, NhDialog.DialogIcon.ALERT);
-                dialog.setMainTitle(R.string.samim_login_message_title_validation);
+                dialog.setMainTitle(R.string.messanger_login_message_title_validation);
                 if (!isValidUsername)
                 {
-                    dialog.setSubTitle(R.string.samim_login_message_notvalid_username);
+                    dialog.setSubTitle(R.string.messanger_login_message_notvalid_username);
                 }
                 else
                 {
-                    dialog.setSubTitle(R.string.samim_login_message_notvalid_password);
+                    dialog.setSubTitle(R.string.messanger_login_message_notvalid_password);
                 }
                 dialog.show();
 
@@ -944,7 +944,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
 
                 mDialog = new NhDialog(mFragment.mActivity, NhDialog.DialogIcon.LOADING);
                 mDialog.setCancelable(true);
-                mDialog.setMainTitle(R.string.samim_login_message_title_server_authenticating).setSubTitle(R.string.samim_message_pleasewait);
+                mDialog.setMainTitle(R.string.messanger_login_message_title_server_authenticating).setSubTitle(R.string.messanger_message_pleasewait);
                 mDialog.setOnCancelListener(new DialogInterface.OnCancelListener()
                 {
 
@@ -989,7 +989,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                     postBackJTO = new ActivationJto.Verify.PostBack();
                     postBackJTO.stateCode = PostBackJto.RESULT_BAD_REQUEST;
                     postBackJTO.detailMessage = e.getMessage();
-                    postBackJTO.subjectMessage = mFragment.getString(R.string.samim_login_message_title_error_network);
+                    postBackJTO.subjectMessage = mFragment.getString(R.string.messanger_login_message_title_error_network);
                 }
 
                 return postBackJTO;
@@ -1032,7 +1032,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                             else
                             {
                                 mDialog = new NhDialog(mFragment.mActivity, NhDialog.DialogIcon.ERROR);
-                                mDialog.setMainTitle(R.string.samim_login_message_title_error).setSubTitle(R.string.samim_message_error_savedb);
+                                mDialog.setMainTitle(R.string.messanger_login_message_title_error).setSubTitle(R.string.messanger_message_error_savedb);
                                 mDialog.show();
                                 mFragment.onBackResult(ExecutionFragment.RESULT_ERROR);
                             }
@@ -1046,7 +1046,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                     }
 
                     mDialog = new NhDialog(mFragment.mActivity, NhDialog.DialogIcon.ERROR);
-                    mDialog.setMainTitle(R.string.samim_login_message_title_error).setSubTitle(R.string.samim_login_message_error_activation_faild);
+                    mDialog.setMainTitle(R.string.messanger_login_message_title_error).setSubTitle(R.string.messanger_login_message_error_activation_faild);
                     mDialog.show();
 
                 }
@@ -1100,7 +1100,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
             txvHead.setText("کاربر گرامی " + info.name + " " + info.family);
 
             TextView txvText = (TextView) rootView.findViewById(R.id.fragment_login_finish_txv_text);
-            txvText.setText(R.string.samim_login_message_error_activation_success);
+            txvText.setText(R.string.messanger_login_message_error_activation_success);
 
             return rootView;
         }

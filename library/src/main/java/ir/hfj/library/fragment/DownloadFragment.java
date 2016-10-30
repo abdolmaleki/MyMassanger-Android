@@ -105,7 +105,7 @@ public class DownloadFragment extends Fragment implements OnClickListener
         mMessage = getArguments().getString(ConstantBase.Param.KEY_MESSAGE);
         if (mMessage == null || mMessage.isEmpty())
         {
-            mMessage = getActivity().getString(R.string.samim_label_update);
+            mMessage = getActivity().getString(R.string.messanger_label_update);
         }
     }
 

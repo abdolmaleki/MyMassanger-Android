@@ -59,7 +59,7 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
@@ -90,7 +90,7 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
@@ -121,7 +121,7 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
@@ -162,7 +162,7 @@ public final class ActivationRestApi
 			if (isCanceled)
 			{
 				mHttpClient = null;
-				throw new SamimException(mContext.getString(R.string.samim_ws_message_cancel_operation));
+				throw new SamimException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
 			}
 
 			HttpResponse response = mHttpClient.execute(httpPost);
@@ -208,23 +208,23 @@ public final class ActivationRestApi
 						{
 							Log.e(AppConfig.LOG_TAG, e.getMessage());
 						}
-						throw new SamimException(mContext.getString(R.string.samim_ws_message_error_format));
+						throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
 					}
 
 				}
 				else if (status == HttpStatus.SC_NOT_FOUND)
 				{
-					throw new SamimException(mContext.getString(R.string.samim_ws_message_error_notfound));
+					throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_notfound));
 				}
 				else
 				{
-					throw new SamimException(mContext.getString(R.string.samim_ws_message_error_httpcode));
+					throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
 				}
 
 			}
 			else
 			{
-				throw new SamimException(mContext.getString(R.string.samim_ws_message_error_null_data));
+				throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_null_data));
 			}
 
 		}
@@ -234,7 +234,7 @@ public final class ActivationRestApi
 		}
 		catch (Exception e)
 		{
-			throw new SamimException(mContext.getString(R.string.samim_ws_message_error_unknow));
+			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
 		}
 
 	}

@@ -384,7 +384,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -411,7 +411,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException ignored)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -424,7 +424,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException ignored)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -460,7 +460,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -473,7 +473,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -493,7 +493,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.samim_message_service_not_responding));
+            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -757,7 +757,7 @@ public class ChatHistoryActivity extends AppCompatActivity implements
             {
                 activity.mDialogLoading = new NhDialog(activity, NhDialog.DialogIcon.ERROR);
                 activity.mDialogLoading.setCancelable(true);
-                activity.mDialogLoading.setMainTitle(ir.hfj.library.R.string.samim_message_error).setSubTitle(dto.baseMessage);
+                activity.mDialogLoading.setMainTitle(ir.hfj.library.R.string.messanger_message_error).setSubTitle(dto.baseMessage);
                 activity.mDialogLoading.show();
             }
 

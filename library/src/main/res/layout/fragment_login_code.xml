@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/samim_login_title_code"
+        android:text="@string/messanger_login_title_code"
         android:layout_marginBottom="20dp"
         android:layout_margin="20dp"
         android:textColor="#fff"

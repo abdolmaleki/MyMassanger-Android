@@ -31,7 +31,7 @@
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:text="@string/samim_label_button_previous"
+			android:text="@string/messanger_label_button_previous"
 			android:textColor="@color/samim_color_white" />
 
 		<Button
@@ -40,7 +40,7 @@
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:text="@string/samim_label_button_close"
+			android:text="@string/messanger_label_button_close"
 			android:textColor="@color/samim_color_white" />
 
 		<Button
@@ -49,7 +49,7 @@
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:text="@string/samim_label_button_next"
+			android:text="@string/messanger_label_button_next"
 			android:textColor="@color/samim_color_white" />
 	</LinearLayout>
 

@@ -30,7 +30,7 @@ public class ChatFactory
 
             if (text == null || text.isEmpty())
             {
-                listener.onInvalidation(activity.getString(R.string.samim_message_error_chat_empty));
+                listener.onInvalidation(activity.getString(R.string.messanger_message_error_chat_empty));
             }
             else
             {
@@ -69,7 +69,7 @@ public class ChatFactory
 
             if (path.isEmpty())
             {
-                listener.onInvalidation(activity.getString(R.string.samim_message_error_image_empty));
+                listener.onInvalidation(activity.getString(R.string.messanger_error_image_empty));
             }
             else
             {
@@ -107,7 +107,7 @@ public class ChatFactory
 
             if (path.isEmpty())
             {
-                listener.onInvalidation(activity.getString(R.string.samim_message_error_file_empty));
+                listener.onInvalidation(activity.getString(R.string.messanger_message_error_file_empty));
             }
             else
             {
@@ -147,7 +147,7 @@ public class ChatFactory
 
             if (path.isEmpty())
             {
-                listener.onInvalidation(activity.getString(R.string.samim_message_error_video_empty));
+                listener.onInvalidation(activity.getString(R.string.messanger_message_error_video_empty));
             }
             else
             {
@@ -185,7 +185,7 @@ public class ChatFactory
 
             if (path.isEmpty())
             {
-                listener.onInvalidation(activity.getString(R.string.samim_message_error_voice_empty));
+                listener.onInvalidation(activity.getString(R.string.messanger_message_error_voice_empty));
             }
             else
             {

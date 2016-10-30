@@ -194,7 +194,7 @@ public class ChatFragment extends Fragment implements
 
                 if (activity != null)
                 {
-                    NhToast.makeText(activity, activity.getString(R.string.samim_message_service_not_responding), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
+                    NhToast.makeText(activity, activity.getString(R.string.messanger_message_service_not_responding), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
             }
         }

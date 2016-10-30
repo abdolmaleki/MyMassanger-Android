@@ -105,7 +105,7 @@ public class DownloadService extends IntentService
             if (userSetting == null)
             {
                 //show active message
-                sendUiUpdate(getString(R.string.samim_service_message_not_active));
+                sendUiUpdate(getString(R.string.messanger_service_message_not_active));
                 return;
             }
 
@@ -274,7 +274,7 @@ public class DownloadService extends IntentService
             {
                 PendingIntent pIntent = PendingIntent.getActivity(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 mBuilder = new Builder(this);
-                mBuilder.setContentTitle(getString(R.string.samim_label_update))
+                mBuilder.setContentTitle(getString(R.string.messanger_label_update))
                         .setContentText("در حال دانلود نسخه جدید")
                         .setContentIntent(pIntent)
                         .setOngoing(true)
@@ -299,7 +299,7 @@ public class DownloadService extends IntentService
 
             PendingIntent pIntent = PendingIntent.getActivity(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             mBuilder = new Builder(this);
-            mBuilder.setContentTitle(getString(R.string.samim_label_update))
+            mBuilder.setContentTitle(getString(R.string.messanger_label_update))
                     .setContentText("")
                     //.setContentIntent(pIntent)
                     .setContentInfo(message)

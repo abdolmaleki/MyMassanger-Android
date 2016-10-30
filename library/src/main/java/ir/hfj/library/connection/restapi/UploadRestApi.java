@@ -57,7 +57,7 @@ public class UploadRestApi
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_unknow));
+            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
         }
 
 

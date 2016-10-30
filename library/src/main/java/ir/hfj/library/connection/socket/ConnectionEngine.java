@@ -339,7 +339,7 @@ public final class ConnectionEngine
                                 }
                                 else
                                 {
-                                    resultDTO.baseMessage = mContext.getString(R.string.samim_message_error_network);
+                                    resultDTO.baseMessage = mContext.getString(R.string.messanger_message_error_network);
                                 }
                             }
                             catch (Exception ignored)
@@ -488,7 +488,7 @@ public final class ConnectionEngine
                                 }
                                 else
                                 {
-                                    resultDto.baseMessage = mContext.getString(R.string.samim_message_error_network);
+                                    resultDto.baseMessage = mContext.getString(R.string.messanger_message_error_network);
                                 }
                             }
                             catch (Exception ignored)

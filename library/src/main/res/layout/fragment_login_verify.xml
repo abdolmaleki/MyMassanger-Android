@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/samim_login_title_verify"
+        android:text="@string/messanger_login_title_verify"
         android:layout_margin="20dp"
         android:textColor="#fff"
         android:textSize="@dimen/samim_fontsize_normal"
@@ -31,7 +31,7 @@
             android:layout_marginTop ="5dp"
             android:ems="5"
             android:gravity="center"
-            android:hint="@string/samim_login_hint_username"
+            android:hint="@string/messanger_login_hint_username"
             android:textColorHint="@color/samim_color_gray_murky"
             android:background="@android:color/transparent"
             android:inputType="numberDecimal"
@@ -55,7 +55,7 @@
             android:layout_marginTop ="5dp"
             android:ems="5"
             android:gravity="center"
-            android:hint="@string/samim_login_hint_password"
+            android:hint="@string/messanger_login_hint_password"
             android:textColorHint="@color/samim_color_gray_murky"
             android:background="@android:color/transparent"
             android:inputType="numberPassword"
@@ -87,7 +87,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="right|center_vertical"
-            android:text="@string/samim_login_label_button_register"
+            android:text="@string/messanger_login_label_button_register"
             android:textColor="#ffffff"
             android:textSize="@dimen/samim_fontsize_normal"/>
 

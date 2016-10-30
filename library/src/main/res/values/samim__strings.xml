@@ -1,30 +1,27 @@
 <resources>
 
-
-
-
     <!-- Message -->
-    <string name="samim_message_error_notfound">موردی یافت نشد</string>
-    <string name="samim_message_error_notfound_student">اطلاعات دانش آموز قابل بازیابی نیست</string>
-    <string name="samim_message_error_savedb">ذخیره سازی اطلاعات با خطا مواجه شده است.</string>
-    <string name="samim_message_error_db_internal">ماژول پایگاه داده با خطا مواجه شده است</string>
-    <string name="samim_message_pleasewait">لطفا صبر کنید</string>
-    <string name="samim_message_error_network">خطای برقراری ارتباط با سرور مرکزی.</string>
-    <string name="samim_message_error">خطا</string>
-    <string name="samim_message_service_not_responding">عدم دسترسی به سرویس سمیم</string>
-    <string name="samim_message_error_googleplayservice">نرم افزار گوگل پلی سرویس بر روی دستگاه شما نصب نیست</string>
-    <string name="samim_message_error_chat_empty">لطفا متن را وارد کنید</string>
-    <string name="samim_message_error_image_empty">تصویر مورد نظر یافت نشد</string>
-    <string name="samim_message_error_video_empty">کلیپ مورد نظر یافت نشد</string>
-    <string name="samim_message_error_voice_empty">صوت مورد نظر یافت نشد</string>
-    <string name="samim_message_error_file_empty">فایل مورد نظر یافت نشد</string>
-    <string name="samim_message_error_load_image">عکس مورد نظر بارگذاری نشد </string>
+    <string name="messanger_message_error_notfound">موردی یافت نشد</string>
+    <string name="messanger_message_error_notfound_student">اطلاعات دانش آموز قابل بازیابی نیست</string>
+    <string name="messanger_message_error_savedb">ذخیره سازی اطلاعات با خطا مواجه شده است.</string>
+    <string name="messanger_message_error_db_internal">ماژول پایگاه داده با خطا مواجه شده است</string>
+    <string name="messanger_message_pleasewait">لطفا صبر کنید</string>
+    <string name="messanger_message_error_network">خطای برقراری ارتباط با سرور مرکزی.</string>
+    <string name="messanger_message_error">خطا</string>
+    <string name="messanger_message_service_not_responding">عدم دسترسی به سرویس پیام رسان</string>
+    <string name="messanger_message_error_googleplayservice">نرم افزار گوگل پلی سرویس بر روی دستگاه شما نصب نیست</string>
+    <string name="messanger_message_error_chat_empty">لطفا متن را وارد کنید</string>
+    <string name="messanger_error_image_empty">تصویر مورد نظر یافت نشد</string>
+    <string name="messanger_message_error_video_empty">کلیپ مورد نظر یافت نشد</string>
+    <string name="messanger_message_error_voice_empty">صوت مورد نظر یافت نشد</string>
+    <string name="messanger_message_error_file_empty">فایل مورد نظر یافت نشد</string>
+    <string name="messanger_message_error_load_image">عکس مورد نظر بارگذاری نشد </string>
 
-    <string name="samim_message_loading">در حال بارگذاری...</string>
-    <string name="samim_message_expire">نرم افزار شما غیر فعال شده است، لطفا مجددا نرم افزار را فعال کنید.</string>
-    <string name="samim_message_disconnected">عدم دسترسی به سرور مرکزی</string>
-    <string name="samim_message_connecting">در حال اتصال به سرور مرکزی</string>
-    <string name="samim_message_nonetwork">عدم دسترسی به شبکه</string>
+    <string name="messanger_message_loading">در حال بارگذاری...</string>
+    <string name="messanger_message_expire">نرم افزار شما غیر فعال شده است، لطفا مجددا نرم افزار را فعال کنید.</string>
+    <string name="messanger_message_disconnected">عدم دسترسی به سرور مرکزی</string>
+    <string name="messanger_message_connecting">در حال اتصال به سرور مرکزی</string>
+    <string name="messanger_message_nonetwork">عدم دسترسی به شبکه</string>
 
 	<!-- Lable -->
 
@@ -32,85 +29,85 @@
     <!-- ================================= -->
     <!-- Service Message -->
     <!-- ================================= -->
-    <string name="samim_service_message_not_active">لطفا نرم افزار را فعال کنید.</string>
-    <string name="samim_service_message_logining">در حال احراز هویت</string>
-    <string name="samim_service_message_login_broken">احراز هویت مجددا انجام خواهد شد</string>
-    <string name="samim_service_message_ready">سمیم فعال است</string>
-    <string name="samim_service_message_loading">سمیم در حال اجراست</string>
+    <string name="messanger_service_message_not_active">لطفا نرم افزار را فعال کنید.</string>
+    <string name="messanger_service_message_logining">در حال احراز هویت</string>
+    <string name="messanger_service_message_login_broken">احراز هویت مجددا انجام خواهد شد</string>
+    <string name="messanger_service_message_ready">پیام رسان فعال است</string>
+    <string name="messanger_service_message_loading">پیام رسان در حال اجراست</string>
     <!-- ================================= -->
     <!-- Activation activity -->
     <!-- ================================= -->
-    <string name="samim_login_label_button_close">خروج</string>
-    <string name="samim_login_label_button_next">بعدی</string>
-    <string name="samim_login_label_button_back">بازگشت</string>
-    <string name="samim_login_label_button_register">قبلا ثبت نام نکرده ام</string>
+    <string name="messanger_login_label_button_close">خروج</string>
+    <string name="messanger_login_label_button_next">بعدی</string>
+    <string name="messanger_login_label_button_back">بازگشت</string>
+    <string name="messanger_login_label_button_register">قبلا ثبت نام نکرده ام</string>
     <!-- label -->
-    <string name="samim_login_title_phone">شماره تلفن خود را وارد نمایید</string>
-    <string name="samim_login_title_code">کد فعال سازی را وارد نمایید</string>
-    <string name="samim_login_title_verify">نام کاربری و کلمه عبور را وارد نمایید</string>
+    <string name="messanger_login_title_phone">شماره تلفن خود را وارد نمایید</string>
+    <string name="messanger_login_title_code">کد فعال سازی را وارد نمایید</string>
+    <string name="messanger_login_title_verify">نام کاربری و کلمه عبور را وارد نمایید</string>
     <!-- hint -->
-    <string name="samim_login_hint_phone">شماره تلفن</string>
-    <string name="samim_login_hint_activecode">کد فعال سازی</string>
-    <string name="samim_login_hint_username">نام کاربری</string>
-    <string name="samim_login_hint_password">کلمه عبور</string>
-    <string name="samim_login_hint_passwordreplay">تکرار کلمه عبور</string>
-    <string name="samim_login_hint_email">آدرس ایمیل</string>
-    <string name="samim_login_hint_fullname">نام کامل</string>
+    <string name="messanger_login_hint_phone">شماره تلفن</string>
+    <string name="messanger_login_hint_activecode">کد فعال سازی</string>
+    <string name="messanger_login_hint_username">نام کاربری</string>
+    <string name="messanger_login_hint_password">کلمه عبور</string>
+    <string name="messanger_login_hint_passwordreplay">تکرار کلمه عبور</string>
+    <string name="messanger_login_hint_email">آدرس ایمیل</string>
+    <string name="messanger_login_hint_fullname">نام کامل</string>
     <!-- message -->
-    <string name="samim_login_message_error_activation_faild">عملیات فعال سازی با خطا مواجه شد. لطفا دوباره سعی نمایید</string>
-    <string name="samim_login_message_error_activation_success">عملیات فعال سازی با موفقیت انجام شد.</string>
-    <string name="samim_login_message_error_activation_expiredtitle">خطای انقضا</string>
-    <string name="samim_login_message_error_activation_expired">اطلاعات فعال سازی نرم افزار منقضی شده است.</string>
-    <string name="samim_login_message_notvalid_phonenumber">شماره تلفن همراه را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_username">نام کاربری را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_password">کلمه عبور را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_passwordreplay">تکرار کلمه عبور را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_name">نام خود را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_family">نام فامیل خود را بصورت صحیح وارد نمایید.</string>
-    <string name="samim_login_message_notvalid_notequalpass">تکرار کلمه عبور اشتباه است.</string>
-    <string name="samim_login_message_notvalid_activecode">کد فعال سازی را وارد نمایید.\nچنانچه این کد را از طریق پیامک دریافت نکرده اید\nبه مرحله قبل بازگردید.</string>
-    <string name="samim_login_message_title_validation">خطای ورود اطلاعات</string>
-    <string name="samim_login_message_title_server_sending">در حال ارسال اطلاعات</string>
-    <string name="samim_login_message_title_server_authenticating">در حال اعتبار سنجی</string>
-    <string name="samim_login_message_title_check_expire">در حال بررسی مجدد</string>
-    <string name="samim_login_message_title_error_network">خطای شبکه</string>
-    <string name="samim_login_message_title_success">موفق</string>
-    <string name="samim_login_message_title_error">خطا</string>
+    <string name="messanger_login_message_error_activation_faild">عملیات فعال سازی با خطا مواجه شد. لطفا دوباره سعی نمایید</string>
+    <string name="messanger_login_message_error_activation_success">عملیات فعال سازی با موفقیت انجام شد.</string>
+    <string name="messanger_login_message_error_activation_expiredtitle">خطای انقضا</string>
+    <string name="messanger_login_message_error_activation_expired">اطلاعات فعال سازی نرم افزار منقضی شده است.</string>
+    <string name="messanger_login_message_notvalid_phonenumber">شماره تلفن همراه را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_username">نام کاربری را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_password">کلمه عبور را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_passwordreplay">تکرار کلمه عبور را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_name">نام خود را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_family">نام فامیل خود را بصورت صحیح وارد نمایید.</string>
+    <string name="messanger_login_message_notvalid_notequalpass">تکرار کلمه عبور اشتباه است.</string>
+    <string name="messanger_login_message_notvalid_activecode">کد فعال سازی را وارد نمایید.\nچنانچه این کد را از طریق پیامک دریافت نکرده اید\nبه مرحله قبل بازگردید.</string>
+    <string name="messanger_login_message_title_validation">خطای ورود اطلاعات</string>
+    <string name="messanger_login_message_title_server_sending">در حال ارسال اطلاعات</string>
+    <string name="messanger_login_message_title_server_authenticating">در حال اعتبار سنجی</string>
+    <string name="messanger_login_message_title_check_expire">در حال بررسی مجدد</string>
+    <string name="messanger_login_message_title_error_network">خطای شبکه</string>
+    <string name="messanger_login_message_title_success">موفق</string>
+    <string name="messanger_login_message_title_error">خطا</string>
 
     <!-- ================================= -->
     <!-- Dialog -->
     <!-- ================================= -->
-    <string name="samim_label_button_yes">بله</string>
-    <string name="samim_label_button_no">خیر</string>
-    <string name="samim_label_button_next">بعدی</string>
-    <string name="samim_label_button_previous">بازگشت</string>
-    <string name="samim_label_button_download">دانلود</string>
-    <string name="samim_label_button_cancel">انصراف</string>
-    <string name="samim_label_button_close">خروج</string>
+    <string name="messanger_label_button_yes">بله</string>
+    <string name="messanger_label_button_no">خیر</string>
+    <string name="messanger_label_button_next">بعدی</string>
+    <string name="messanger_label_button_previous">بازگشت</string>
+    <string name="messanger_label_button_download">دانلود</string>
+    <string name="messanger_label_button_cancel">انصراف</string>
+    <string name="messanger_label_button_close">خروج</string>
 
 
     <!-- ================================= -->
     <!-- Notifications -->
     <!-- ================================= -->
-    <string name="notify_login_maintext">جهت استفاده از سمیم وارد شوید</string>
-    <string name="notify_login_ticker">به سمیم وارد شوید</string>
+    <string name="notify_login_maintext">جهت استفاده از پیام رسان وارد شوید</string>
+    <string name="notify_login_ticker">به پیام رسان وارد شوید</string>
     <string name="notify_chatmessage_ticker">پیام جدید از</string>
     <!-- ================================= -->
     <!-- Web Service message -->
     <!-- ================================= -->
-    <string name="samim_ws_message_error_format">قالب اطلاعات دریافتی از سرور معتبر نمی باشد.</string>
-    <string name="samim_ws_message_error_httpcode">خطای برقراری ارتباط با سرور مرکزی.</string>
-    <string name="samim_ws_message_error_null_data">خطای برقراری ارتباط با سرور مرکزی.</string>
-    <string name="samim_ws_message_error_unknow">عدم برقراری ارتباط با سرور مرکزی.</string>
-    <string name="samim_ws_message_error_notfound">سرویس مورد نظر یافت نشد.</string>
-    <string name="samim_ws_message_error_server_internal_error">خطا در سیستم مرکزی</string>
-    <string name="samim_ws_message_error_verifykey_conflict">خطای دسترسی اطلاعات.</string>
-    <string name="samim_ws_message_error_logindata">اطلاعات اکانت در دسترس نیست.</string>
-    <string name="samim_ws_message_cancel_operation">عملیات متوقف شد.</string>
+    <string name="messanger_ws_message_error_format">قالب اطلاعات دریافتی از سرور معتبر نمی باشد.</string>
+    <string name="messanger_ws_message_error_httpcode">خطای برقراری ارتباط با سرور مرکزی.</string>
+    <string name="messanger_ws_message_error_null_data">خطای برقراری ارتباط با سرور مرکزی.</string>
+    <string name="messanger_ws_message_error_unknow">عدم برقراری ارتباط با سرور مرکزی.</string>
+    <string name="messanger_ws_message_error_notfound">سرویس مورد نظر یافت نشد.</string>
+    <string name="messanger_ws_message_error_server_internal_error">خطا در سیستم مرکزی</string>
+    <string name="messanger_ws_message_error_verifykey_conflict">خطای دسترسی اطلاعات.</string>
+    <string name="messanger_ws_message_error_logindata">اطلاعات اکانت در دسترس نیست.</string>
+    <string name="messanger_ws_message_cancel_operation">عملیات متوقف شد.</string>
 
     <!-- ================================= -->
     <!-- Dialog -->
     <!-- ================================= -->
-    <string name="samim_label_update">بروز رسانی</string>
+    <string name="messanger_label_update">بروز رسانی</string>
 
 </resources>
