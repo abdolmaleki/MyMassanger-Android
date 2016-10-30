@@ -18,7 +18,6 @@ import com.activeandroid.serializer.UUIDSerializer;
 import com.activeandroid.serializer.UtilDateSerializer;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
-import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.database.model.serializer.ChatContentDateSerializer;
 import com.example.myapplication.database.model.serializer.ChatContentTypeDateSerializer;
 import com.example.myapplication.entity.ChatBaseContent;
@@ -102,7 +101,6 @@ public class AppSamim extends App
         config.addModelClasses(
                 UserSettingModel.class,
                 ChatModel.class,
-                StudentModel.class,
                 ContactModel.class
         );
 

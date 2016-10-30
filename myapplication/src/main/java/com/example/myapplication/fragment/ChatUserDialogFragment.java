@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ContactModel;
-import com.example.myapplication.database.model.StudentModel;
 import com.example.myapplication.holder.ChatUserHolder;
 import com.example.myapplication.mapper.ContactMapper;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -32,7 +31,6 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
 {
 
     private ChatUserAdapterList mAdapterList;
-    private StudentModel mStudent;
     private List<ChatUserHolder> holders;
     private IChatUpdatable mChatController;
 
