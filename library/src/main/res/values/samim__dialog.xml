@@ -45,7 +45,7 @@
     </style>
 
     <style name="Samim.Dialog.Button">
-        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+        <item name="android:textSize">@dimen/messanger_fontsize_small</item>
         <item name="android:textAppearance">@style/TextAppearance.Iran</item>
         <item name="android:minHeight">1dp</item>
         <item name="android:minWidth">1dp</item>
@@ -75,23 +75,23 @@
     </style>
 
     <style name="Samim.Dialog.Label.Light.Small">
-        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+        <item name="android:textSize">@dimen/messanger_fontsize_small</item>
     </style>
 
     <style name="Samim.Dialog.Label.Light.Normal">
-        <item name="android:textSize">@dimen/samim_fontsize_normal</item>
+        <item name="android:textSize">@dimen/messanger_fontsize_normal</item>
     </style>
 
     <style name="Samim.Dialog.Label.Dark.Small">
-        <item name="android:textSize">@dimen/samim_fontsize_small</item>
+        <item name="android:textSize">@dimen/messanger_fontsize_small</item>
     </style>
 
     <style name="Samim.Dialog.Label.Dark.Normal">
-        <item name="android:textSize">@dimen/samim_fontsize_normal</item>
+        <item name="android:textSize">@dimen/messanger_fontsize_normal</item>
     </style>
 
     <style name="Samim.Dialog.Icon">
-        <item name="android:textSize">@dimen/samim_iconsize_40dp</item>
+        <item name="android:textSize">@dimen/messanger_iconsize_40dp</item>
         <item name="android:textAppearance">@style/TextAppearance.Icon.Circled</item>
     </style>
 

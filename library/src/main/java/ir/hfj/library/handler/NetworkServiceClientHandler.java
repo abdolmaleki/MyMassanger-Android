@@ -423,7 +423,6 @@ public abstract class NetworkServiceClientHandler<T extends Activity> extends Ha
                 driveHandleMessage(msg);
             }
         }
-
     }
 
     public long invokeHello(HelloDto dto) throws RemoteException

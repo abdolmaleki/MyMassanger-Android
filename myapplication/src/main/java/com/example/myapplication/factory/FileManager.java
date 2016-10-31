@@ -72,18 +72,18 @@ public final class FileManager
 
             if (bytes.length <= 0)
             {
-                throw new SamimException(context.getString(R.string.samim_message_file_read_cant));
+                throw new SamimException(context.getString(R.string.messanger_message_file_read_cant));
             }
 
             return bytes;
         }
         catch (FileNotFoundException e)
         {
-            throw new SamimException(context.getString(R.string.samim_message_file_read_not_found));
+            throw new SamimException(context.getString(R.string.messanger_message_file_read_not_found));
         }
         catch (Exception e)
         {
-            throw new SamimException(context.getString(R.string.samim_message_file_read_ex));
+            throw new SamimException(context.getString(R.string.messanger_message_file_read_ex));
         }
 
 

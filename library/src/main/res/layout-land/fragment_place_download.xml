@@ -29,7 +29,7 @@
 			android:layout_height="wrap_content"
 			android:gravity="center"
 			android:textColor="#fff"
-			android:textSize="@dimen/samim_fontsize_normal" />
+			android:textSize="@dimen/messanger_fontsize_normal" />
 
 		<ProgressBar
 			android:id="@+id/DownloadFragment_ProgressBar"
@@ -55,7 +55,7 @@
 			android:layout_marginTop="20dp"
 			android:gravity="right"
 			android:textColor="#fff"
-			android:textSize="@dimen/samim_fontsize_small" />
+			android:textSize="@dimen/messanger_fontsize_small" />
 
 		<TextView
 			android:id="@+id/DownloadFragment_txv_last_version"
@@ -63,7 +63,7 @@
 			android:layout_height="wrap_content"
 			android:gravity="right"
 			android:textColor="#fff"
-			android:textSize="@dimen/samim_fontsize_small" />
+			android:textSize="@dimen/messanger_fontsize_small" />
 	</LinearLayout>
 
 </LinearLayout>

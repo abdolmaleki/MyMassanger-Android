@@ -89,7 +89,7 @@ public class ChatActionBar extends BaseActionBar
         {
             if (isTyping)
             {
-                uiChatTypingState.setText(R.string.samim_chat_message_isTyping);
+                uiChatTypingState.setText(R.string.messanger_chat_message_isTyping);
                 runnable = new MyRunnable();
                 uiChatTypingState.postDelayed(runnable, 8000);
             }

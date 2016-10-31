@@ -12,7 +12,7 @@
         android:text="@string/messanger_login_title_verify"
         android:layout_margin="20dp"
         android:textColor="#fff"
-        android:textSize="@dimen/samim_fontsize_normal"
+        android:textSize="@dimen/messanger_fontsize_normal"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -38,7 +38,7 @@
             android:maxLength="11"
             android:text=""
             android:textColor="#fff"
-            android:textSize="@dimen/samim_fontsize_xlarg" />
+            android:textSize="@dimen/messanger_fontsize_xlarg" />
 
         <View
             android:layout_width="300dp"
@@ -62,7 +62,7 @@
             android:maxLength="11"
             android:text=""
             android:textColor="#fff"
-            android:textSize="@dimen/samim_fontsize_xlarg" />
+            android:textSize="@dimen/messanger_fontsize_xlarg" />
 
         <View
             android:layout_width="300dp"
@@ -89,7 +89,7 @@
             android:gravity="right|center_vertical"
             android:text="@string/messanger_login_label_button_register"
             android:textColor="#ffffff"
-            android:textSize="@dimen/samim_fontsize_normal"/>
+            android:textSize="@dimen/messanger_fontsize_normal"/>
 
         <Button
             android:id="@+id/fragment_login_verify_btn_registericon"

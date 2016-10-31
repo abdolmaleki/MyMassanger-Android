@@ -8,6 +8,10 @@ public interface IChatHistoryFragment
 {
 
     void updateChatHistory(UUID contactGuid);
+
+    void updateConnectionStatus(String status);
+
     void setCurrentContact(UUID contactGuid);
+
     ChatHistoryHolder getChatHistoryByGuid(UUID contactGuid);
 }

@@ -32,7 +32,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_camera"
+				android:text="@string/messanger"
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
 
@@ -57,7 +57,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_gallory"
+				android:text="@string/messanger_chat_label_media_gallory"
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
 
@@ -82,7 +82,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_video"
+				android:text="@string/messanger_chat_label_media_video"
 
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
@@ -117,7 +117,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_recordvideo"
+				android:text="@string/messanger_chat_label_media_recordvideo"
 
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
@@ -143,7 +143,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_file"
+				android:text="@string/messanger_chat_label_media_file"
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
 
@@ -167,7 +167,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:gravity="center"
-				android:text="@string/samim_chat_label_media_back"
+				android:text="@string/messanger_chat_label_media_back"
 				android:textColor="@color/samim_color_black" />
 		</LinearLayout>
 

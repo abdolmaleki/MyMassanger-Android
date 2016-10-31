@@ -14,7 +14,7 @@
         android:layout_marginBottom="20dp"
         android:layout_margin="20dp"
         android:textColor="#fff"
-        android:textSize="@dimen/samim_fontsize_normal"
+        android:textSize="@dimen/messanger_fontsize_normal"
         android:layout_gravity="center_horizontal" />
 
     <EditText
@@ -31,7 +31,7 @@
         android:maxLength="11"
         android:text=""
         android:textColor="#fff"
-        android:textSize="@dimen/samim_fontsize_xxlarg"/>
+        android:textSize="@dimen/messanger_fontsize_xxlarg"/>
 
     <View
         android:layout_width="250dp"

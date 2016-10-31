@@ -49,7 +49,7 @@ public class ChatFactory
                 }
                 else
                 {
-                    listener.onErrorDb(activity.getString(R.string.samim_chat_message_error_db_error));
+                    listener.onErrorDb(activity.getString(R.string.messanger_chat_message_error_db_error));
                 }
             }
 
@@ -87,7 +87,7 @@ public class ChatFactory
                 }
                 else
                 {
-                    listener.onErrorDb(activity.getString(R.string.samim_chat_message_error_db_error));
+                    listener.onErrorDb(activity.getString(R.string.messanger_chat_message_error_db_error));
                 }
             }
 
@@ -129,7 +129,7 @@ public class ChatFactory
                 }
                 else
                 {
-                    listener.onErrorDb(activity.getString(R.string.samim_chat_message_error_db_error));
+                    listener.onErrorDb(activity.getString(R.string.messanger_chat_message_error_db_error));
                 }
             }
 
@@ -165,7 +165,7 @@ public class ChatFactory
                 }
                 else
                 {
-                    listener.onErrorDb(activity.getString(R.string.samim_chat_message_error_db_error));
+                    listener.onErrorDb(activity.getString(R.string.messanger_chat_message_error_db_error));
                 }
             }
 
@@ -203,7 +203,7 @@ public class ChatFactory
                 }
                 else
                 {
-                    listener.onErrorDb(activity.getString(R.string.samim_chat_message_error_db_error));
+                    listener.onErrorDb(activity.getString(R.string.messanger_chat_message_error_db_error));
                 }
             }
 

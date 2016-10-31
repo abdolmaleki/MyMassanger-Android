@@ -236,7 +236,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
                                     else
                                     {
                                         holder.state = MediaTransferState.Error;
-                                        holder.message = getString(R.string.samim_message_upload_error);
+                                        holder.message = getString(R.string.messanger_message_upload_error);
                                         MyMessangerService.this.sendUploadChangeState(holder);
                                     }
 
@@ -245,7 +245,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
                                 else
                                 {
                                     holder.state = MediaTransferState.Error;
-                                    holder.message = getString(R.string.samim_message_upload_error);
+                                    holder.message = getString(R.string.messanger_message_upload_error);
                                     MyMessangerService.this.sendUploadChangeState(holder);
                                 }
                             }
@@ -356,7 +356,6 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 
     }
 
-
     @Override
     public Object getSubscribe()
     {
@@ -367,7 +366,6 @@ public class MyMessangerService extends NetworkService implements DownloadManage
     @SuppressWarnings("unused")
     private Object mSubscribeMethod = new Object()
     {
-
 
         public void ChatReceive(ChatDto dto)
         {
@@ -502,7 +500,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
                 if (!Db.Contact.insert(model))
                 {
                     result.isSuccessful = false;
-                    result.baseMessage = getString(R.string.samim_message_db_insert_error);
+                    result.baseMessage = getString(R.string.messanger_message_db_insert_error);
                 }
             }
         }
@@ -560,7 +558,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
             }
 
             result.isSuccessful = false;
-            result.baseMessage = getString(R.string.samim_message_db_insert_error);
+            result.baseMessage = getString(R.string.messanger_message_db_insert_error);
         }
 
 

@@ -19,7 +19,7 @@
 	</style>
 
 	<style name="TextAppearance.Icon" parent="android:TextAppearance">
-		<item name="android:textSize">@dimen/samim_iconsize_20dp</item>
+		<item name="android:textSize">@dimen/messanger_iconsize_20dp</item>
 		<item name="fontPath">fonts/icon-material.ttf</item>
 	</style>
 

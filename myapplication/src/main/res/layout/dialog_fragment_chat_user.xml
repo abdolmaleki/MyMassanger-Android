@@ -19,9 +19,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_centerInParent="true"
-			android:text="@string/samim_ChatUser_DialogFragment_Title"
+			android:text="@string/messanger_ChatUser_DialogFragment_Title"
 			android:textColor="@color/samim_color_white"
-			android:textSize="@dimen/samim_fontsize_normal" />
+			android:textSize="@dimen/messanger_fontsize_normal" />
 
 	</RelativeLayout>
 

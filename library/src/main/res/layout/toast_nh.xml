@@ -20,7 +20,7 @@
 		android:paddingLeft="8dp"
 		android:textColor="#ffffff"
 		android:textAppearance="@style/TextAppearance.Iran"
-		android:textSize="@dimen/samim_fontsize_small"/>
+		android:textSize="@dimen/messanger_fontsize_small"/>
 
 	<TextView
 		android:id="@+id/toast_nh_txv_icon"

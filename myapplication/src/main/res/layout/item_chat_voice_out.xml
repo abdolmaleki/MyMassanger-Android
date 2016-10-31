@@ -130,7 +130,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="2dp"
 				android:textColor="@color/samim_color_gray_xdark"
-				android:textSize="@dimen/samim_fontsize_tiny" />
+				android:textSize="@dimen/messanger_fontsize_tiny" />
 
 		</LinearLayout>
 

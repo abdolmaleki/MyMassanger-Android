@@ -58,6 +58,8 @@
     <string name="messanger_login_message_error_activation_success">عملیات فعال سازی با موفقیت انجام شد.</string>
     <string name="messanger_login_message_error_activation_expiredtitle">خطای انقضا</string>
     <string name="messanger_login_message_error_activation_expired">اطلاعات فعال سازی نرم افزار منقضی شده است.</string>
+    <string name="messanger_login_message_error_version_notsupport">نسخه اندروید گوشی شما قدیمی است</string>
+    <string name="messanger_login_message_error_auth_expired">خطای احراز هویت</string>
     <string name="messanger_login_message_notvalid_phonenumber">شماره تلفن همراه را بصورت صحیح وارد نمایید.</string>
     <string name="messanger_login_message_notvalid_username">نام کاربری را بصورت صحیح وارد نمایید.</string>
     <string name="messanger_login_message_notvalid_password">کلمه عبور را بصورت صحیح وارد نمایید.</string>

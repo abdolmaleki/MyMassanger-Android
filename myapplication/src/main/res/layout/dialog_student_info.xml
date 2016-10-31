@@ -22,7 +22,7 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="@style/TextAppearance.Iran"
 		android:textColor="@color/samim_color_maroon"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 	<Button
 		android:id="@+id/dialog_student_info_btn_ok"
@@ -34,6 +34,6 @@
 		style="@style/Samim.Button.Blue"
 		android:text="باشه"
 		android:textAppearance="@style/TextAppearance.Iran"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 </LinearLayout>

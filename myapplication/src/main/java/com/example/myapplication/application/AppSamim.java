@@ -63,7 +63,7 @@ public class AppSamim extends App
         AppConfig.NETWORK_HOST_PING = AppConfig.NETWORK_HOST_SR + "TestConnection/Ping.html";
          AppConfig.NETWORK_HOST_TRY_CONNECT_EMERGENCY_DURATION = 1000 * 10;//1000 * 60 * 30;
 
-        AppConfig.AUTO_REFRESH_INTERVAL = 30;//minute
+        AppConfig.AUTO_REFRESH_INTERVAL = 1;//minute
 
         AppConfig.setGsonSetting(new GsonBuilder()
                                          .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)

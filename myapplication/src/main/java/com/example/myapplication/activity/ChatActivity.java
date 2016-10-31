@@ -76,6 +76,7 @@ public class ChatActivity extends AppCompatActivity implements
         IDownloadController,
         IUploadController
 
+
 {
 
     private ServiceHandler mNetworkService;
@@ -284,6 +285,8 @@ public class ChatActivity extends AppCompatActivity implements
                 android.support.v4.app.Fragment fragment = ChatHistoryFragment.newInstance();
                 ft.replace(R.id.fragment_place_chathistory, fragment);
                 ft.commit();
+
+                refreshStatusBar();
             }
 
         }
@@ -500,6 +503,7 @@ public class ChatActivity extends AppCompatActivity implements
             throw new SamimException(getString(R.string.messanger_message_service_not_responding));
         }
     }
+
 
     //  ____                  _          _   _                 _ _
     // / ___|  ___ _ ____   _(_) ___ ___| | | | __ _ _ __   __| | | ___ _ __
@@ -760,10 +764,10 @@ public class ChatActivity extends AppCompatActivity implements
             if (dto.isSuccessful)
             {
                 getActivity().SyncContacts(dto.contactDtos);
-                activity.submitChatHistoryFragment();
+                //activity.submitChatHistoryFragment();
                 //save date refresh
 
-                Setting.SaveRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CHATUSER, DateUtil.now());
+                Setting.SaveRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CONTACT, DateUtil.now());
             }
             else if (activity.mAutoIdResponse != dto.autoIdResponse)
             {
@@ -778,13 +782,11 @@ public class ChatActivity extends AppCompatActivity implements
         @Override
         protected void onServiceConnected()
         {
-
         }
 
         @Override
         protected void onServiceDisconnected()
         {
-
         }
 
         @Override
@@ -793,14 +795,17 @@ public class ChatActivity extends AppCompatActivity implements
             ChatActivity activity = getActivity();
 
             //load setting
-            Date date = Setting.LoadRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CHATUSER);
-
-            if (!Helper.isNeedAutoRefreshTime(date))
+            if (getActivity().mNetworkService.isAuthenticated())
             {
-                return;
+                Date date = Setting.LoadRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CONTACT);
+                getActivity().refreshStatusBar();
+
+                if (Helper.isNeedAutoRefreshTime(date))
+                {
+                    getActivity().RequestForSyncContacts();
+                }
             }
 
-            ContactResponsibleDto dto = activity.createRefreshRequestDto();
             // activity.mActionBar.startProgressing();
 
             try
@@ -818,72 +823,80 @@ public class ChatActivity extends AppCompatActivity implements
         @Override
         protected void onChangeAuthenticationState(boolean isAuthenticated, String message, int authenticateIssue)
         {
-            getActivity().refreshMessageBar();
+            if (getActivity().mNetworkService.isAuthenticated())
+            {
+                getActivity().refreshStatusBar();
+            }
         }
 
         @Override
         protected void onChangeConnectionState(int state)
         {
+            if (getActivity().mNetworkService.isAuthenticated())
+            {
+                getActivity().refreshStatusBar();
+            }
 
         }
 
         @Override
         protected void onMessageDtoChangeState(BaseDto dto, int state)
         {
-
         }
     }
-    private void refreshMessageBar()
+
+    @Override
+    public void refreshStatusBar()
     {
-
-        if (!mNetworkService.isBounded())
+        if (mIChatHistoryFragment != null)
         {
-            //mNotifyIcon.show(R.string.samim_message_service_not_responding);
-            return;
-        }
-        else if (!mNetworkService.isReady())
-        {
-            return;
-        }
-
-
-        int connectionState = mNetworkService.getConnectionState();
-        int authenticateIssue = mNetworkService.getAuthenticateIssue();
-        boolean isAuthenticated = mNetworkService.isAuthenticated();
-
-        if (connectionState == ConnectionEventHandler.NET_Connected)
-        {
-            if (isAuthenticated)
+            if (!mNetworkService.isBounded())
             {
-                //mNotifyIcon.hide();
-                RequestForSyncContacts();
+                mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_message_service_not_responding));
+                return;
             }
-            else
+            else if (!mNetworkService.isReady())
             {
-                // mNotifyIcon.show(mNetworkService.getAuthenticateMessage());
-                //showError();
-                if (authenticateIssue == NetworkService.AUT_EXPIRED ||
-                        authenticateIssue == NetworkService.AUT_NOT_ACTIVE ||
-                        authenticateIssue == NetworkService.AUT_ERROR)
+                return;
+            }
+
+
+            int connectionState = mNetworkService.getConnectionState();
+            int authenticateIssue = mNetworkService.getAuthenticateIssue();
+            boolean isAuthenticated = mNetworkService.isAuthenticated();
+
+            if (connectionState == ConnectionEventHandler.NET_Connected)
+            {
+                if (isAuthenticated)
                 {
-                    //mNotifyIcon.setNeedActivation(true);
+                    mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_service_message_ready));
                 }
-                else if (authenticateIssue == NetworkService.AUT_VERSION_NOT_SUPPORT)
+                else
                 {
-                    //mNotifyIcon.setNeedUpdateApp(true);
+                    mIChatHistoryFragment.updateConnectionStatus(mNetworkService.getAuthenticateMessage());
+                    if (authenticateIssue == NetworkService.AUT_EXPIRED ||
+                            authenticateIssue == NetworkService.AUT_NOT_ACTIVE ||
+                            authenticateIssue == NetworkService.AUT_ERROR)
+                    {
+                        mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_login_message_error_auth_expired));
+                    }
+                    else if (authenticateIssue == NetworkService.AUT_VERSION_NOT_SUPPORT)
+                    {
+                        mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_login_message_error_version_notsupport));
+                    }
                 }
             }
+            else if (connectionState == ConnectionEventHandler.NET_Connecting)
+            {
+                mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_message_connecting));
+            }
+            else if (connectionState == ConnectionEventHandler.NET_Disconnected)
+            {
+                mIChatHistoryFragment.updateConnectionStatus(getResources().getString(R.string.messanger_message_disconnected));
+            }
         }
-        else if (connectionState == ConnectionEventHandler.NET_Connecting)
-        {
-            //mNotifyIcon.show(R.string.samim_message_connecting);
-            //showError();
-        }
-        else if (connectionState == ConnectionEventHandler.NET_Disconnected)
-        {
-            //mNotifyIcon.show(R.string.samim_message_disconnected);
-            //showError();
-        }
+
+
     }
 
     private void RequestForSyncContacts()
@@ -911,6 +924,20 @@ public class ChatActivity extends AppCompatActivity implements
     }
 
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (mNetworkService.isAuthenticated())
+        {
+            Date date = Setting.LoadRefreshDateTime(this, Constant.Preference.Keys.REFRESH_TIME_CONTACT);
+            if (Helper.isNeedAutoRefreshTime(date))
+            {
+                RequestForSyncContacts();
+            }
+
+        }
+    }
     @Override
     public void onAttachFragment(Fragment fragment)
     {

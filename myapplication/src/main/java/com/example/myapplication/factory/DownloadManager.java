@@ -61,7 +61,7 @@ public class DownloadManager implements DownloadStatusListener
         {
             Holder holder = new Holder(sendHolder, "");
             holder.state = MediaTransferState.Error;
-            holder.message = mContext.getString(R.string.samim_message_file_write_ex);
+            holder.message = mContext.getString(R.string.messanger_message_file_write_ex);
             sendUiUpdate(holder);
         }
 
@@ -82,7 +82,7 @@ public class DownloadManager implements DownloadStatusListener
 
 
             holder.state = MediaTransferState.Queue;
-            holder.message = mContext.getString(R.string.samim_message_download_in_queue);
+            holder.message = mContext.getString(R.string.messanger_message_download_in_queue);
             holder.process = -1;
 
             int downloadId = dm.add(downloadRequest);
@@ -96,7 +96,7 @@ public class DownloadManager implements DownloadStatusListener
         catch (Exception ex)
         {
             holder.state = MediaTransferState.Error;
-            holder.message = mContext.getString(R.string.samim_message_download_error);
+            holder.message = mContext.getString(R.string.messanger_message_download_error);
             holder.process = -1;
 
             sendUiUpdate(holder);
@@ -126,7 +126,7 @@ public class DownloadManager implements DownloadStatusListener
             Holder holder = mDictionary.get(key);
             if (holder != null && holder._guid.equals(guid))
             {
-                holder.message = mContext.getString(R.string.samim_message_download_canceled);
+                holder.message = mContext.getString(R.string.messanger_message_download_canceled);
                 holder.state = MediaTransferState.Cancel;
 
                 dm.cancel(key);
@@ -191,7 +191,7 @@ public class DownloadManager implements DownloadStatusListener
                         {
                             holder.process = 100;
                             holder.state = MediaTransferState.Completed;
-                            holder.message = mContext.getString(R.string.samim_message_download_complete);
+                            holder.message = mContext.getString(R.string.messanger_message_download_complete);
 
                             sendUiUpdate(holder);
 
@@ -227,7 +227,7 @@ public class DownloadManager implements DownloadStatusListener
         if (holder != null)
         {
             //DownloadManager.ERROR_DOWNLOAD_CANCELLED ...
-            holder.message = mContext.getString(R.string.samim_message_download_error);
+            holder.message = mContext.getString(R.string.messanger_message_download_error);
             holder.state = MediaTransferState.Error;
 
             sendUiUpdate(holder);

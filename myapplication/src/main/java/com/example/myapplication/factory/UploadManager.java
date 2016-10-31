@@ -260,7 +260,7 @@ public final class UploadManager
                     else
                     {
                         mUploadHolder.state = MediaTransferState.Error;
-                        mUploadHolder.message = mContext.getString(R.string.samim_message_upload_error);
+                        mUploadHolder.message = mContext.getString(R.string.messanger_message_upload_error);
                         mListenerInternal.onUploadChangeState(mUploadHolder);
                     }
                 }

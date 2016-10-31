@@ -159,7 +159,7 @@ public class ChatFragment extends Fragment implements
         {
             if (isTyping)
             {
-                uiTxvTypingState.setText(R.string.samim_chat_message_isTyping);
+                uiTxvTypingState.setText(R.string.messanger_chat_message_isTyping);
                 runnable = new MyRunnable();
                 uiTxvTypingState.postDelayed(runnable, 8000);
             }

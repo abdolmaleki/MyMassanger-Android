@@ -9,6 +9,7 @@ public final class Constant
         public static final String KEY_STUDENT_ID = "student.id";
         public static final String KEY_SPLASH_SCREEN_STATE = "splashscreen";
         public static final String KEY_CHAT_USER_GUID = "chat.user.id";
+        public static final String KEY_CHATHISTORY_CONNECTION_STATUS = "chathistory.connection.status";
 
 
         //fake
@@ -20,6 +21,7 @@ public final class Constant
 
     public static final class Preference
     {
+
         public final static String YEAR = "year";
         public final static String REFRESH_TIME = "auto.refresh.time";
         public final static String GENERAL = "general";
@@ -27,7 +29,7 @@ public final class Constant
         public static final class Keys
         {
 
-            public final static String REFRESH_TIME_CHATUSER = "chatUser";
+            public final static String REFRESH_TIME_CONTACT = "chatUser";
             //===========================================================================================
             public static final String GENERAL_SELECTED_STUDENT_ID = "student.selected";
         }
@@ -39,7 +41,6 @@ public final class Constant
         public static final String CHAT = "samim.chat";
 
 
-
         public static final String SAMIM_SERVICE = "ir.hfj.samim.service";
 
     }
@@ -47,6 +48,7 @@ public final class Constant
 
     public static final class NotificationId
     {
+
         public final static int SAMIM_SERVICE = 1000;
         public final static int SAMIM_UPDATE_APP = 2000;
     }
@@ -54,6 +56,7 @@ public final class Constant
 
     public static final class DownloadManager
     {
+
         public static final String ACTION_DOWNLOAD = "download";
         public static final String ACTION_GET_STATE = "state";
         public static final String ACTION_CANCEL = "cancel";
@@ -68,7 +71,6 @@ public final class Constant
         public static final String PARAM_PROCESS = "process";
         public static final String PARAM_MESSAGE = "message";
         public static final String PARAM_STATE = "state";
-
 
 
     }

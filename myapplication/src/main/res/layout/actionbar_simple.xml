@@ -13,6 +13,6 @@
 		android:textAppearance="@style/TextAppearance.Iran"
 		android:text="@string/title_activity_lesson"
 		android:textColor="#ffffff"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 </RelativeLayout>

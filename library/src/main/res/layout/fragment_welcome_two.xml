@@ -15,7 +15,7 @@
 		android:text="نرم افزار پیام رسان \n ارتش جمهوری اسلامی"
 		android:textAppearance="@style/TextAppearance.Yekan"
 		android:textColor="@color/samim_color_white"
-		android:textSize="@dimen/samim_fontsize_xlarg" />
+		android:textSize="@dimen/messanger_fontsize_xlarg" />
 
 	<TextView
 		android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
 		android:text="نرم افزار پیام رسان با قابلیت ایجاد کانال"
 		android:textAppearance="@style/TextAppearance.Yekan"
 		android:textColor="#fff"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 
 
@@ -41,6 +41,6 @@
 		android:text="www.aja.com"
 		android:textAppearance="@style/TextAppearance.Yekan"
 		android:textColor="#fff"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 </LinearLayout>

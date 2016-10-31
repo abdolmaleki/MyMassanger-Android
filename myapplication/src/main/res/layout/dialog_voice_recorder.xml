@@ -22,7 +22,7 @@
 			android:layout_centerInParent="true"
 			android:text="ظبط صدا"
 			android:textColor="@color/samim_color_white"
-			android:textSize="@dimen/samim_fontsize_normal" />
+			android:textSize="@dimen/messanger_fontsize_normal" />
 
 	</RelativeLayout>
 
@@ -55,7 +55,7 @@
 			android:gravity="center"
 			android:text="انصراف"
 			android:textColor="@color/samim_color_green_xdark"
-			android:textSize="@dimen/samim_fontsize_normal" />
+			android:textSize="@dimen/messanger_fontsize_normal" />
 
 		<TextView
 			android:id="@+id/dialog_recorder_btn_accept"
@@ -67,7 +67,7 @@
 			android:gravity="center"
 			android:text="تایید"
 			android:textColor="@color/samim_color_green_xdark"
-			android:textSize="@dimen/samim_fontsize_normal" />
+			android:textSize="@dimen/messanger_fontsize_normal" />
 
 	</LinearLayout>
 

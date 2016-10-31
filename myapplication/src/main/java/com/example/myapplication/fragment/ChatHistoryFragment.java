@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.actionbar.ChatActionBar;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
@@ -31,15 +30,16 @@ import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.ui.SimpleDividerItemDecoration;
 
 
-public class ChatHistoryFragment extends Fragment implements View.OnClickListener, IChatHistoryFragment
+public class ChatHistoryFragment extends Fragment implements
+        View.OnClickListener,
+        IChatHistoryFragment
 {
 
     private RecyclerView uiRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private ChatHistoryAdapter mAdapter;
     private IChatUpdatable mChatController;
-    private ChatActionBar mActionBar;
-
+    private TextView uiTxvConnectionStatus;
 
     public static ChatHistoryFragment newInstance()
     {
@@ -106,6 +106,7 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
         uiRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_chat_history_recycleview);
 
         uiRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+        uiTxvConnectionStatus = (TextView) rootView.findViewById(R.id.fragment_chat_history_connection_status);
 
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fragment_chat_history_newchat);
         fab.attachToRecyclerView(uiRecyclerView);
@@ -131,7 +132,6 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
                 mAdapter.updateReadedMessage(position);
             }
         });
-
     }
 
     @Override
@@ -168,6 +168,11 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
             mAdapter.add(holder);
         }
     }
+    @Override
+    public void updateConnectionStatus(String status)
+    {
+        uiTxvConnectionStatus.setText(status);
+     }
 
     @Override
     public void setCurrentContact(UUID contactGuid)
@@ -199,7 +204,6 @@ public class ChatHistoryFragment extends Fragment implements View.OnClickListene
         uiRecyclerView.setLayoutManager(mLayoutManager);
         uiRecyclerView.setAdapter(mAdapter);
     }
-
 
     private static class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.ChatHistoryViewHolder>
     {

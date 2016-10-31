@@ -14,7 +14,7 @@
 		android:layout_marginBottom="20dp"
 		android:text="@string/messanger_login_title_phone"
 		android:textColor="#fff"
-		android:textSize="@dimen/samim_fontsize_normal" />
+		android:textSize="@dimen/messanger_fontsize_normal" />
 
 	<EditText
 		android:id="@+id/fragment_login_phone_edt_phone"
@@ -30,7 +30,7 @@
 		android:maxLength="11"
 		android:text=""
 		android:textColor="#fff"
-		android:textSize="@dimen/samim_fontsize_xxlarg" />
+		android:textSize="@dimen/messanger_fontsize_xxlarg" />
 
 	<View
 		android:layout_width="250dp"
