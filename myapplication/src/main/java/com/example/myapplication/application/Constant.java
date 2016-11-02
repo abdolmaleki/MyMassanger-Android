@@ -8,7 +8,7 @@ public final class Constant
 
         public static final String KEY_STUDENT_ID = "student.id";
         public static final String KEY_SPLASH_SCREEN_STATE = "splashscreen";
-        public static final String KEY_CHAT_USER_GUID = "chat.user.id";
+        public static final String KEY_CHAT_CONTACT_GUID = "chat.user.id";
         public static final String KEY_CHATHISTORY_CONNECTION_STATUS = "chathistory.connection.status";
 
 

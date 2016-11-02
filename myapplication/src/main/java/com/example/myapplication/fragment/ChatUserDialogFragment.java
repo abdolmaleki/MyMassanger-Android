@@ -105,7 +105,7 @@ public class ChatUserDialogFragment extends DialogFragment implements AdapterVie
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j)
     {
 //        Intent intent = new Intent(getActivity(), ChatActivity.class);
-//        intent.putExtra(Constant.Param.KEY_CHAT_USER_GUID, holders.get(i).guid);
+//        intent.putExtra(Constant.Param.KEY_CHAT_CONTACT_GUID, holders.get(i).guid);
 //        intent.putExtra(Constant.Param.KEY_STUDENT_ID, mStudent.getId());
 //        startActivity(intent);
         mChatController.switchChatUserFragment(holders.get(i).guid);

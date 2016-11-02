@@ -89,7 +89,7 @@ public class ChatFragment extends Fragment implements
         // In side by side view, In First Time maybe user is null
         if (userGuid != null)
         {
-            args.putSerializable(Constant.Param.KEY_CHAT_USER_GUID, userGuid);
+            args.putSerializable(Constant.Param.KEY_CHAT_CONTACT_GUID, userGuid);
         }
         fragment.setArguments(args);
 
@@ -111,7 +111,7 @@ public class ChatFragment extends Fragment implements
 
     private void loadData()
     {
-        UUID userGuid = (UUID) getArguments().getSerializable(Constant.Param.KEY_CHAT_USER_GUID);
+        UUID userGuid = (UUID) getArguments().getSerializable(Constant.Param.KEY_CHAT_CONTACT_GUID);
 
         if (userGuid != null)
         {

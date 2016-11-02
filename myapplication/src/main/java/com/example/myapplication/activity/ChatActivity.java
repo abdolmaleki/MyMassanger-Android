@@ -95,7 +95,7 @@ public class ChatActivity extends AppCompatActivity implements
     {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_chat_history);
+        setContentView(R.layout.activity_chat);
 
         initActionBar();
 
@@ -118,7 +118,7 @@ public class ChatActivity extends AppCompatActivity implements
         }
         else
         {
-            UUID chatUserGuid = (UUID) savedInstanceState.getSerializable(Constant.Param.KEY_CHAT_USER_GUID);
+            UUID chatUserGuid = (UUID) savedInstanceState.getSerializable(Constant.Param.KEY_CHAT_CONTACT_GUID);
 
             if (chatUserGuid != null)
             {
@@ -235,7 +235,7 @@ public class ChatActivity extends AppCompatActivity implements
         super.onSaveInstanceState(onOrientChange);
         if (mChatUserGuid != null)
         {
-            onOrientChange.putSerializable(Constant.Param.KEY_CHAT_USER_GUID, mChatUserGuid);
+            onOrientChange.putSerializable(Constant.Param.KEY_CHAT_CONTACT_GUID, mChatUserGuid);
         }
 
     }
@@ -804,19 +804,15 @@ public class ChatActivity extends AppCompatActivity implements
             }
 
             getActivity().refreshStatusBar();
-
             // activity.mActionBar.startProgressing();
-
             try
             {
                 //activity.mAutoIdResponse = invokeContact(dto);
-
             }
             catch (Exception ex)
             {
                 //activity.mActionBar.stopProgressing();
             }
-
         }
 
         @Override

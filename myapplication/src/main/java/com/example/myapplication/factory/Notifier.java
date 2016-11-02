@@ -75,7 +75,7 @@ public class Notifier
         }
 
         Intent intent = new Intent(context, ChatActivity.class);
-        intent.putExtra(Constant.Param.KEY_CHAT_USER_GUID, chatUser.getGuid());
+        intent.putExtra(Constant.Param.KEY_CHAT_CONTACT_GUID, chatUser.getGuid());
         PendingIntent pIntent = PendingIntent.getActivity(context, Helper.generateUniqueNumber(), intent, 0);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
                 .setContentTitle(chatUserName)
