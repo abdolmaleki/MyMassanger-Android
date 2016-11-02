@@ -18,7 +18,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.example.myapplication.R;
-import com.example.myapplication.actionbar.ChatActionBar;
 import com.example.myapplication.application.Constant;
 import com.example.myapplication.connection.socket.dto.ChatDeliverDto;
 import com.example.myapplication.connection.socket.dto.ChatDto;
@@ -88,7 +87,6 @@ public class ChatActivity extends AppCompatActivity implements
     private NhDialog mDialogLoading;
     private UUID mChatUserGuid;
     private boolean mIsBigView;
-    private ChatActionBar mActionBar;
     private boolean mIsShownSplashScreen = false;
 
 
@@ -798,13 +796,14 @@ public class ChatActivity extends AppCompatActivity implements
             if (getActivity().mNetworkService.isAuthenticated())
             {
                 Date date = Setting.LoadRefreshDateTime(activity, Constant.Preference.Keys.REFRESH_TIME_CONTACT);
-                getActivity().refreshStatusBar();
 
                 if (Helper.isNeedAutoRefreshTime(date))
                 {
                     getActivity().RequestForSyncContacts();
                 }
             }
+
+            getActivity().refreshStatusBar();
 
             // activity.mActionBar.startProgressing();
 
@@ -823,19 +822,13 @@ public class ChatActivity extends AppCompatActivity implements
         @Override
         protected void onChangeAuthenticationState(boolean isAuthenticated, String message, int authenticateIssue)
         {
-            if (getActivity().mNetworkService.isAuthenticated())
-            {
-                getActivity().refreshStatusBar();
-            }
+            getActivity().refreshStatusBar();
         }
 
         @Override
         protected void onChangeConnectionState(int state)
         {
-            if (getActivity().mNetworkService.isAuthenticated())
-            {
-                getActivity().refreshStatusBar();
-            }
+            getActivity().refreshStatusBar();
 
         }
 
@@ -934,6 +927,7 @@ public class ChatActivity extends AppCompatActivity implements
             if (Helper.isNeedAutoRefreshTime(date))
             {
                 RequestForSyncContacts();
+                refreshStatusBar();
             }
 
         }
