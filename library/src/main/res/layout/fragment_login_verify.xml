@@ -93,7 +93,7 @@
 
         <Button
             android:id="@+id/fragment_login_verify_btn_registericon"
-            style="@style/Samim.Icon.Size40"
+            style="@style/MyMessanger.Icon.Size40"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/selector_button_tile"

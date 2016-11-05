@@ -27,7 +27,7 @@
 
 		<Button
 			android:id="@+id/activity_login_btn_back"
-			style="@style/Samim.Button.Flat"
+			style="@style/MyMessanger.Button.Flat"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
@@ -36,7 +36,7 @@
 
 		<Button
 			android:id="@+id/activity_login_btn_close"
-			style="@style/Samim.Button.Flat"
+			style="@style/MyMessanger.Button.Flat"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
@@ -45,7 +45,7 @@
 
 		<Button
 			android:id="@+id/activity_login_btn_next"
-			style="@style/Samim.Button.Flat"
+			style="@style/MyMessanger.Button.Flat"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"

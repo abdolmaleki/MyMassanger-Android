@@ -24,7 +24,7 @@
 
 	<TextView
 		android:id="@+id/toast_nh_txv_icon"
-		style="@style/Samim.Icon.Size30"
+		style="@style/MyMessanger.Icon.Size30"
 		android:layout_width="35dp"
 		android:layout_height="35dp"
 		android:gravity="center"

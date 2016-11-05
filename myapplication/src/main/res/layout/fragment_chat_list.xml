@@ -73,7 +73,7 @@
 
 			<android.support.v7.widget.RecyclerView
 				android:id="@+id/fragment_chat_list_recycleview"
-				style="@style/Samim.Scrollbar.ListView"
+				style="@style/MyMessanger.Scrollbar.ListView"
 				android:layout_width="match_parent"
 				android:layout_height="0dp"
 				android:layout_weight="1"
@@ -90,7 +90,7 @@
 
 				<Button
 					android:id="@+id/fragment_chat_btn_send"
-					style="@style/Samim.Icon.Size30"
+					style="@style/MyMessanger.Icon.Size30"
 					android:layout_width="50dp"
 					android:layout_height="50dp"
 					android:background="@android:color/transparent"
@@ -102,7 +102,7 @@
 
 				<Button
 					android:id="@+id/fragment_chat_btn_media"
-					style="@style/Samim.Icon.Size30"
+					style="@style/MyMessanger.Icon.Size30"
 					android:layout_width="50dp"
 					android:layout_height="50dp"
 					android:background="@android:color/transparent"
@@ -111,7 +111,7 @@
 
 				<Button
 					android:id="@+id/fragment_chat_btn_voice"
-					style="@style/Samim.Icon.Size30"
+					style="@style/MyMessanger.Icon.Size30"
 					android:layout_width="50dp"
 					android:layout_height="50dp"
 					android:background="@android:color/transparent"

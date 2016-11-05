@@ -28,7 +28,7 @@
 
 	<TextView
 		android:id="@+id/dialog_recorder_btn_record"
-		style="@style/Samim.Icon.Size60"
+		style="@style/MyMessanger.Icon.Size60"
 		android:layout_width="80dp"
 		android:layout_height="80dp"
 		android:layout_marginTop="10dp"

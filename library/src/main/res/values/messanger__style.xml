@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<style name="Samim"
+	<style name="MyMessanger"
 		   parent="@style/Theme.AppCompat.Light.DarkActionBar">
 		<item name="android:actionBarStyle">@style/Samim.ActionBar</item>
 		<item name="actionBarStyle">@style/Samim.ActionBar</item>
@@ -14,14 +14,14 @@
 
 	<!-- Button -->
 
-	<style name="Samim.Button">
+	<style name="MyMessanger.Button">
 		<item name="android:minHeight">1dp</item>
 		<item name="android:minWidth">1dp</item>
 		<item name="android:padding">5dp</item>
 		<item name="android:textSize">@dimen/messanger_fontsize_normal</item>
 	</style>
 
-	<style name="Samim.Button.Flat">
+	<style name="MyMessanger.Button.Flat">
 		<item name="android:padding">5dp</item>
 		<item name="android:gravity">center</item>
 		<item name="android:textColor">#ffffff</item>
@@ -29,48 +29,48 @@
 		<item name="android:background">@drawable/selector_button_tile</item>
 	</style>
 
-	<style name="Samim.Button.Dark">
+	<style name="MyMessanger.Button.Dark">
 		<item name="android:textColor">#ffffff</item>
 		<item name="android:background">@drawable/selector_button_blue</item>
 	</style>
 
-	<style name="Samim.Button.Light">
+	<style name="MyMessanger.Button.Light">
 		<item name="android:textColor">#111111</item>
 		<item name="android:background">@drawable/selector_button_light</item>
 	</style>
 
 	<style name="Samim.Button.Blue"
-		   parent="Samim.Button.Dark">
+		   parent="MyMessanger.Button.Dark">
 		<item name="android:background">@drawable/selector_button_blue</item>
 	</style>
 
 	<style name="Samim.Button.Red"
-		   parent="Samim.Button.Dark">
+		   parent="MyMessanger.Button.Dark">
 		<item name="android:background">@drawable/selector_button_red</item>
 	</style>
 
 	<style name="Samim.Button.Gules"
-		   parent="Samim.Button.Dark">
+		   parent="MyMessanger.Button.Dark">
 		<item name="android:background">@drawable/selector_button_gules</item>
 	</style>
 
 	<style name="Samim.Button.Cancel"
-		   parent="Samim.Button.Light">
+		   parent="MyMessanger.Button.Light">
 		<item name="android:background">@drawable/selector_button_gray</item>
 	</style>
 
 	<style name="Samim.Button.Normal"
-		   parent="Samim.Button.Light">
+		   parent="MyMessanger.Button.Light">
 		<item name="android:background">@drawable/selector_button_gray</item>
 	</style>
 
 	<!-- Input -->
 
-	<style name="Samim.Input">
+	<style name="MyMessanger.Input">
 
 	</style>
 
-	<style name="Samim.Input.Register">
+	<style name="MyMessanger.Input.Register">
 		<item name="android:textSize">@dimen/messanger_fontsize_normal</item>
 		<item name="android:textAppearance">@style/TextAppearance.Iran</item>
 		<item name="android:textColor">#222222</item>
@@ -81,7 +81,7 @@
 		<item name="android:gravity">center</item>
 	</style>
 
-	<style name="Samim.Input.Address">
+	<style name="MyMessanger.Input.Address">
 		<item name="android:textSize">@dimen/messanger_fontsize_normal</item>
 		<item name="android:textAppearance">@style/TextAppearance.Iran</item>
 		<item name="android:textColor">#000000</item>
@@ -91,45 +91,45 @@
 
 	<!-- Icon -->
 
-	<style name="Samim.Icon">
+	<style name="MyMessanger.Icon">
 		<item name="android:textAppearance">@style/TextAppearance.Icon.Material</item>
 	</style>
 
-	<style name="Samim.Icon.Size120">
+	<style name="MyMessanger.Icon.Size120">
 		<item name="android:textSize">@dimen/messanger_iconsize_120dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size80">
+	<style name="MyMessanger.Icon.Size80">
 		<item name="android:textSize">@dimen/messanger_iconsize_80dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size60">
+	<style name="MyMessanger.Icon.Size60">
 		<item name="android:textSize">@dimen/messanger_iconsize_60dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size40">
+	<style name="MyMessanger.Icon.Size40">
 		<item name="android:textSize">@dimen/messanger_iconsize_40dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size30">
+	<style name="MyMessanger.Icon.Size30">
 		<item name="android:textSize">@dimen/messanger_iconsize_30dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size20">
+	<style name="MyMessanger.Icon.Size20">
 		<item name="android:textSize">@dimen/messanger_iconsize_20dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size15">
+	<style name="MyMessanger.Icon.Size15">
 		<item name="android:textSize">@dimen/messanger_iconsize_15dp</item>
 	</style>
 
-	<style name="Samim.Icon.Size10">
+	<style name="MyMessanger.Icon.Size10">
 		<item name="android:textSize">@dimen/messanger_iconsize_10dp</item>
 	</style>
 
 	<!--Scrollbar -->
 
-	<style name="Samim.Scrollbar">
+	<style name="MyMessanger.Scrollbar">
 		<item name="android:scrollbarAlwaysDrawVerticalTrack">false</item>
 		<item name="android:scrollbarStyle">outsideOverlay</item>
 		<item name="android:scrollbars">vertical</item>
@@ -142,7 +142,7 @@
 		<item name="android:scrollbarDefaultDelayBeforeFade">500</item>
 	</style>
 
-	<style name="Samim.Scrollbar.ListView">
+	<style name="MyMessanger.Scrollbar.ListView">
 		<item name="android:listSelector">@android:color/transparent</item>
 		<item name="android:smoothScrollbar">true</item>
 	</style>

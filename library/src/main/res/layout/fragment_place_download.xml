@@ -14,7 +14,7 @@
 		android:orientation="vertical">
 
 		<TextView
-			style="@style/Samim.Icon.Size120"
+			style="@style/MyMessanger.Icon.Size120"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="50dp"

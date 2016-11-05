@@ -13,7 +13,7 @@
 
 		<Button
 			android:id="@+id/dialog_edit_image_btn_content"
-			style="@style/Samim.Icon.Size30"
+			style="@style/MyMessanger.Icon.Size30"
 			android:layout_width="50dp"
 			android:layout_height="match_parent"
 			android:layout_marginLeft="10dp"

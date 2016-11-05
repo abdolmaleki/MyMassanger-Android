@@ -8,7 +8,7 @@
 	android:orientation="vertical">
 
 	<TextView
-		style="@style/Samim.Icon.Size80"
+		style="@style/MyMessanger.Icon.Size80"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_margin="10dp"

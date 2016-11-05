@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
 	<string name="iran_regular">fonts/iran-regular.ttf</string>
 	<string name="iran_bold">fonts/iran-bold.ttf</string>
 
@@ -30,7 +29,5 @@
 	<style name="TextAppearance.Icon.Material">
 		<item name="fontPath">fonts/icon-material.ttf</item>
 	</style>
-
-
 
 </resources>
