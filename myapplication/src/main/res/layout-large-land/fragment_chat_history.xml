@@ -5,8 +5,7 @@
 			  android:layout_height="match_parent"
 			  android:background="@color/samim_color_white"
 			  android:orientation="vertical"
-			  android:weightSum="10"
-	>
+			  android:weightSum="10">
 
 	<TextView
 		android:id="@+id/fragment_chat_history_connection_status"
