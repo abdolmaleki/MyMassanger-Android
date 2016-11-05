@@ -59,7 +59,7 @@ import ir.hfj.library.activity.ActivationActivity;
 import ir.hfj.library.application.App;
 import ir.hfj.library.connection.socket.ConnectionEventHandler;
 import ir.hfj.library.connection.socket.dto.BaseDto;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.ui.NhDialog;
 import ir.hfj.library.util.ContactUtil;
@@ -369,7 +369,7 @@ public class ChatActivity extends AppCompatActivity implements
     //
 
     @Override
-    public void readChat(UUID chatUserGuid) throws SamimException
+    public void readChat(UUID chatUserGuid) throws MyMessangerException
     {
 
         if (!Db.Chat.readAllUnReadMessage(chatUserGuid))
@@ -389,7 +389,7 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -408,7 +408,7 @@ public class ChatActivity extends AppCompatActivity implements
 //    }
 
     @Override
-    public void sendMessage(ChatResponsibleDto dto) throws SamimException
+    public void sendMessage(ChatResponsibleDto dto) throws MyMessangerException
     {
         try
         {
@@ -416,12 +416,12 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException ignored)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
     @Override
-    public void sendChatTypingReport(ChatTypingReportDto dto) throws SamimException
+    public void sendChatTypingReport(ChatTypingReportDto dto) throws MyMessangerException
     {
         try
         {
@@ -429,7 +429,7 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException ignored)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -457,7 +457,7 @@ public class ChatActivity extends AppCompatActivity implements
     //
 
     @Override
-    public void download(DownloadHolder.Send holder) throws SamimException
+    public void download(DownloadHolder.Send holder) throws MyMessangerException
     {
         try
         {
@@ -465,12 +465,12 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
     @Override
-    public void cancelDownload(UUID guid) throws SamimException
+    public void cancelDownload(UUID guid) throws MyMessangerException
     {
         try
         {
@@ -478,7 +478,7 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 
@@ -490,7 +490,7 @@ public class ChatActivity extends AppCompatActivity implements
     //           |_|
 
     @Override
-    public void cancelUpload(UUID guid) throws SamimException
+    public void cancelUpload(UUID guid) throws MyMessangerException
     {
         try
         {
@@ -498,7 +498,7 @@ public class ChatActivity extends AppCompatActivity implements
         }
         catch (RemoteException e)
         {
-            throw new SamimException(getString(R.string.messanger_message_service_not_responding));
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
 

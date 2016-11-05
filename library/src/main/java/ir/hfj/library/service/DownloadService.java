@@ -25,7 +25,7 @@ import ir.hfj.library.connection.restapi.RestApi;
 import ir.hfj.library.connection.restapi.jto.UtilityJto;
 import ir.hfj.library.database.DbBase;
 import ir.hfj.library.database.model.UserSettingModel;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.holder.UpdateAppHolder;
 
 
@@ -119,7 +119,7 @@ public class DownloadService extends IntentService
             {
                 result = rest.updateApp(new UtilityJto.UpdateAppJto.Post());
             }
-            catch (SamimException e)
+            catch (MyMessangerException e)
             {
                 //show exception error
                 sendUiUpdate(e.getMessage());

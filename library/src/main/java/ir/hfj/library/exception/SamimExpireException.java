@@ -1,6 +1,6 @@
 package ir.hfj.library.exception;
 
-public class SamimExpireException extends SamimException
+public class SamimExpireException extends MyMessangerException
 {
 	/**
 	 * 

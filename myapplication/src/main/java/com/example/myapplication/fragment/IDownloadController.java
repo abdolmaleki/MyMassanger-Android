@@ -4,10 +4,10 @@ import com.example.myapplication.holder.DownloadHolder;
 
 import java.util.UUID;
 
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 
 public interface IDownloadController
 {
-    void download(DownloadHolder.Send holder) throws SamimException;
-    void cancelDownload(UUID guid) throws SamimException;
+    void download(DownloadHolder.Send holder) throws MyMessangerException;
+    void cancelDownload(UUID guid) throws MyMessangerException;
 }

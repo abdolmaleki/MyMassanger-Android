@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Random;
 
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 
 
 public class Helper
@@ -78,7 +78,7 @@ public class Helper
         return "";
     }
 
-    public static String md5(String s) throws SamimException
+    public static String md5(String s) throws MyMessangerException
     {
         try
         {
@@ -101,7 +101,7 @@ public class Helper
         }
         catch (Exception e)
         {
-            throw new SamimException("خطای رمزنگاری اطلاعات، لطفا مجددا سعی نمایید.");
+            throw new MyMessangerException("خطای رمزنگاری اطلاعات، لطفا مجددا سعی نمایید.");
         }
 
     }

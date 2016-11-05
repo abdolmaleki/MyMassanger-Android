@@ -15,7 +15,7 @@ import java.util.UUID;
 
 import ir.hfj.library.connection.restapi.UploadRestApi;
 import ir.hfj.library.connection.restapi.jto.PostBackJto;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 
 
 public final class UploadManager
@@ -189,7 +189,7 @@ public final class UploadManager
                                 }
                             });
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     postBackJto = new FileJto.PostBack();
                     postBackJto.stateCode = PostBackJto.RESULT_BAD_REQUEST;

@@ -34,7 +34,7 @@ import ir.hfj.library.connection.socket.dto.HelloDto;
 import ir.hfj.library.connection.socket.dto.UpdateAppDto;
 import ir.hfj.library.database.DbBase;
 import ir.hfj.library.database.model.UserSettingModel;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.receiver.SamimAction;
 import ir.hfj.library.util.Helper;
 
@@ -771,7 +771,7 @@ public abstract class NetworkService extends Service implements INetworkService,
             {
                 postBackJTO = mRestApi.login(mLoginPostData);
             }
-            catch (SamimException e)
+            catch (MyMessangerException e)
             {
                 if (AppConfig.DEBUG)
                 {

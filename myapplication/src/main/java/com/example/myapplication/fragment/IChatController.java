@@ -5,16 +5,16 @@ import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 
 import java.util.UUID;
 
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 
 
 public interface IChatController
 {
-    void sendMessage(ChatResponsibleDto dto) throws SamimException;
+    void sendMessage(ChatResponsibleDto dto) throws MyMessangerException;
 
-    void sendChatTypingReport(ChatTypingReportDto dto) throws SamimException;
+    void sendChatTypingReport(ChatTypingReportDto dto) throws MyMessangerException;
 
-    void readChat(UUID chatUserGuid) throws SamimException;
+    void readChat(UUID chatUserGuid) throws MyMessangerException;
 
-    //void setChatUserImage(String imageUrl) throws SamimException;
+    //void setChatUserImage(String imageUrl) throws MyMessangerException;
 }

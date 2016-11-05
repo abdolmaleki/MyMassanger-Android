@@ -16,7 +16,7 @@ public final class ContactMapper
         ContactModel model = new ContactModel(dto.guid);
         model.firstName = dto.firstName;
         model.lastName = dto.lastName;
-        model.phoneNumber = dto.imageUrl;
+        model.phoneNumber = dto.phoneNumber;
         model.imageUrl = dto.imageUrl;
 
         return model;

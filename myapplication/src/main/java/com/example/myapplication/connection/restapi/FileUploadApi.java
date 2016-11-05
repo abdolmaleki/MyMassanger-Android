@@ -26,7 +26,7 @@ import java.nio.charset.Charset;
 import ir.hfj.library.R;
 import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.connection.restapi.jto.PostBackJto;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.receiver.SamimAction;
 import ir.hfj.library.util.Helper;
 import ir.hfj.library.util.Validation;
@@ -126,7 +126,7 @@ public final class FileUploadApi
 
     }
 
-    public FileJto.PostBack uploadFile(FileJto.Post jto, OnProgressListener listener) throws SamimException
+    public FileJto.PostBack uploadFile(FileJto.Post jto, OnProgressListener listener) throws MyMessangerException
     {
 
         HttpResponseParser response = executePostRequest(jto, AppConfig.RestApiAction.MediaUpload, listener);
@@ -150,7 +150,7 @@ public final class FileUploadApi
             {
                 Log.e(AppConfig.LOG_TAG, e.getMessage());
             }
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
         }
 
         return postBackDto;
@@ -158,7 +158,7 @@ public final class FileUploadApi
     }
 
 
-    private HttpResponseParser executePostRequest(FileJto.Post jto, String method, final OnProgressListener listener) throws SamimException
+    private HttpResponseParser executePostRequest(FileJto.Post jto, String method, final OnProgressListener listener) throws MyMessangerException
     {
 
         try
@@ -171,7 +171,7 @@ public final class FileUploadApi
                 intent.setAction(SamimAction.ACTIVATION_NULL);
                 mContext.sendBroadcast(intent);
 
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_logindata));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_logindata));
             }
 
             mHttpClient = new DefaultHttpClient();
@@ -225,7 +225,7 @@ public final class FileUploadApi
             if (isCanceled)
             {
                 mHttpClient = null;
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
             }
 
             HttpResponse response = mHttpClient.execute(httpPost);
@@ -249,7 +249,7 @@ public final class FileUploadApi
 
                         //if (api.verifyKey(mKey, mToken))
                         //{
-                        //    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_verifykey_conflict));
+                        //    throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_verifykey_conflict));
                         //}
 
                         Intent intent = new Intent();
@@ -287,33 +287,33 @@ public final class FileUploadApi
                         {
                             Log.e(AppConfig.LOG_TAG, e.getMessage());
                         }
-                        throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+                        throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
                     }
 
                 }
                 else if (status == HttpStatus.SC_NOT_FOUND)
                 {
-                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_notfound));
+                    throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_notfound));
                 }
                 else
                 {
-                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
+                    throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
                 }
 
             }
             else
             {
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_null_data));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_null_data));
             }
 
         }
-        catch (SamimException e)
+        catch (MyMessangerException e)
         {
             throw e;
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_unknow));
         }
 
     }

@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 
 
 public final class FileManager
@@ -41,7 +41,7 @@ public final class FileManager
 
         if (!folder.exists())
         {
-            if (!folder.mkdir())
+            if (!folder.mkdirs())
             {
                 throw new Exception();
             }
@@ -55,7 +55,7 @@ public final class FileManager
         return Environment.getExternalStorageDirectory().getPath() + "/" + AppSamimConfig.DIRECTORY_MEDIA;
     }
 
-    public static byte[] read(Context context, String path) throws SamimException
+    public static byte[] read(Context context, String path) throws MyMessangerException
     {
         try
         {
@@ -72,18 +72,18 @@ public final class FileManager
 
             if (bytes.length <= 0)
             {
-                throw new SamimException(context.getString(R.string.messanger_message_file_read_cant));
+                throw new MyMessangerException(context.getString(R.string.messanger_message_file_read_cant));
             }
 
             return bytes;
         }
         catch (FileNotFoundException e)
         {
-            throw new SamimException(context.getString(R.string.messanger_message_file_read_not_found));
+            throw new MyMessangerException(context.getString(R.string.messanger_message_file_read_not_found));
         }
         catch (Exception e)
         {
-            throw new SamimException(context.getString(R.string.messanger_message_file_read_ex));
+            throw new MyMessangerException(context.getString(R.string.messanger_message_file_read_ex));
         }
 
 

@@ -12,7 +12,7 @@ import org.apache.http.util.EntityUtils;
 
 import ir.hfj.library.R;
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.util.Base64;
 
 public class UploadRestApi
@@ -28,7 +28,7 @@ public class UploadRestApi
         mToken = token;
     }
 
-    public String uploadFile(byte[] file, String action, final OnUploadProgress progressListener) throws SamimException
+    public String uploadFile(byte[] file, String action, final OnUploadProgress progressListener) throws MyMessangerException
     {
 
         try
@@ -57,13 +57,13 @@ public class UploadRestApi
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_unknow));
         }
 
 
     }
 
-    /*public String uploadFileXXXX(byte[] file, String action, final OnUploadProgress progressListener) throws SamimException
+    /*public String uploadFileXXXX(byte[] file, String action, final OnUploadProgress progressListener) throws MyMessangerException
     {
 
 
@@ -105,27 +105,27 @@ public class UploadRestApi
                 }
                 else if (status == HttpStatus.SC_NOT_FOUND)
                 {
-                    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_notfound));
+                    throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_notfound));
                 }
                 else if (status == HttpStatus.SC_INTERNAL_SERVER_ERROR)
                 {
-                    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_server_internal_error));
+                    throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_server_internal_error));
                 }
                 else
                 {
-                    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_httpcode));
+                    throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_httpcode));
                 }
             }
 
             else
             {
-                throw new SamimException(mContext.getString(R.string.samim_ws_message_error_null_data));
+                throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_null_data));
             }
 
         }
         catch (IOException e)
         {
-            throw new SamimException(mContext.getString(R.string.samim_ws_message_error_unknow));
+            throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_unknow));
         }
 
 

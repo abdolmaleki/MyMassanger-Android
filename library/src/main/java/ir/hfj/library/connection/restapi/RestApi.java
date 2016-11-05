@@ -19,7 +19,7 @@ import ir.hfj.library.connection.restapi.jto.AuthenticationJto;
 import ir.hfj.library.connection.restapi.jto.PostBackJto;
 import ir.hfj.library.connection.restapi.jto.PostJto;
 import ir.hfj.library.connection.restapi.jto.UtilityJto;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.receiver.SamimAction;
 import ir.hfj.library.util.Encryption;
 import ir.hfj.library.util.Helper;
@@ -50,7 +50,7 @@ public final class RestApi
     }
 
 
-    public AuthenticationJto.Login.PostBack login(AuthenticationJto.Login.Post jto) throws SamimException
+    public AuthenticationJto.Login.PostBack login(AuthenticationJto.Login.Post jto) throws MyMessangerException
     {
 
         try
@@ -59,7 +59,7 @@ public final class RestApi
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_logindata));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_logindata));
         }
 
         HttpResponseParser response = executePostRequest(jto, AppConfig.RestApiAction.AccountLogin, false);
@@ -83,13 +83,13 @@ public final class RestApi
             {
                 Log.e(AppConfig.LOG_TAG, e.getMessage());
             }
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
         }
 
         return postBackDto;
     }
 
-    public UtilityJto.UpdateAppJto.PostBack updateApp(UtilityJto.UpdateAppJto.Post jto) throws SamimException
+    public UtilityJto.UpdateAppJto.PostBack updateApp(UtilityJto.UpdateAppJto.Post jto) throws MyMessangerException
     {
 
 
@@ -114,18 +114,18 @@ public final class RestApi
             {
                 Log.e(AppConfig.LOG_TAG, e.getMessage());
             }
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
         }
 
         return postBackDto;
     }
 
-    private HttpResponseParser executePostRequest(PostJto dto, String method, boolean encryption) throws SamimException
+    private HttpResponseParser executePostRequest(PostJto dto, String method, boolean encryption) throws MyMessangerException
     {
         return executePostRequest(dto, method, encryption, "UTF-8");
     }
 
-    private HttpResponseParser executePostRequest(PostJto dto, String method, boolean encryption, String postCharset) throws SamimException
+    private HttpResponseParser executePostRequest(PostJto dto, String method, boolean encryption, String postCharset) throws MyMessangerException
     {
 
         try
@@ -138,7 +138,7 @@ public final class RestApi
                 intent.setAction(SamimAction.ACTIVATION_NULL);
                 mContext.sendBroadcast(intent);
 
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_logindata));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_logindata));
             }
 
             mHttpClient = new DefaultHttpClient();
@@ -170,7 +170,7 @@ public final class RestApi
             if (isCanceled)
             {
                 mHttpClient = null;
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
             }
 
             HttpResponse response = mHttpClient.execute(httpPost);
@@ -194,7 +194,7 @@ public final class RestApi
                         //
                         //if (api.verifyKey(mKey, mToken))
                         //{
-                        //    throw new SamimException(mContext.getString(R.string.samim_ws_message_error_verifykey_conflict));
+                        //    throw new MyMessangerException(mContext.getString(R.string.samim_ws_message_error_verifykey_conflict));
                         //}
 
                         Intent intent = new Intent();
@@ -232,33 +232,33 @@ public final class RestApi
                         {
                             Log.e(AppConfig.LOG_TAG, e.getMessage());
                         }
-                        throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+                        throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
                     }
 
                 }
                 else if (status == HttpStatus.SC_NOT_FOUND)
                 {
-                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_notfound));
+                    throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_notfound));
                 }
                 else
                 {
-                    throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
+                    throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
                 }
 
             }
             else
             {
-                throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_null_data));
+                throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_null_data));
             }
 
         }
-        catch (SamimException e)
+        catch (MyMessangerException e)
         {
             throw e;
         }
         catch (Exception e)
         {
-            throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
+            throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_unknow));
         }
 
     }

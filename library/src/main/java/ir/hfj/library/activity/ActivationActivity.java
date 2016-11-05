@@ -32,7 +32,7 @@ import ir.hfj.library.connection.restapi.ActivationRestApi;
 import ir.hfj.library.connection.restapi.jto.ActivationJto;
 import ir.hfj.library.connection.restapi.jto.PostBackJto;
 import ir.hfj.library.database.DbBase;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.fragment.ExecutionFragment;
 import ir.hfj.library.fragment.OnFragmentBackResult;
 import ir.hfj.library.holder.LoginDataHolder;
@@ -644,7 +644,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 {
                     postBackJTO = mRestApi.activationPhone(dto);
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     postBackJTO = new ActivationJto.Phone.PostBack();
                     postBackJTO.stateCode = PostBackJto.RESULT_BAD_REQUEST;
@@ -805,7 +805,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 {
                     activeCode = Helper.md5(activeCode);
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     mDialog = new NhDialog(mActivity, NhDialog.DialogIcon.ERROR);
                     mDialog.setMainTitle(R.string.messanger_login_message_title_error).setSubTitle(e.getMessage());
@@ -984,7 +984,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 {
                     postBackJTO = mRestApi.activationVerify(activeToken, dto, ((OnFragmentBackResult) mFragment.mActivity).getLoginData().activeCode);
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     postBackJTO = new ActivationJto.Verify.PostBack();
                     postBackJTO.stateCode = PostBackJto.RESULT_BAD_REQUEST;

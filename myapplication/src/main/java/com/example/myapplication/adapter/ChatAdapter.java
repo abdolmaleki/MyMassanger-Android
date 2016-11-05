@@ -40,7 +40,7 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import java.util.UUID;
 
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.util.Helper;
 import ir.hfj.library.util.MessangerMediaPlayer;
 import ir.hfj.library.util.VideoHelper;
@@ -304,7 +304,7 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
                                     viewHolder.prgProgress.setVisibility(View.VISIBLE);
                                     setProgress(viewHolder.prgProgress, -1);
                                 }
-                                catch (SamimException e)
+                                catch (MyMessangerException e)
                                 {
                                     v.setVisibility(View.VISIBLE);
                                     viewHolder.prgProgress.setVisibility(View.GONE);
@@ -369,7 +369,7 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
                                     viewHolder.prgProgress.setVisibility(View.VISIBLE);
                                     setProgress(viewHolder.prgProgress, -1);
                                 }
-                                catch (SamimException e)
+                                catch (MyMessangerException e)
                                 {
                                     v.setVisibility(View.VISIBLE);
                                     viewHolder.prgProgress.setVisibility(View.GONE);

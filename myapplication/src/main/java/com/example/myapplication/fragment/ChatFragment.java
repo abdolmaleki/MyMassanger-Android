@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -42,7 +43,7 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import java.util.UUID;
 
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.ui.NhToast;
 import ir.hfj.library.util.Helper;
 import ir.hfj.library.util.MesssangerVoiceRecorder;
@@ -274,7 +275,7 @@ public class ChatFragment extends Fragment implements
                 setChatUserName(mChatUser.firstName + " " + mChatUser.lastName);
                 mChatController.readChat(mChatUser.getGuid());
             }
-            catch (SamimException e)
+            catch (MyMessangerException e)
             {
 
                 if (activity != null)
@@ -379,7 +380,7 @@ public class ChatFragment extends Fragment implements
                         restChatText();
 
                     }
-                    catch (SamimException e)
+                    catch (MyMessangerException e)
                     {
                         NhToast.makeText(activity, e.getMessage(), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                     }
@@ -497,7 +498,7 @@ public class ChatFragment extends Fragment implements
                     {
                         mChatController.sendChatTypingReport(dto);
                     }
-                    catch (SamimException e)
+                    catch (MyMessangerException e)
                     {
                         e.printStackTrace();
                     }
@@ -513,7 +514,7 @@ public class ChatFragment extends Fragment implements
                     {
                         mChatController.sendChatTypingReport(dto);
                     }
-                    catch (SamimException e)
+                    catch (MyMessangerException e)
                     {
                         e.printStackTrace();
                     }
@@ -530,7 +531,6 @@ public class ChatFragment extends Fragment implements
             return dto;
         }
     };
-
 
     //  __  __          _ _       _____                                     _         _     _     _
     // |  \/  | ___  __| (_) __ _|  ___| __ __ _  __ _ _ __ ___   ___ _ __ | |_      | |   (_)___| |_ ___ _ __   ___ _ __
@@ -583,7 +583,7 @@ public class ChatFragment extends Fragment implements
                     restChatText();
 
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     NhToast.makeText(getActivity(), e.getMessage(), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
@@ -636,7 +636,7 @@ public class ChatFragment extends Fragment implements
                     restChatText();
 
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     NhToast.makeText(getActivity(), e.getMessage(), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
@@ -688,7 +688,7 @@ public class ChatFragment extends Fragment implements
                     restChatText();
 
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     NhToast.makeText(getActivity(), e.getMessage(), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
@@ -741,7 +741,7 @@ public class ChatFragment extends Fragment implements
                     restChatText();
 
                 }
-                catch (SamimException e)
+                catch (MyMessangerException e)
                 {
                     NhToast.makeText(getActivity(), e.getMessage(), NhToast.ToastIcon.ERROR, NhToast.LENGTH_SHORT).show();
                 }
@@ -785,7 +785,7 @@ public class ChatFragment extends Fragment implements
                     }
                     catch (Exception e)
                     {
-                        e.printStackTrace();
+                        Log.e("Record Voice --------> ",e.toString());
                     }
                 }
                 return true;

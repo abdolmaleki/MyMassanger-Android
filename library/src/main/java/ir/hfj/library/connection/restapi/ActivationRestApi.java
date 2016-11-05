@@ -18,7 +18,7 @@ import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.connection.restapi.jto.ActivationJto;
 import ir.hfj.library.connection.restapi.jto.PostBackJto;
 import ir.hfj.library.connection.restapi.jto.PostJto;
-import ir.hfj.library.exception.SamimException;
+import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.util.Encryption;
 import ir.hfj.library.util.Helper;
 
@@ -35,7 +35,7 @@ public final class ActivationRestApi
 		this.mContext = context;
 	}
 
-	public ActivationJto.Phone.PostBack activationPhone(ActivationJto.Phone.Post dto) throws SamimException
+	public ActivationJto.Phone.PostBack activationPhone(ActivationJto.Phone.Post dto) throws MyMessangerException
 	{
 
 		HttpResponseParser response = executePostRequest(dto, AppConfig.RestApiAction.ActivationPhone, "", "", false);
@@ -59,14 +59,14 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+			throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
 
 	}
 
-	public ActivationJto.Verify.PostBack activationVerify(String token, ActivationJto.Verify.Post dto, String activeCode) throws SamimException
+	public ActivationJto.Verify.PostBack activationVerify(String token, ActivationJto.Verify.Post dto, String activeCode) throws MyMessangerException
 	{
 
 		HttpResponseParser response = executePostRequest(dto, AppConfig.RestApiAction.ActivationVerify, token, activeCode, true);
@@ -90,13 +90,13 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+			throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
 	}
 
-	public ActivationJto.Register.PostBack activationRegister(String token, ActivationJto.Register.Post dto, String activeCode) throws SamimException
+	public ActivationJto.Register.PostBack activationRegister(String token, ActivationJto.Register.Post dto, String activeCode) throws MyMessangerException
 	{
 
 		HttpResponseParser response = executePostRequest(dto, AppConfig.RestApiAction.ActivationRegister, token, activeCode, true);
@@ -121,13 +121,13 @@ public final class ActivationRestApi
 			{
 				Log.e(AppConfig.LOG_TAG, e.getMessage());
 			}
-			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+			throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
 		}
 
 		return postBackDto;
 	}
 
-	private HttpResponseParser executePostRequest(PostJto dto, String method, String token, String key, boolean encryption) throws SamimException
+	private HttpResponseParser executePostRequest(PostJto dto, String method, String token, String key, boolean encryption) throws MyMessangerException
 	{
 
 		try
@@ -162,7 +162,7 @@ public final class ActivationRestApi
 			if (isCanceled)
 			{
 				mHttpClient = null;
-				throw new SamimException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
+				throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_cancel_operation));
 			}
 
 			HttpResponse response = mHttpClient.execute(httpPost);
@@ -208,33 +208,33 @@ public final class ActivationRestApi
 						{
 							Log.e(AppConfig.LOG_TAG, e.getMessage());
 						}
-						throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_format));
+						throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_format));
 					}
 
 				}
 				else if (status == HttpStatus.SC_NOT_FOUND)
 				{
-					throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_notfound));
+					throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_notfound));
 				}
 				else
 				{
-					throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
+					throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_httpcode));
 				}
 
 			}
 			else
 			{
-				throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_null_data));
+				throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_null_data));
 			}
 
 		}
-		catch (SamimException e)
+		catch (MyMessangerException e)
 		{
 			throw e;
 		}
 		catch (Exception e)
 		{
-			throw new SamimException(mContext.getString(R.string.messanger_ws_message_error_unknow));
+			throw new MyMessangerException(mContext.getString(R.string.messanger_ws_message_error_unknow));
 		}
 
 	}

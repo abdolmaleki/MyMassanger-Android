@@ -885,7 +885,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 //                                ""
 //                        ));
 //            }
-//            catch (SamimException e)
+//            catch (MyMessangerException e)
 //            {
 //                postBackJto = new FileJto.PostBack();
 //                postBackJto.stateCode = PostBackJTO.RESULT_BAD_REQUEST;
@@ -911,7 +911,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 //                        }
 //                        catch (Exception e)
 //                        {
-//                            throw new SamimException(e.getMessage());
+//                            throw new MyMessangerException(e.getMessage());
 //                        }
 //
 //                        //=================================================================
@@ -922,7 +922,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 //                                        mDto.contentType
 //                                ));
 //                    }
-//                    catch (SamimException e)
+//                    catch (MyMessangerException e)
 //                    {
 //                        postBackJto = new FileJto.PostBack();
 //                        postBackJto.stateCode = PostBackJTO.RESULT_BAD_REQUEST;
