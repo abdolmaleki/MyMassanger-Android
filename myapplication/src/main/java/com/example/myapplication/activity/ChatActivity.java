@@ -75,7 +75,6 @@ public class ChatActivity extends AppCompatActivity implements
         IDownloadController,
         IUploadController
 
-
 {
 
     private ServiceHandler mNetworkService;
