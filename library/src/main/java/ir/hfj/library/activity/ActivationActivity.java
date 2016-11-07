@@ -245,9 +245,7 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
         boolean result;
 
         result = DbBase.UserSetting.updateUserSetting(mLoginData.getUserSettingModel());
-
         App.getInstance(this).loadUserSetting();
-
         return result;
     }
 

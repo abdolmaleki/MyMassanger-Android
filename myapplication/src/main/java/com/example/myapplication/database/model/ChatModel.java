@@ -48,6 +48,10 @@ public class ChatModel extends BaseModel
     @Column(name = _contactUserId)
     public UUID contactUserId;
 
+    public static final String _contactPhoneNumber = "_contactPhoneNumber";
+    @Column(name = _contactPhoneNumber)
+    public String contactPhoneNumber;
+
     public static final String _deliverDate = "_deliverDate";
     @Column(name = _deliverDate)
     public Date deliverDate;

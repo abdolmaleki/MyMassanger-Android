@@ -170,7 +170,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         }
         else if (method.equalsIgnoreCase(SubscribeMethod.GetContact))
         {
-            onTeacherCallBack((ContactResponsibleDto.Result) result);
+            onContactCallBack((ContactResponsibleDto.Result) result);
         }
         else if (method.equalsIgnoreCase(SubscribeMethod.SetChatReadReport))
         {
@@ -378,6 +378,16 @@ public class MyMessangerService extends NetworkService implements DownloadManage
             else
             {
                 model = ChatMapper.convertDtoToModel(dto, ChatModel.RECEIVER_STATE_RECEIVED);
+                if (!Db.Contact.isExist(dto.senderUserId))
+                {
+                    ContactModel newContactModel = new ContactModel(dto.senderUserId);
+                    newContactModel.phoneNumber = dto.phoneNumber;
+                    newContactModel.firstName = dto.phoneNumber;
+                    newContactModel.lastName = "";
+                    Db.Contact.insert(newContactModel);
+
+                }
+
             }
 
             if (Db.Chat.insert(model))
@@ -488,21 +498,40 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 
     };
 
-    private void onTeacherCallBack(ContactResponsibleDto.Result result)
+    private void onContactCallBack(ContactResponsibleDto.Result result)
     {
         if (result.isValid())
         {
 
             for (ContactDto dto : result.contactDtos)
             {
-                ContactModel model = ContactMapper.ConvertDtoToModel(dto);
+                ContactModel contactModel = ContactMapper.ConvertDtoToModel(dto);
 
-                if (!Db.Contact.insert(model))
+                if (!Db.Contact.isExist(dto.guid))
                 {
-                    result.isSuccessful = false;
-                    result.baseMessage = getString(R.string.messanger_message_db_insert_error);
+                    if (!Db.Contact.insert(contactModel))
+                    {
+                        result.isSuccessful = false;
+                        result.baseMessage = getString(R.string.messanger_message_db_insert_error);
+                    }
+                }
+                else
+                {
+                    contactModel.setId(Db.Contact.selectByGuid(dto.guid).getId());
+                    Db.Contact.update(contactModel);
                 }
             }
+
+//            for (ContactDto dto : result.contactDtos)
+//            {
+//                ContactModel model = ContactMapper.ConvertDtoToModel(dto);
+//
+//                if (!Db.Contact.insert(model))
+//                {
+//                    result.isSuccessful = false;
+//                    result.baseMessage = getString(R.string.messanger_message_db_insert_error);
+//                }
+//            }
         }
     }
 

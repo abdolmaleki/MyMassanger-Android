@@ -35,7 +35,6 @@
 		<activity
 			android:name=".activity.ChatActivity"
 			android:icon="@mipmap/ic_launcher"
-			android:launchMode="singleInstance"
 			>
 
 			<intent-filter>

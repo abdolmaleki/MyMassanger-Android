@@ -15,6 +15,7 @@ public class ChatResponsibleDto extends BaseDto
     public ChatContentType contentType;
     public UUID chatId;
     public UUID receiverUserId;
+    public String phoneNumber;
 
     public ChatResponsibleDto(UUID chatId)
     {

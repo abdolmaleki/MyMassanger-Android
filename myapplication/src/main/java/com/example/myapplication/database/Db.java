@@ -79,6 +79,29 @@ public abstract class Db extends DbBase
                     .exists();
         }
 
+        public static boolean update(ContactModel model)
+        {
+            try
+            {
+                model.save();
+                return true;
+//                new Update(ContactModel.class)
+//                        .set("_firstName = ? AND _lastName=? AND _imageUrl=? AND _phoneNumber=?", model.firstName, model.lastName, model.imageUrl, model.phoneNumber)
+//                        .where("guid = ?", model.getGuid())
+//                        .execute();
+//                return true;
+            }
+            catch (Exception e)
+            {
+                if (AppConfig.DEBUG)
+                {
+                    Log.e(AppConfig.LOG_TAG, "MessangerDatabase > Update [ContactModel] problem: " + e.getMessage());
+                }
+            }
+
+            return false;
+        }
+
         public static boolean delete(UUID guid)
         {
             try

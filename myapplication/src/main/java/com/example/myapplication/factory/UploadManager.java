@@ -253,7 +253,6 @@ public final class UploadManager
 
                         mUploadHolder.state = MediaTransferState.Completed;
                         mUploadHolder.fileToken = postBack.token;
-
                         mListenerInternal.onUploadChangeState(mUploadHolder);
 
                     }
@@ -271,9 +270,7 @@ public final class UploadManager
                     mListenerInternal.onUploadChangeState(mUploadHolder);
                 }
 
-
             }
-
 
         }
     }

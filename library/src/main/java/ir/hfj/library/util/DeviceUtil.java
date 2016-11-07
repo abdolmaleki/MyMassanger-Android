@@ -3,12 +3,15 @@ package ir.hfj.library.util;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactUtil
+import ir.hfj.library.database.DbBase;
+
+public class DeviceUtil
 {
 
     public static List<String> getContactsPhoneNumbers(Context ctx)
@@ -56,7 +59,6 @@ public class ContactUtil
         return phoneNumbers;
     }
 
-
     private static String getStandardPhoneNumber(String phoneNumber)
     {
         String standardPhoneNumber = phoneNumber.replace(" ", "");
@@ -67,6 +69,35 @@ public class ContactUtil
         }
 
         return standardPhoneNumber;
+    }
+
+    public static String getDevicePhoneNumber(Context ctx)
+    {
+        return getStandardPhoneNumber(DbBase.UserSetting.select().phoneNumber);
+    }
+
+    public boolean isContactExists(Context context, String phoneNumber)
+    {
+        Uri lookupUri = Uri.withAppendedPath(
+                ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(phoneNumber));
+        String[] mPhoneNumberProjection = {ContactsContract.PhoneLookup._ID, ContactsContract.PhoneLookup.NUMBER, ContactsContract.PhoneLookup.DISPLAY_NAME};
+        Cursor cur = context.getContentResolver().query(lookupUri, mPhoneNumberProjection, null, null, null);
+        try
+        {
+            if (cur.moveToFirst())
+            {
+                return true;
+            }
+        }
+        finally
+        {
+            if (cur != null)
+            {
+                cur.close();
+            }
+        }
+        return false;
     }
 
 

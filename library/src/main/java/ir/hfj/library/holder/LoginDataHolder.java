@@ -24,6 +24,7 @@ public class LoginDataHolder implements Serializable
 		model.expired = false;
 		model.name = name;
 		model.family = family;
+		model.phoneNumber=phoneNumber;
 
 		return model;
 	}

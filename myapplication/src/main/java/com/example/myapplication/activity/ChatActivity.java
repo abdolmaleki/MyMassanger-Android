@@ -62,7 +62,7 @@ import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.ui.NhDialog;
-import ir.hfj.library.util.ContactUtil;
+import ir.hfj.library.util.DeviceUtil;
 import ir.hfj.library.util.DangerousPermission;
 import ir.hfj.library.util.DateUtil;
 import ir.hfj.library.util.Helper;
@@ -902,12 +902,19 @@ public class ChatActivity extends AppCompatActivity implements
 
     private void SyncContacts(List<ContactDto> dtos)
     {
-        Db.Contact.deleteAll();
-
         for (ContactDto dto : dtos)
         {
-            ContactModel newContact = ContactMapper.ConvertDtoToModel(dto);
-            Db.Contact.insert(newContact);
+            ContactModel contactModel = ContactMapper.ConvertDtoToModel(dto);
+
+            if (!Db.Contact.isExist(dto.guid))
+            {
+                Db.Contact.insert(contactModel);
+            }
+            else
+            {
+                contactModel.setId(Db.Contact.selectByGuid(dto.guid).getId());
+                Db.Contact.update(contactModel);
+            }
         }
 
     }
@@ -1015,7 +1022,7 @@ public class ChatActivity extends AppCompatActivity implements
     private ContactResponsibleDto createRefreshRequestDto()
     {
         ContactResponsibleDto dto = new ContactResponsibleDto();
-        dto.phoneNumbers = ContactUtil.getContactsPhoneNumbers(this);
+        dto.phoneNumbers = DeviceUtil.getContactsPhoneNumbers(this);
         return dto;
     }
 

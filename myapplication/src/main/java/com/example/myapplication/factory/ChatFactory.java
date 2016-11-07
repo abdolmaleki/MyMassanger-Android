@@ -17,6 +17,7 @@ import com.example.myapplication.mapper.ChatMapper;
 import java.io.File;
 import java.util.UUID;
 
+import ir.hfj.library.util.DeviceUtil;
 import ir.hfj.library.util.Helper;
 
 
@@ -40,6 +41,7 @@ public class ChatFactory
                 dto.content = new ChatTextContent(text);
                 dto.contentType = ChatContentType.Text;
                 dto.receiverUserId = userId;
+                dto.phoneNumber= DeviceUtil.getDevicePhoneNumber(activity);
 
                 //-----------------------
                 ChatModel model = ChatMapper.convertDtoToModel(dto, ChatModel.SENDER_STATE_SENDING);
@@ -79,6 +81,7 @@ public class ChatFactory
                 dto.content = new ChatImageContent(path, Helper.getExtension(path));
                 dto.contentType = ChatContentType.Image;
                 dto.receiverUserId = userId;
+                dto.phoneNumber= DeviceUtil.getDevicePhoneNumber(activity);
                 //-----------------------
                 ChatModel model = ChatMapper.convertDtoToModel(dto, ChatModel.SENDER_STATE_SENDING);
                 if (Db.Chat.insert(model))
@@ -120,6 +123,8 @@ public class ChatFactory
                 dto.content = chatFileContent;
                 dto.contentType = ChatContentType.File;
                 dto.receiverUserId = userId;
+                dto.phoneNumber= DeviceUtil.getDevicePhoneNumber(activity);
+
 
                 //-----------------------
                 ChatModel model = ChatMapper.convertDtoToModel(dto, ChatModel.SENDER_STATE_SENDING);
@@ -157,6 +162,8 @@ public class ChatFactory
                 dto.content = new ChatVideoContent(path, Helper.getExtension(path));
                 dto.contentType = ChatContentType.Video;
                 dto.receiverUserId = userId;
+                dto.phoneNumber= DeviceUtil.getDevicePhoneNumber(activity);
+
                 //-----------------------
                 ChatModel model = ChatMapper.convertDtoToModel(dto, ChatModel.SENDER_STATE_SENDING);
                 if (Db.Chat.insert(model))
@@ -195,6 +202,8 @@ public class ChatFactory
                 dto.content = new ChatVoiceContent(path, Helper.getExtension(path));
                 dto.contentType = ChatContentType.Voice;
                 dto.receiverUserId = userId;
+                dto.phoneNumber= DeviceUtil.getDevicePhoneNumber(activity);
+
                 //-----------------------
                 ChatModel model = ChatMapper.convertDtoToModel(dto, ChatModel.SENDER_STATE_SENDING);
                 if (Db.Chat.insert(model))

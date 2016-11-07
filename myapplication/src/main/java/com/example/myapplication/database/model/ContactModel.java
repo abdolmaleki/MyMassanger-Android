@@ -27,7 +27,7 @@ public class ContactModel extends BaseModel
     public String imageUrl;
 
     public static final String _phoneNumber = "_phoneNumber";
-    @Column(name = "_phoneNumber")
+    @Column(name = "_phoneNumber", notNull = true)
     public String phoneNumber;
 
     public ContactModel(UUID guid)

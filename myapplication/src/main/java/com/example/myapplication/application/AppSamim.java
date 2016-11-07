@@ -50,9 +50,9 @@ public class AppSamim extends App
         AppConfig.ROLE = 1;
 
 
-//        AppConfig.NETWORK_HOST_WS = "http://samim.aligorji.ir:8080/api";
-//        AppConfig.NETWORK_HOST_SR = "http://samim.aligorji.ir:8080/";
-//        AppConfig.NETWORK_HOST_WEB = "http://samim.aligorji.ir:8080/";
+//        AppConfig.NETWORK_HOST_WS = "http://messanger.aligorji.ir:8080//api";
+//       . AppConfig.NETWORK_HOST_SR = "http://messanger.aligorji.ir:8080//";
+//        AppConfig.NETWORK_HOST_WEB = "http://messanger.aligorji.ir:8080//";
 
         AppConfig.NETWORK_HOST_WS = "http://192.168.13.33:5009/api";
         AppConfig.NETWORK_HOST_SR = "http://192.168.13.33:5009/";

@@ -17,4 +17,6 @@ public final class ChatDto extends BaseDto
     public UUID receiverUserId;
     public long intervalTime;
     public boolean isOwner;
+    public String phoneNumber;
+
 }

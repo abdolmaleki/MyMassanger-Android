@@ -3,15 +3,12 @@ package ir.hfj.library.database;
 
 import android.database.SQLException;
 import android.util.Log;
-
 import com.activeandroid.query.Select;
-
 import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.database.model.UserSettingModel;
 
 public abstract class DbBase
 {
-
 
     public final static class UserSetting
     {

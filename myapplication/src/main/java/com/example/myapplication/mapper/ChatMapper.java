@@ -138,6 +138,7 @@ public class ChatMapper
             model.path = "";
             model.needUpload = false;
             model.date = Helper.getDateTimeNow(dto.intervalTime);
+            model.contactPhoneNumber = dto.phoneNumber;
             return model;
         }
 
@@ -158,6 +159,7 @@ public class ChatMapper
             model.readDate = null;
             model.state = state;
             model.path = dto.content.pathForUpload;
+            model.contactPhoneNumber = dto.phoneNumber;
             model.needUpload = true;
             return model;
         }
@@ -174,6 +176,7 @@ public class ChatMapper
             dto.content = model.content;
             dto.receiverUserId = model.contactUserId;
             dto.contentType = model.contentType;
+            dto.phoneNumber = model.contactPhoneNumber;
             if (model.needUpload)
             {
                 dto.content.pathForUpload = model.path;
@@ -216,7 +219,7 @@ public class ChatMapper
                 ChatHistoryHolder holder = new ChatHistoryHolder();
                 holder.description = lastChatModel.getSummary();
                 holder.count = Db.Chat.selectUnreadHistoryCount(contactGuid);
-                holder.name = contactModel.firstName+" "+contactModel.lastName;
+                holder.name = contactModel.firstName + " " + contactModel.lastName;
                 holder.time = Helper.getTime(lastChatModel.date);
                 holder.contactGuid = contactModel.getGuid();
                 holder.id = contactModel.getId();
