@@ -83,7 +83,7 @@ public class Notifier
                 .setTicker(tickerMessage)
                 .setContentIntent(pIntent)
                 .setLargeIcon(chatUserImage)
-                .setSmallIcon(R.drawable.ic_samim)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setAutoCancel(true);
 
         Notification notification = buildNotification(notificationBuilder);
