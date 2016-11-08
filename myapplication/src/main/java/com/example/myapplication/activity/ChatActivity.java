@@ -62,9 +62,9 @@ import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.MyMessangerException;
 import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.ui.NhDialog;
-import ir.hfj.library.util.DeviceUtil;
 import ir.hfj.library.util.DangerousPermission;
 import ir.hfj.library.util.DateUtil;
+import ir.hfj.library.util.DeviceUtil;
 import ir.hfj.library.util.Helper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
