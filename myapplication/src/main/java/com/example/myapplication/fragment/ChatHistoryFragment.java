@@ -19,6 +19,7 @@ import com.example.myapplication.database.model.ContactModel;
 import com.example.myapplication.dictionary.DataDictionary;
 import com.example.myapplication.holder.ChatHistoryHolder;
 import com.example.myapplication.mapper.ChatMapper;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.melnykov.fab.FloatingActionButton;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -40,6 +41,8 @@ public class ChatHistoryFragment extends Fragment implements
     private ChatHistoryAdapter mAdapter;
     private IChatUpdatable mChatController;
     private TextView uiTxvConnectionStatus;
+    private ImageView uiImgMenu;
+    private SlidingMenu mMenu;
 
     public static ChatHistoryFragment newInstance()
     {
@@ -60,7 +63,9 @@ public class ChatHistoryFragment extends Fragment implements
 
         initAdapter();
 
+
     }
+
     private void loadData()
     {
     }
@@ -96,6 +101,23 @@ public class ChatHistoryFragment extends Fragment implements
 
     }
 
+    private void initMenu()
+    {
+
+        mMenu = new SlidingMenu(getActivity());
+        mMenu.setMode(SlidingMenu.RIGHT);
+        mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        mMenu.setShadowWidth(16);
+        mMenu.setBehindOffset(300);
+        mMenu.setFadeDegree(0.35f);
+        mMenu.attachToActivity(getActivity(), SlidingMenu.SLIDING_WINDOW);
+        mMenu.setMenu(R.layout.fragment_sliding_menu);
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.menu_frame, SlidingMenuFragment.newInstance())
+                .commit();
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
@@ -107,10 +129,12 @@ public class ChatHistoryFragment extends Fragment implements
 
         uiRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
         uiTxvConnectionStatus = (TextView) rootView.findViewById(R.id.fragment_chat_history_connection_status);
+        uiImgMenu = (ImageView) rootView.findViewById(R.id.fragment_chat_history_menu);
 
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fragment_chat_history_newchat);
         fab.attachToRecyclerView(uiRecyclerView);
         fab.setOnClickListener(this);
+        uiImgMenu.setOnClickListener(this);
 
         return rootView;
     }
@@ -143,6 +167,10 @@ public class ChatHistoryFragment extends Fragment implements
             ChatUserDialogFragment chatUserDialogFragment = ChatUserDialogFragment.newInstance();
             chatUserDialogFragment.show(getActivity().getFragmentManager(), null);
         }
+        else if (id == R.id.fragment_chat_history_menu)
+        {
+            mMenu.toggle();
+        }
     }
 
     @Override
@@ -172,7 +200,7 @@ public class ChatHistoryFragment extends Fragment implements
     public void updateConnectionStatus(String status)
     {
         uiTxvConnectionStatus.setText(status);
-     }
+    }
 
     @Override
     public void setCurrentContact(UUID contactGuid)
@@ -195,6 +223,7 @@ public class ChatHistoryFragment extends Fragment implements
         {
             mChatController = (IChatUpdatable) activity;
         }
+
     }
 
     @Override
@@ -203,6 +232,7 @@ public class ChatHistoryFragment extends Fragment implements
         super.onActivityCreated(savedInstanceState);
         uiRecyclerView.setLayoutManager(mLayoutManager);
         uiRecyclerView.setAdapter(mAdapter);
+        initMenu();
     }
 
     private static class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.ChatHistoryViewHolder>

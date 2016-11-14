@@ -27,4 +27,7 @@ public class UserSettingModel extends Model
     @Column(name = "phoneNumber", notNull = true)
     public String phoneNumber;
 
+    @Column(name = "imageUrl")
+    public String imageUrl;
+
 }

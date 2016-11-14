@@ -98,7 +98,6 @@ public class ChatActivity extends AppCompatActivity implements
 
         initActionBar();
 
-
         initView();
 
         splashScreen();
@@ -499,6 +498,10 @@ public class ChatActivity extends AppCompatActivity implements
         {
             throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
+    }
+    public void toggleMenu()
+    {
+
     }
 
 

@@ -64,6 +64,16 @@
     <string name="messanger_message_loading_chatUser">در حال دریافت اطلاعات مخاطبین</string>
     <string name="messanger_message_no_student">دانش آموزی وجود ندارد</string>
     <string name="messanger_message_db_insert_error">خطا در ثبت اطلاعات در پایگاه داده</string>
-
     <string name="messanger_message_no_entity">موردی وجود ندارد</string>
+
+    <!--==================================================================== -->
+    <!--Sliding Menu -->
+    <!--==================================================================== -->
+
+    <string name="messanger_menu_newchannel">ایجاد کانال جدید</string>
+    <string name="messanger_menu_edit_profileImage">تغییر عکس پروفایل</string>
+    <string name="messanger_menu_contact">مخاطبان</string>
+    <string name="messanger_menu_about_us">درباره ما</string>
+
+
 </resources>
