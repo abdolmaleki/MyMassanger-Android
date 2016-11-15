@@ -970,7 +970,10 @@ public class ActivationActivity extends FragmentActivity implements View.OnClick
                 String key = Helper.generateRandomString(32);//AES
 
                 ((OnFragmentBackResult) mFragment.mActivity).getLoginData().secretMessage = secretMessage;
-                ((OnFragmentBackResult) mFragment.mActivity).getLoginData().key = key;
+                ((OnFragmentBackResult) mFragment.mActivity).
+
+
+                        getLoginData().key = key;
 
                 String activeToken = ((OnFragmentBackResult) mFragment.mActivity).getLoginData().activeToken;
                 String imei = Helper.getIMEI(mFragment.mActivity);

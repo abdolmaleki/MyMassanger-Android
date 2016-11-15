@@ -18,6 +18,9 @@ public interface SubscribeMethod
     String GetContact = "GetContact";
     String AddChat = "AddChat";
     String SetChatReadReport = "SetChatReadReport";
+    String GetProfileImage="GetProfileImage";
+
+
 
     //no call back
     String ChatTypingReport = "ChatTypingReport";

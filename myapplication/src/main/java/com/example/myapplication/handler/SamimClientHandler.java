@@ -15,6 +15,7 @@ import com.example.myapplication.connection.socket.dto.ChatReadReportResponsible
 import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ProfileImageResponsibleDto;
 import com.example.myapplication.holder.DownloadHolder;
 import com.example.myapplication.holder.UploadHolder;
 import com.example.myapplication.service.MyMessangerService;
@@ -88,7 +89,7 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
     @Override
     protected final void driveHandleReceivedDTO(String subscribe, BaseDto dto)
     {
-         if (subscribe.equalsIgnoreCase(SubscribeMethod.ChatReceive))
+        if (subscribe.equalsIgnoreCase(SubscribeMethod.ChatReceive))
         {
             onChatReceived((ChatDto) dto);
         }
@@ -122,8 +123,6 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
     {
     }
 
-
-
     @Override
     protected final void driveHandleCallbacksDTO(String method, BaseDto.Result dto)
     {
@@ -140,6 +139,10 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
         {
             onContactCallback((ContactResponsibleDto.Result) dto);
         }
+        else if (method.equalsIgnoreCase(SubscribeMethod.GetProfileImage))
+        {
+            onProfileImageCallback((ProfileImageResponsibleDto.Result) dto);
+        }
     }
 
     protected void onContactCallback(ContactResponsibleDto.Result dto)
@@ -149,6 +152,9 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
     {
     }
     protected void onChatReadReportCallback(ChatReadReportResponsibleDto.Result dto)
+    {
+    }
+    protected void onProfileImageCallback(ProfileImageResponsibleDto.Result dto)
     {
     }
 
@@ -191,14 +197,19 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
         return sendCallback(dto, SubscribeMethod.SetChatReadReport);
     }
 
+    public long invokeChatTypingReport(ChatTypingReportDto dto) throws RemoteException
+    {
+        return sendNoCallback(dto, SubscribeMethod.ChatTypingReport);
+    }
+
     public long invokeContact(ContactResponsibleDto dto) throws RemoteException
     {
         return sendCallback(dto, SubscribeMethod.GetContact);
     }
 
-    public long invokeChatTypingReport(ChatTypingReportDto dto) throws RemoteException
+    public long invokeProfileImage(ProfileImageResponsibleDto dto) throws RemoteException
     {
-        return sendNoCallback(dto, SubscribeMethod.ChatTypingReport);
+        return sendNoCallback(dto, SubscribeMethod.GetProfileImage);
     }
 
     public void sendDownload(DownloadHolder.Send sendHolder) throws RemoteException
