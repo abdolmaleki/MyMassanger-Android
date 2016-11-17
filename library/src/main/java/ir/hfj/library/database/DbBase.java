@@ -3,7 +3,9 @@ package ir.hfj.library.database;
 
 import android.database.SQLException;
 import android.util.Log;
+
 import com.activeandroid.query.Select;
+
 import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.database.model.UserSettingModel;
 
@@ -52,6 +54,8 @@ public abstract class DbBase
                     existModel.family = model.family;
                     existModel.key = model.key;
                     existModel.expired = model.expired;
+                    existModel.phoneNumber = model.phoneNumber;
+                    existModel.imageUrl = model.imageUrl;
                     existModel.save();
                     return true;
                 }

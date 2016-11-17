@@ -100,7 +100,22 @@ public final class AppConfig
                 .cacheInMemory(false)
                 .cacheOnDisk(true)
                 .considerExifParams(false)
-                        //.displayer(new RoundedBitmapDisplayer(20))
+                //.displayer(new RoundedBitmapDisplayer(20))
+                .build();
+    }
+
+    public static DisplayImageOptions createAvatarDisplayOptions()
+    {
+        return new DisplayImageOptions.Builder()
+
+                //.showImageOnLoading(R.drawable.img_loading)
+                .showImageForEmptyUri(R.drawable.ic_noavatar)
+                .showImageOnFail(R.drawable.ic_noavatar)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .cacheInMemory(false)
+                .cacheOnDisk(true)
+                .considerExifParams(false)
+                //.displayer(new RoundedBitmapDisplayer(20))
                 .build();
     }
 
@@ -132,7 +147,7 @@ public final class AppConfig
                 .cacheOnDisk(true)
                 .considerExifParams(false)
                 .bitmapConfig(Bitmap.Config.RGB_565)
-                        //.displayer(new RoundedBitmapDisplayer(20))
+                //.displayer(new RoundedBitmapDisplayer(20))
                 .build();
     }
 

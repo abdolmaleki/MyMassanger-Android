@@ -22,6 +22,7 @@ import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.connection.socket.dto.ContactDto;
 import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ProfileImageResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
@@ -44,6 +45,7 @@ import ir.hfj.library.application.ConstantBase;
 import ir.hfj.library.connection.socket.ConnectionEventHandler;
 import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.connection.socket.dto.UpdateAppDto;
+import ir.hfj.library.database.model.UserSettingModel;
 import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.util.Helper;
 
@@ -175,6 +177,10 @@ public class MyMessangerService extends NetworkService implements DownloadManage
         else if (method.equalsIgnoreCase(SubscribeMethod.SetChatReadReport))
         {
             onSetChatReadReportCallBack((ChatReadReportResponsibleDto.Result) result);
+        }
+        else if (method.equalsIgnoreCase(SubscribeMethod.GetProfileImage))
+        {
+            onProfileImageBack((ProfileImageResponsibleDto.Result) result);
         }
 
 
@@ -496,6 +502,7 @@ public class MyMessangerService extends NetworkService implements DownloadManage
 
         }
 
+
     };
 
     private void onContactCallBack(ContactResponsibleDto.Result result)
@@ -521,17 +528,18 @@ public class MyMessangerService extends NetworkService implements DownloadManage
                     Db.Contact.update(contactModel);
                 }
             }
+        }
+    }
 
-//            for (ContactDto dto : result.contactDtos)
-//            {
-//                ContactModel model = ContactMapper.ConvertDtoToModel(dto);
-//
-//                if (!Db.Contact.insert(model))
-//                {
-//                    result.isSuccessful = false;
-//                    result.baseMessage = getString(R.string.messanger_message_db_insert_error);
-//                }
-//            }
+    private void onProfileImageBack(ProfileImageResponsibleDto.Result result)
+    {
+        if (result.isValid())
+        {
+            UserSettingModel userSettingModel = Db.UserSetting.select();
+            userSettingModel.setId(Db.UserSetting.select().getId());
+            userSettingModel.imageUrl = result.profileImage;
+            Db.UserSetting.updateUserSetting(userSettingModel);
+
         }
     }
 

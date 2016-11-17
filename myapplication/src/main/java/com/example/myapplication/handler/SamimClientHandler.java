@@ -209,7 +209,7 @@ public abstract class SamimClientHandler<T extends Activity> extends NetworkServ
 
     public long invokeProfileImage(ProfileImageResponsibleDto dto) throws RemoteException
     {
-        return sendNoCallback(dto, SubscribeMethod.GetProfileImage);
+        return sendCallback(dto, SubscribeMethod.GetProfileImage);
     }
 
     public void sendDownload(DownloadHolder.Send sendHolder) throws RemoteException

@@ -1,5 +1,6 @@
 package com.example.myapplication.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,15 +27,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.hfj.library.application.AppConfig;
-import ir.hfj.library.database.DbBase;
+import ir.hfj.library.database.model.UserSettingModel;
 
-public class SlidingMenuFragment extends Fragment
+public class SlidingMenuFragment extends Fragment implements ISlidingMenuController
 {
 
     RecyclerView recyclerView;
     private DisplayImageOptions mOptions;
     TextView mUserName;
     ImageView mUserAvatar;
+    IChatUpdatable mIChatUpdatable;
 
 
     public SlidingMenuFragment()
@@ -53,10 +55,10 @@ public class SlidingMenuFragment extends Fragment
 
         mUserAvatar = (ImageView) rootView.findViewById(R.id.fragment_sliding_menu_avatar);
         mUserName = (TextView) rootView.findViewById(R.id.fragment_sliding_menu_name);
+        mOptions = AppConfig.createAvatarDisplayOptions();
 
-
-        ImageLoader.getInstance().displayImage(DbBase.UserSetting.select().imageUrl, mUserAvatar, mOptions);
-        mUserName.setText(Db.UserSetting.select().name + " " + Db.UserSetting.select().family);
+        updateProfileImage();
+        updateProfileName();
 
         mUserAvatar.setOnClickListener(new View.OnClickListener()
         {
@@ -67,9 +69,6 @@ public class SlidingMenuFragment extends Fragment
                 ((ChatActivity) getActivity()).toggleMenu();
             }
         });
-
-        mOptions = AppConfig.createDisplayImageOptions();
-
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_sliding_menu_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -95,6 +94,23 @@ public class SlidingMenuFragment extends Fragment
 
         return rootView;
     }
+    private void updateProfileName()
+    {
+        UserSettingModel userSettingModel = Db.UserSetting.select();
+        if (userSettingModel != null)
+        {
+            mUserName.setText(userSettingModel.name + " " + userSettingModel.family);
+
+        }
+    }
+
+    @Override
+    public void updateProfileImage()
+    {
+        String imagePath = (Db.UserSetting.select() != null) ? Db.UserSetting.select().imageUrl : null;
+        ImageLoader.getInstance().displayImage(imagePath, mUserAvatar, mOptions);
+
+    }
 
     private List<SlidingMenuItem> getData()
     {
@@ -106,6 +122,30 @@ public class SlidingMenuFragment extends Fragment
 
         return menuList;
     }
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+
+        if (activity instanceof IChatUpdatable)
+        {
+            mIChatUpdatable = (IChatUpdatable) activity;
+        }
+    }
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+    }
+
+
+//  ____                      _       __     ___                 _     _     _
+// |  _ \ ___  ___ _   _  ___| | ___  \ \   / (_) _____      __ | |   (_)___| |_ ___ _ __   ___ _ __
+// | |_) / _ \/ __| | | |/ __| |/ _ \  \ \ / /| |/ _ \ \ /\ / / | |   | / __| __/ _ \ '_ \ / _ \ '__|
+// |  _ <  __/ (__| |_| | (__| |  __/   \ V / | |  __/\ V  V /  | |___| \__ \ ||  __/ | | |  __/ |
+// |_| \_\___|\___|\__, |\___|_|\___|    \_/  |_|\___| \_/\_/   |_____|_|___/\__\___|_| |_|\___|_|
+//                 |___/
+
 
     class RecyclerTouchListener implements RecyclerView.OnItemTouchListener
     {

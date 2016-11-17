@@ -5,6 +5,8 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import java.lang.reflect.Field;
+
 @Table(name = "userSetting")
 public class UserSettingModel extends Model
 {
@@ -29,5 +31,18 @@ public class UserSettingModel extends Model
 
     @Column(name = "imageUrl")
     public String imageUrl;
+
+    public final void setId(Long id)
+    {
+        try
+        {
+            Field field = Model.class.getDeclaredField("mId");
+            field.setAccessible(true);
+            field.set(this, id);
+        }
+        catch (Throwable ignore)
+        {
+        }
+    }
 
 }

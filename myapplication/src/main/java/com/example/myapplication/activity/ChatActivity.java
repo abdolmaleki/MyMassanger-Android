@@ -1,8 +1,10 @@
 package com.example.myapplication.activity;
 
 import android.app.Fragment;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
@@ -27,6 +29,7 @@ import com.example.myapplication.connection.socket.dto.ChatResponsibleDto;
 import com.example.myapplication.connection.socket.dto.ChatTypingReportDto;
 import com.example.myapplication.connection.socket.dto.ContactDto;
 import com.example.myapplication.connection.socket.dto.ContactResponsibleDto;
+import com.example.myapplication.connection.socket.dto.ProfileImageResponsibleDto;
 import com.example.myapplication.database.Db;
 import com.example.myapplication.database.model.ChatModel;
 import com.example.myapplication.database.model.ContactModel;
@@ -39,8 +42,10 @@ import com.example.myapplication.fragment.IChatHistoryUpdatable;
 import com.example.myapplication.fragment.IChatUpdatable;
 import com.example.myapplication.fragment.IDownloadController;
 import com.example.myapplication.fragment.IDownloadMediaListener;
+import com.example.myapplication.fragment.ISlidingMenuController;
 import com.example.myapplication.fragment.IUploadController;
 import com.example.myapplication.fragment.IUploadMediaListener;
+import com.example.myapplication.fragment.SlidingMenuFragment;
 import com.example.myapplication.handler.SamimClientHandler;
 import com.example.myapplication.holder.ChatHolder;
 import com.example.myapplication.holder.DownloadHolder;
@@ -49,6 +54,7 @@ import com.example.myapplication.mapper.ChatMapper;
 import com.example.myapplication.mapper.ContactMapper;
 import com.example.myapplication.service.ClientFlags;
 import com.example.myapplication.setting.Setting;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,9 +63,11 @@ import java.util.UUID;
 
 import ir.hfj.library.activity.ActivationActivity;
 import ir.hfj.library.application.App;
+import ir.hfj.library.application.AppConfig;
 import ir.hfj.library.connection.socket.ConnectionEventHandler;
 import ir.hfj.library.connection.socket.dto.BaseDto;
 import ir.hfj.library.exception.MyMessangerException;
+import ir.hfj.library.receiver.SamimAction;
 import ir.hfj.library.service.NetworkService;
 import ir.hfj.library.ui.NhDialog;
 import ir.hfj.library.util.DangerousPermission;
@@ -73,13 +81,15 @@ public class ChatActivity extends AppCompatActivity implements
         IChatController,
         IChatHistoryUpdatable,
         IDownloadController,
-        IUploadController
+        IUploadController,
+        SlidingMenu.OnOpenedListener
 
 {
 
     private ServiceHandler mNetworkService;
     private IChatHistoryFragment mIChatHistoryFragment;
     private IChatFragment mIChatFragment;
+    private ISlidingMenuController mISlidingMenuController;
     private IDownloadMediaListener mIDownloadMediaListener;
     private IUploadMediaListener mIUploadMediaListener;
     private long mAutoIdResponse;
@@ -87,6 +97,7 @@ public class ChatActivity extends AppCompatActivity implements
     private UUID mChatUserGuid;
     private boolean mIsBigView;
     private boolean mIsShownSplashScreen = false;
+    private SlidingMenu mMenu;
 
 
     @Override
@@ -132,6 +143,14 @@ public class ChatActivity extends AppCompatActivity implements
 
         bindService();
 
+        receiverRegistering();
+
+    }
+    private void receiverRegistering()
+    {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(SamimAction.ACTIVATION_SUCCESSFUL);
+        registerReceiver(mActivationReceiver, intentFilter);
     }
 
     private void activationIfNeeded()
@@ -226,6 +245,24 @@ public class ChatActivity extends AppCompatActivity implements
 
     }
 
+    private void initMenu()
+    {
+
+        mMenu = new SlidingMenu(this);
+        mMenu.setMode(SlidingMenu.RIGHT);
+        mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        mMenu.setShadowWidth(16);
+        mMenu.setBehindOffset(300);
+        mMenu.setFadeDegree(0.35f);
+        mMenu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
+        mMenu.setMenu(R.layout.fragment_sliding_menu);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.menu_frame, SlidingMenuFragment.newInstance())
+                .commit();
+        mMenu.setOnOpenedListener(this);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle onOrientChange)
     {
@@ -262,8 +299,6 @@ public class ChatActivity extends AppCompatActivity implements
 
         android.support.v7.app.ActionBar myActionBar = getSupportActionBar();
         myActionBar.hide();
-//        mActionBar = new ChatActionBar(this, getSupportActionBar());
-//        mActionBar.setTitle(R.string.title_activity_chat);
     }
 
     private boolean isBigView()
@@ -358,6 +393,13 @@ public class ChatActivity extends AppCompatActivity implements
 
     }
 
+    //  ___ ____  _ _     _ _             __  __                   ____            _             _ _
+    // |_ _/ ___|| (_) __| (_)_ __   __ _|  \/  | ___ _ __  _   _ / ___|___  _ __ | |_ _ __ ___ | | | ___ _ __
+    //  | |\___ \| | |/ _` | | '_ \ / _` | |\/| |/ _ \ '_ \| | | | |   / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
+    //  | | ___) | | | (_| | | | | | (_| | |  | |  __/ | | | |_| | |__| (_) | | | | |_| | | (_) | | |  __/ |
+    // |___|____/|_|_|\__,_|_|_| |_|\__, |_|  |_|\___|_| |_|\__,_|\____\___/|_| |_|\__|_|  \___/|_|_|\___|_|
+    //                              |___/
+
 
     //  ___ ____ _           _    ____            _             _ _
     // |_ _/ ___| |__   __ _| |_ / ___|___  _ __ | |_ _ __ ___ | | | ___ _ __
@@ -390,20 +432,6 @@ public class ChatActivity extends AppCompatActivity implements
             throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
-
-//    @Override
-//    public void setChatUserImage(String imageUrl)
-//    {
-//        if (imageUrl != null)
-//        {
-//            mActionBar.setChatUserImage(imageUrl);
-//        }
-//        else
-//        {
-//            mActionBar.setUserImageInvisible();
-//        }
-//
-//    }
 
     @Override
     public void sendMessage(ChatResponsibleDto dto) throws MyMessangerException
@@ -499,9 +527,24 @@ public class ChatActivity extends AppCompatActivity implements
             throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
+
+    @Override
     public void toggleMenu()
     {
+        mMenu.toggle();
+    }
 
+    @Override
+    public void onOpened()
+    {
+        try
+        {
+            getProfileImage();
+        }
+        catch (MyMessangerException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
@@ -696,33 +739,6 @@ public class ChatActivity extends AppCompatActivity implements
             {
                 activity.mIChatFragment.setContactTypingState(dto.isTyping, dto.chatUserGuid);
             }
-            //ChatActivity activity = getActivity();
-
-            ///////////////////////////////////////
-            /// State 1: Portrait and chatFragment
-            ///////////////////////////////////////
-//            if (activity.mChatUserGuid != null)
-//            {
-//                if (dto.chatUserGuid.equals(activity.mChatUserGuid))
-//                {
-//                    if (dto.isTyping)
-//                    {
-//                        activity.mActionBar.setIsTyping(true);
-//                    }
-//                    //else
-//                    //{
-//                    // activity.mActionBar.setIsTyping(false);
-//                    //}
-//                }
-//            }
-            //////////////////////////////////////////////
-            /// State 2: Portrait and chatHistory Fragment
-            //////////////////////////////////////////////
-
-
-            //////////////////////
-            /// State 3: LandScape
-            //////////////////////
         }
 
 
@@ -777,6 +793,17 @@ public class ChatActivity extends AppCompatActivity implements
                 activity.mDialogLoading.show();
             }
 
+        }
+
+        @Override
+        protected void onProfileImageCallback(ProfileImageResponsibleDto.Result dto)
+        {
+            ChatActivity activity = getActivity();
+
+            if (activity.mISlidingMenuController != null)
+            {
+                activity.mISlidingMenuController.updateProfileImage();
+            }
         }
 
         @Override
@@ -887,8 +914,37 @@ public class ChatActivity extends AppCompatActivity implements
             }
         }
 
-
     }
+    @Override
+    public void getProfileImage() throws MyMessangerException
+    {
+        try
+        {
+            mNetworkService.invokeProfileImage(new ProfileImageResponsibleDto());
+        }
+        catch (RemoteException e)
+        {
+            throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
+        }
+    }
+
+    BroadcastReceiver mActivationReceiver = new BroadcastReceiver()
+    {
+        @Override
+        public void onReceive(Context context, Intent intent)
+        {
+            if (AppConfig.DEBUG)
+            {
+                Log.i(AppConfig.LOG_TAG, "App Take BroadcastReceiver: " + intent.getAction());
+            }
+            if (intent.getAction().equalsIgnoreCase(SamimAction.ACTIVATION_SUCCESSFUL))
+            {
+                initMenu();
+            }
+        }
+
+    };
+
 
     private void RequestForSyncContacts()
     {
@@ -937,6 +993,7 @@ public class ChatActivity extends AppCompatActivity implements
 
         }
     }
+
     @Override
     public void onAttachFragment(Fragment fragment)
     {
@@ -967,6 +1024,11 @@ public class ChatActivity extends AppCompatActivity implements
         {
             mIChatHistoryFragment = (IChatHistoryFragment) fragment;
         }
+
+        if (fragment instanceof ISlidingMenuController)
+        {
+            mISlidingMenuController = (ISlidingMenuController) fragment;
+        }
     }
 
     @Override
@@ -975,12 +1037,15 @@ public class ChatActivity extends AppCompatActivity implements
         super.onDetachedFromWindow();
         mIChatFragment = null;
         mIChatHistoryFragment = null;
+        mISlidingMenuController = null;
     }
 
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
+        unregisterReceiver(mActivationReceiver);
+
         if (mNetworkService != null)
         {
             mNetworkService.doUnbindService();
