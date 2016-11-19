@@ -785,7 +785,7 @@ public class ChatFragment extends Fragment implements
                     }
                     catch (Exception e)
                     {
-                        Log.e("Record Voice --------> ",e.toString());
+                        Log.e("Record Voice --------> ", e.toString());
                     }
                 }
                 return true;

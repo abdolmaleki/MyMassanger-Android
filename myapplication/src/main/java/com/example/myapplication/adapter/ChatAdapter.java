@@ -394,6 +394,9 @@ public class ChatAdapter extends RecyclerView.Adapter<BaseChatViewHolder> implem
     }
 
 
+
+
+
     private void bindContentInitUpload(BaseChatViewHolder viewHolder, ChatHolder chatHolder)
     {
         if (chatHolder.contentType == ChatContentType.Text)
