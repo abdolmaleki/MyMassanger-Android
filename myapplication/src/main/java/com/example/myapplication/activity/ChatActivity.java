@@ -1,6 +1,5 @@
 package com.example.myapplication.activity;
 
-import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -98,6 +98,7 @@ public class ChatActivity extends AppCompatActivity implements
     private boolean mIsBigView;
     private boolean mIsShownSplashScreen = false;
     private SlidingMenu mMenu;
+    private boolean mIsActivationSuccessful;
 
 
     @Override
@@ -118,8 +119,6 @@ public class ChatActivity extends AppCompatActivity implements
         loadData();
 
         //loadSavedInstanceData(savedInstanceState);
-
-        //initActionBar();
 
         if (savedInstanceState == null)
         {
@@ -143,14 +142,10 @@ public class ChatActivity extends AppCompatActivity implements
 
         bindService();
 
+        initMenu();
+
         receiverRegistering();
 
-    }
-    private void receiverRegistering()
-    {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(SamimAction.ACTIVATION_SUCCESSFUL);
-        registerReceiver(mActivationReceiver, intentFilter);
     }
 
     private void activationIfNeeded()
@@ -163,6 +158,29 @@ public class ChatActivity extends AppCompatActivity implements
             startActivity(myIntent);
         }
     }
+
+    private void receiverRegistering()
+    {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(SamimAction.ACTIVATION_SUCCESSFUL);
+        registerReceiver(mActivationReceiver, intentFilter);
+    }
+
+    BroadcastReceiver mActivationReceiver = new BroadcastReceiver()
+    {
+        @Override
+        public void onReceive(Context context, Intent intent)
+        {
+            if (AppConfig.DEBUG)
+            {
+            }
+            if (intent.getAction().equalsIgnoreCase(SamimAction.ACTIVATION_SUCCESSFUL))
+            {
+                mIsActivationSuccessful = true;
+            }
+        }
+
+    };
 
     private void loadCurrentContact()
     {
@@ -247,7 +265,6 @@ public class ChatActivity extends AppCompatActivity implements
 
     private void initMenu()
     {
-
         mMenu = new SlidingMenu(this);
         mMenu.setMode(SlidingMenu.RIGHT);
         mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
@@ -261,7 +278,19 @@ public class ChatActivity extends AppCompatActivity implements
                 .replace(R.id.menu_frame, SlidingMenuFragment.newInstance())
                 .commit();
         mMenu.setOnOpenedListener(this);
+
     }
+
+    private void reloadMenu()
+    {
+        Fragment frg = null;
+        frg = getSupportFragmentManager().findFragmentById(R.id.menu_frame);
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.detach(frg);
+        ft.attach(frg);
+        ft.commit();
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle onOrientChange)
@@ -920,30 +949,16 @@ public class ChatActivity extends AppCompatActivity implements
     {
         try
         {
-            mNetworkService.invokeProfileImage(new ProfileImageResponsibleDto());
+            if (mNetworkService.isReady() && mNetworkService.isServerConnected())
+            {
+                mNetworkService.invokeProfileImage(new ProfileImageResponsibleDto());
+            }
         }
         catch (RemoteException e)
         {
             throw new MyMessangerException(getString(R.string.messanger_message_service_not_responding));
         }
     }
-
-    BroadcastReceiver mActivationReceiver = new BroadcastReceiver()
-    {
-        @Override
-        public void onReceive(Context context, Intent intent)
-        {
-            if (AppConfig.DEBUG)
-            {
-                Log.i(AppConfig.LOG_TAG, "App Take BroadcastReceiver: " + intent.getAction());
-            }
-            if (intent.getAction().equalsIgnoreCase(SamimAction.ACTIVATION_SUCCESSFUL))
-            {
-                initMenu();
-            }
-        }
-
-    };
 
 
     private void RequestForSyncContacts()
@@ -990,16 +1005,19 @@ public class ChatActivity extends AppCompatActivity implements
                 RequestForSyncContacts();
                 refreshStatusBar();
             }
-
         }
     }
 
     @Override
-    public void onAttachFragment(Fragment fragment)
+    protected void onPostResume()
     {
-        super.onAttachFragment(fragment);
+        super.onPostResume();
+        
+        if (mIsActivationSuccessful)
+        {
+            reloadMenu();
+        }
     }
-
     @Override
     public void onAttachFragment(android.support.v4.app.Fragment fragment)
     {
@@ -1044,12 +1062,13 @@ public class ChatActivity extends AppCompatActivity implements
     protected void onDestroy()
     {
         super.onDestroy();
-        unregisterReceiver(mActivationReceiver);
 
         if (mNetworkService != null)
         {
             mNetworkService.doUnbindService();
         }
+        unregisterReceiver(mActivationReceiver);
+
     }
 
     @Override

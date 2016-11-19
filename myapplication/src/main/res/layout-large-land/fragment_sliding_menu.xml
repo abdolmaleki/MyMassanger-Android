@@ -1,37 +1,37 @@
 <FrameLayout android:id="@+id/menu_frame"
 			 xmlns:android="http://schemas.android.com/apk/res/android"
+			 xmlns:app="http://schemas.android.com/apk/res-auto"
 			 android:layout_width="match_parent"
-			 android:layout_height="match_parent"
-
-	>
+			 android:layout_height="match_parent">
 
 	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		>
+		android:layout_height="match_parent">
 
 		<LinearLayout
 			android:id="@+id/menu_header"
 			android:layout_width="match_parent"
 			android:layout_height="150dp"
 			android:background="@color/samim_color_blue_dark"
-			android:orientation="vertical"
-			>
+			android:orientation="vertical">
 
-			<ImageView
+			<de.hdodenhof.circleimageview.CircleImageView
 				android:id="@+id/fragment_sliding_menu_avatar"
 				android:layout_width="70dp"
 				android:layout_height="70dp"
+				android:layout_gravity="center_horizontal"
 				android:layout_marginTop="20dp"
-				android:layout_gravity="center_horizontal" />
+				android:src="@drawable/ic_noavatar"
+				app:civ_border_color="@color/samim_color_gray"
+				app:civ_border_width="1dp" />
 
 			<TextView
 				android:id="@+id/fragment_sliding_menu_name"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:gravity="center_horizontal"
 				android:layout_marginTop="10dp"
+				android:gravity="center_horizontal"
+				android:textAppearance="?android:attr/textAppearanceSmall"
 				android:textColor="#fff" />
 
 		</LinearLayout>
