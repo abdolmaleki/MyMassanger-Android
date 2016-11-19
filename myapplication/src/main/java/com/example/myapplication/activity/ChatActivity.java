@@ -98,7 +98,7 @@ public class ChatActivity extends AppCompatActivity implements
     private boolean mIsBigView;
     private boolean mIsShownSplashScreen = false;
     private SlidingMenu mMenu;
-    private boolean mIsActivationSuccessful;
+    private boolean mIsFirstSuccessfulRunning;
 
 
     @Override
@@ -176,7 +176,7 @@ public class ChatActivity extends AppCompatActivity implements
             }
             if (intent.getAction().equalsIgnoreCase(SamimAction.ACTIVATION_SUCCESSFUL))
             {
-                mIsActivationSuccessful = true;
+                mIsFirstSuccessfulRunning = true;
             }
         }
 
@@ -1012,8 +1012,8 @@ public class ChatActivity extends AppCompatActivity implements
     protected void onPostResume()
     {
         super.onPostResume();
-        
-        if (mIsActivationSuccessful)
+
+        if (mIsFirstSuccessfulRunning)
         {
             reloadMenu();
         }
